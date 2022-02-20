@@ -7,39 +7,19 @@ import RoleContainer from '../../components/RoleContainer'
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MenuIcon from "../../assets/Icon metro-menu.svg";
 import AvailableCar from '../../components/AvailableCar';
+import VideoIcon from "../../assets/VideoIcon.svg";
 
 const {height, width} = Dimensions.get("window");
 
-const CarShareScreen = () => {
+const RideDetails = () => {
  
     const route = useRoute();
     const navigation = useNavigation();
     const value = useState(new Animated.Value(-500))[0];
-    const value1 = useState(new Animated.Value(0))[0];
-    const [click, setClick] = useState("COMPANY");
     const [menu, setMenu] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
 
     const closeHandle=()=>{
         setIsOpen(false);
-    }
-
-    const companyHandler=()=>{
-        setClick("COMPANY");
-        Animated.timing(value1,{
-            toValue:0,
-            duration:2000,
-            useNativeDriver:false
-        }).start()
-    }
-
-    const free2MoveHandler=()=>{
-        setClick("FREE2MOVE");
-        Animated.timing(value1,{
-            toValue:width-300,
-            duration:2000,
-            useNativeDriver:false
-        }).start()
     }
 
     const openHandler=()=>{
@@ -64,7 +44,7 @@ const CarShareScreen = () => {
     <View style={styles.screen}>
         <View style={{}}>
         <Image
-        source={require("../../assets/Map2.png")}
+        source={require("../../assets/Map3.png")}
         style={{width:width, height:height, zIndex:-1, resizeMode:"cover"}}
         />
         <Image
@@ -126,86 +106,110 @@ const CarShareScreen = () => {
                             />
                         </TouchableOpacity>
                         <View style={{marginLeft:20}}>
-                            <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Book New Car</Text>
+                            <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Ride Details</Text>
                         </View>
                     </View>
-                    <TouchableOpacity 
-                    onPress={()=>setIsOpen(true)}
-                    activeOpacity={0.8} style={{backgroundColor:"#5E5E60", padding:10, borderRadius:10, flexDirection:"row", alignItems:"center"}}>
-                        <Image
-                        source={require("../../assets/filter.png")}
-                        style={{height:15, width:15, resizeMode:"contain"}}
-                        />
-                        <Text style={{fontSize:12, color:"#FFFFFF", fontWeight:"bold", marginLeft:10}}>FILTERS</Text>
-                    </TouchableOpacity>
+                    <View style={{flexDirection:"row", alignItems:"center"}}>
+                        <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:10, borderRadius:80, height:30, width:30, alignItems:"center", justifyContent:"center", marginRight:10}}>
+                            <VideoIcon
+                            height={'40'}
+                            />
+                        </TouchableOpacity>
+                        <Text style={{fontSize:15, color:"#F99026", fontWeight:"500"}}>#RS58223</Text>
+                    </View>
                 </View>
             </View>
         </View>
-        {(!isOpen) &&
-        <View style={{position:"absolute", bottom:0}}>
-            <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026",padding:10, marginRight:5,borderRadius:30, alignSelf:"flex-end"}}>
-                <Image
-                source={require("../../assets/currentlocation.png")}
-                style={{height:20, width:20, resizeMode:"contain"}}
-                />
-            </TouchableOpacity>
-            <View style={{maxHeight:400,zIndex:20,alignSelf:"center",backgroundColor:"#FFFFFF", padding:10, borderRadius:20, marginTop:20, width:width}}>
-                <View style={{elevation:5,marginVertical:20, flexDirection:"row", alignItems:"center", alignSelf:"center", backgroundColor:"#FFFFFF", borderRadius:30, paddingHorizontal:10, paddingVertical:5}}>
-                    <TouchableOpacity activeOpacity={0.8} 
-                    onPress={companyHandler}
-                    style={{backgroundColor:(click==="COMPANY") ? "#FDF1E5" : "transparent", paddingVertical:8, paddingHorizontal:30, borderRadius:30}}>
-                        <Text style={{fontSize:13, color:"#000000"}}>COMPANY</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                    onPress={free2MoveHandler}
-                    activeOpacity={0.8} style={{marginLeft:10,backgroundColor:(click==="FREE2MOVE") ? "#FDF1E5" : "transparent", paddingVertical:8, paddingHorizontal:30, borderRadius:30}}>
+        <View style={{backgroundColor:"whitesmoke", padding:20, position:"absolute", bottom:"7%", width:width, zIndex:100}}>
+            <View style={{backgroundColor:"white", paddingHorizontal:15, paddingVertical:5,borderRadius:20, elevation:5,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                <View style={{flexDirection:"row", alignItems:"center"}}>
+                    <Image
+                    source={require("../../assets/Cab-1.png")}
+                    style={{height:80, width:80, resizeMode:"contain"}}
+                    />
+                    <View style={{marginLeft:20}}>
+                        <Text style={{fontSize:13, color:"#000000", marginBottom:10}}>Volkswagen Golf</Text>
+                        <Text style={{fontSize:11, color:"#000000"}}>DLP-8271</Text>
+                    </View>
+                </View>
+                <View style={{marginLeft:20}}>
+                    <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>Hatchback</Text>
+                    <Text style={{fontSize:11, color:"#000000"}}>OTP: <Text style={{color:"#F99026"}}>1549</Text></Text>
+                </View>
+            </View>
+            <View style={{marginVertical:20}}>
+                <Text style={{fontSize:15, color:"#000000", marginBottom:10}}>Driver Details</Text>
+                <View style={{backgroundColor:"white", paddingHorizontal:15, paddingVertical:10,borderRadius:20, elevation:5,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                    <View style={{flexDirection:"row", alignItems:"center"}}>
                         <Image
-                        source={require("../../assets/Free.png")}
+                        source={require("../../assets/callProfile.png")}
                         style={{height:50, width:50, resizeMode:"contain"}}
                         />
+                        <View style={{marginLeft:20}}>
+                            <Text style={{fontSize:13, color:"#000000", marginBottom:5}}>Jason Anderson</Text>
+                            <View style={{flexDirection:"row", alignItems:"center"}}>
+                                <Image
+                                source={require("../../assets/Calling.png")}
+                                style={{height:20, width:20, resizeMode:"contain", marginRight:5}}
+
+                                />
+                                <Text style={{fontSize:11, color:"#000000"}}>+1 1048285215</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#5E5E60", padding:10, borderRadius:10}}>
+                        <Text style={{fontSize:13, color:"#FFFFFF"}}>Call Driver</Text>
                     </TouchableOpacity>
                 </View>
-                <ScrollView showsVerticalScrollIndicator={false} style={{paddingHorizontal:20}}>
-                    <AvailableCar
-                    heading="BMW X6"
-                    carName="Sedan"
-                    imgSrc={require("../../assets/Cab.png")}
-                    price="20.00"
-                    rating="4.3"
-                    noOfPersons="1-5"
-                    timeLeft="2 min"
-                    />
-                    <AvailableCar
-                    heading="BMW X6"
-                    carName="Sedan"
-                    imgSrc={require("../../assets/Cab.png")}
-                    price="20.00"
-                    rating="4.3"
-                    noOfPersons="1-5"
-                    timeLeft="2 min"
-                    />
-                    <AvailableCar
-                    heading="BMW X6"
-                    carName="Sedan"
-                    imgSrc={require("../../assets/Cab.png")}
-                    price="20.00"
-                    rating="4.3"
-                    noOfPersons="1-5"
-                    timeLeft="2 min"
-                    />
-                    <AvailableCar
-                    heading="BMW X6"
-                    carName="Sedan"
-                    imgSrc={require("../../assets/Cab.png")}
-                    price="20.00"
-                    rating="4.3"
-                    noOfPersons="1-5"
-                    timeLeft="2 min"
-                    />
-                </ScrollView>
+            </View>
+            <View style={{marginBottom:20}}>
+                <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                    <Text style={{fontSize:15, color:"#000000"}}>Driver Details</Text>
+                    <View style={{flexDirection:"row", alignItems:"center"}}>
+                        <Text style={{fontSize:13, color:"#808080", marginRight:5}}>Fwd Trip</Text>
+                        <Image
+                        source={require("../../assets/Share.png")}
+                        style={{height:20, width:20, resizeMode:"contain"}}
+                        />
+                    </View>
+                </View>
+                <View style={{backgroundColor:"white", paddingHorizontal:15, paddingVertical:10,borderRadius:20, elevation:5}}>
+                    <View style={{marginBottom:10}}>
+                        <Text style={{fontSize:15, color:"#F99026"}}>Pickup Location</Text>
+                        <View style={{flexDirection:"row", alignItems:"center", marginTop:10}}>
+                            <View style={{ alignItems:"center", justifyContent:"center",backgroundColor:"#FDF1E5", padding:20, borderRadius:20, height:30, width:30}}>
+                                <View style={{alignItems:"center", justifyContent:"center",backgroundColor:"#F99026", borderRadius:30,height:30, width:30}}>
+                                <Image
+                                source={require("../../assets/User.png")}
+                                style={{height:20, width:20, resizeMode:"contain"}}
+                                />
+                                </View>
+                            </View>
+                            <Text style={{fontSize:15, color:"#000000", marginLeft:30}}>52, Sector 125, Atlanta Georgia</Text>
+                        </View>
+                    </View>
+                    <View style={{marginBottom:10}}>
+                        <Text style={{fontSize:15, color:"#F99026"}}>Pickup Location</Text>
+                        <View style={{flexDirection:"row", alignItems:"center", marginTop:10}}>
+                            <View style={{ alignItems:"center", justifyContent:"center",backgroundColor:"#FDF1E5", padding:20, borderRadius:20, height:30, width:30}}>
+                                <View style={{alignItems:"center", justifyContent:"center",backgroundColor:"#F99026", borderRadius:30,height:30, width:30}}>
+                                <Image
+                                source={require("../../assets/User.png")}
+                                style={{height:20, width:20, resizeMode:"contain"}}
+                                />
+                                </View>
+                            </View>
+                            <Text style={{fontSize:15, color:"#000000", marginLeft:30}}>52, Sector 125, Atlanta Georgia</Text>
+                        </View>
+                    </View>
+                </View>
             </View>
         </View>
-        }
+        <TouchableOpacity
+        onPress={()=>navigation.navigate("Cancel Booking")}
+        activeOpacity={0.8} style={{zIndex:110,position:"absolute",bottom:"3%",backgroundColor:"#5E5E60", padding:20, borderRadius:30, width:width-40, alignSelf:"center", alignItems:"center"}}>
+            <Text style={{fontSize:15, color:"#FFFFFF"}}>Cancel Booking</Text>
+        </TouchableOpacity>
         <Animated.View style={{backgroundColor:"#FFFFFF",position:"absolute",top:0,left:value, height:height, width: width-80, zIndex:1000, padding:20, paddingHorizontal:0}}>
             <View style={{paddingHorizontal:20, display: menu ? "flex" : "none"}}>
                 <TouchableOpacity 
@@ -292,100 +296,11 @@ const CarShareScreen = () => {
                 </ScrollView>
             </View>
         </Animated.View>
-        <Modal
-        animationType={"fade"}
-        onRequestClose={closeHandle}
-        transparent={true}
-        visible={isOpen}>
-            <View style={{alignItems:"center", marginHorizontal:20, width:"90%", flex:1, justifyContent:"flex-end", marginBottom:20}}>
-                <View style={styles.modal}>
-                    <View style={{marginBottom:20}}>
-                        <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>Location</Text>
-                        <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", elevation:5, padding:5, borderRadius:10}}>
-                            <Image
-                            source={require("../../assets/location.png")}
-                            style={{height:30, width:30, resizeMode:"contain"}}
-                            />
-                            <TextInput
-                            placeholder='Enter Location'
-                            placeholderTextColor="#000000"
-                            keyboardType='default'
-                            style={{fontSize:13, color:"#000000", marginLeft:10}}
-                            />
-                        </View>
-                        <TouchableOpacity activeOpacity={0.8} style={{marginTop:8}}>
-                            <Text style={{fontSize:12, color:"#F99026"}}>Use Current Location</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{marginBottom:20}}>
-                        <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>When</Text>
-                        <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", elevation:5, padding:5, borderRadius:10}}>
-                            <Image
-                            source={require("../../assets/calendar.png")}
-                            style={{height:30, width:30, resizeMode:"contain"}}
-                            />
-                            <TextInput
-                            placeholder='Enter Date & Time'
-                            placeholderTextColor="#000000"
-                            keyboardType='default'
-                            style={{fontSize:13, color:"#000000", marginLeft:10}}
-                            />
-                        </View>
-                    </View>
-                    <View style={{marginBottom:20}}>
-                        <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>When</Text>
-                        <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", elevation:5, padding:5, borderRadius:10}}>
-                            <Image
-                            source={require("../../assets/calendar.png")}
-                            style={{height:30, width:30, resizeMode:"contain"}}
-                            />
-                            <View style={{marginLeft:10,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
-                                <View style={{flexDirection:"row", alignItems:"center"}}>
-                                    <TextInput
-                                    placeholder='0'
-                                    placeholderTextColor="#000000"
-                                    maxLength={1}
-                                    keyboardType='number-pad'
-                                    style={{fontSize:13, color:"#000000", fontWeight:"bold"}}
-                                    />
-                                    <Text style={{fontSize:13, color:"#808080", marginLeft:-10}}>Days</Text>
-                                </View>
-                                <View style={{flexDirection:"row", alignItems:"center", marginHorizontal:10}}>
-                                    <TextInput
-                                    placeholder='0'
-                                    maxLength={2}
-                                    placeholderTextColor="#000000"
-                                    keyboardType='number-pad'
-                                    style={{fontSize:13, color:"#000000", fontWeight:"bold"}}
-                                    />
-                                    <Text style={{fontSize:13, color:"#808080", marginLeft:-10}}>Hours</Text>
-                                </View>
-                                <View style={{flexDirection:"row", alignItems:"center", marginHorizontal:10}}>
-                                    <TextInput
-                                    placeholder='0'
-                                    maxLength={2}
-                                    placeholderTextColor="#000000"
-                                    keyboardType='number-pad'
-                                    style={{fontSize:13, color:"#000000", fontWeight:"bold"}}
-                                    />
-                                    <Text style={{fontSize:13, color:"#808080", marginLeft:-10}}>Minutes</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-                    <TouchableOpacity
-                        onPress={() =>setIsOpen(false)}
-                        activeOpacity={0.8} style={{ marginVertical: 10, width: "90%", alignSelf: "center", backgroundColor: "#F99026", paddingHorizontal: 20, paddingVertical: 10, borderRadius: 100 }}>
-                        <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "500", textAlign: "center" }}>Apply</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </Modal>
     </View>
   )
 }
 
-export default CarShareScreen
+export default RideDetails
 
 const styles = StyleSheet.create({
     screen:{

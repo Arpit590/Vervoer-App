@@ -2,7 +2,8 @@ import { Animated, Image, StyleSheet, Text, TouchableOpacity, View } from 'react
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 
-const AvailableCar = ({heading, carName, price, rating, imgSrc, timeLeft, noOfPersons}) => {
+
+const AvailableCar = ({heading, carName, price, description, imgSrc, time, noOfPersons}) => {
 
     const [click, setClick] = useState(false);
     const value = useState(new Animated.Value(0))[0];
@@ -29,55 +30,57 @@ const AvailableCar = ({heading, carName, price, rating, imgSrc, timeLeft, noOfPe
     <View style={{}}>
         <TouchableOpacity 
         onPress={()=>setClick(!click)}
-        activeOpacity={0.8} style={styles.container}>
-            <View style={{}}>
-                <View style={{flexDirection:"row", alignItems:"center", marginBottom:10}}>
-                    <Text style={{fontSize:15, color:"#000000", fontWeight:"bold"}}>{heading}</Text>
-                    <Text style={{fontSize:12, color:"#000000", marginLeft:10}}>{carName}</Text>
-                </View>
-                <View style={{marginBottom:10, flexDirection:"row", alignItems:"center"}}>
-                <View style={{flexDirection:"row", alignItems:"center"}}>
-                    <Image
-                    source={require("../assets/person1.png")}
-                    style={{height:15, width:15, resizeMode:"contain"}}
-                    />
-                    <Text style={{fontSize:10, color:"#000000", marginLeft:5}}>{noOfPersons}</Text>
-                </View>
-                <View style={{flexDirection:"row", alignItems:"center", marginLeft:15}}>
-                    <Image
-                    source={require("../assets/timer.png")}
-                    style={{height:15, width:15, resizeMode:"contain"}}
-                    />
-                    <Text style={{fontSize:10, color:"#000000", marginLeft:5}}>{timeLeft} walk</Text>
-                </View>
-                </View>
-                <View style={{flexDirection:"row", alignItems:"center"}}>
-                    <View style={{flexDirection:"row", alignItems:"center"}}>
-                        <Text style={{fontSize:14, color:"#F99026"}}>$</Text>
-                        <Text style={{fontSize:11, color:"#F99026"}}>{price}/H</Text>
-                    </View>
-                    <View style={{flexDirection:"row", alignItems:"center", marginLeft:15}}>
-                        <Image
-                        source={require("../assets/rating.png")}
-                        style={{height:15, width:15, resizeMode:"contain"}}
-                        />
-                        <Text style={{fontSize:10, color:"#000000", marginLeft:5}}>{rating}</Text>
-                    </View>
-                </View>
-            </View>
+        activeOpacity={0.8} style={[styles.container, {backgroundColor: click ? "#FDF1E5" : "whitesmoke"}]}>
             <Image
             source={imgSrc}
-            style={{height:130, width:130, resizeMode:"contain"}}
+            style={{height:100, width:100, resizeMode:"contain", marginRight:20}}
             />
+            <View style={{flexDirection:"row", alignItems:"flex-start", flex:1, justifyContent:"space-between"}}>
+                <View style={{}}>
+                    <View style={{flexDirection:"row", alignItems:"center", marginBottom:10}}>
+                        <Text style={{fontSize:15, color:"#000000", fontWeight:"bold"}}>{heading}</Text>
+                        <View style={{flexDirection:"row", alignItems:"center", marginLeft:15}}>
+                            <Image
+                            source={require("../assets/person1.png")}
+                            style={{height:22, width:22, resizeMode:"contain"}}
+                            />
+                            <Text style={{fontSize:10, color:"#000000", marginLeft:5}}>{noOfPersons}</Text>
+                        </View>
+                    </View>
+                    <View style={{marginBottom:10}}>
+                        <Text style={{fontSize:10, color:"#000000"}}>{time} drop-off</Text>
+                    </View>
+                    <View style={{}}>
+                        <Text style={{fontSize:10, color:"#000000"}}>{description}</Text>
+                    </View>
+                </View>
+                <View style={{flexDirection:"row", alignItems:"center"}}>
+                    <Text style={{fontSize:16, color:"#F99026"}}>$</Text>
+                    <Text style={{fontSize:16, color:"#F99026"}}>{price}</Text>
+                </View>
+            </View>
         </TouchableOpacity>
-        <Animated.View style={{display:(click)? "flex": "none",opacity:value,flexDirection:"row", alignItems:"center", marginBottom:20, justifyContent:"space-between"}}>
-            <TouchableOpacity 
-            onPress={()=>navigation.navigate("Car Details", {"imgSrc":imgSrc, "carName": carName, "heading": heading, "price": price, "rating": rating, "noOfPersons": noOfPersons, "timeLeft": timeLeft})}
-            activeOpacity={0.8} style={{backgroundColor:"#5E5E60", padding:15, borderRadius:30, paddingHorizontal:30}}>
-                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>Car Details</Text>
+        <Animated.View style={{display:(click)? "flex": "none",opacity:value, marginBottom:20}}>
+            <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                <View style={{flexDirection:"row", alignItems:"center"}}>
+                    <Image
+                    source={require("../assets/ic-wallet.png")}
+                    style={{height:20, width:20, resizeMode:"contain"}}
+                    />
+                    <View style={{flexDirection:"row", alignItems:"center", marginLeft:10}}>
+                        <Text style={{fontSize:15, color:"#000000", marginRight:5}}>Wallet</Text>
+                        <Text style={{fontSize:14, color:"#F99026"}}>(Balance - $2500.00)</Text>
+                    </View>
+                </View>
+                <Image
+                source={require("../assets/ArrowForward.png")}
+                style={{height:15, width:15, resizeMode:"contain"}}
+                />
             </TouchableOpacity>
-            <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:15, borderRadius:30, paddingHorizontal:30}}>
-                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>Book Now</Text>
+            <TouchableOpacity 
+            onPress={()=>navigation.navigate("Ride Details")}
+            activeOpacity={0.8} style={{width:"90%",alignSelf:"center",marginTop:10,backgroundColor:"#F99026", padding:15, borderRadius:30, paddingHorizontal:30}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold", textAlign:"center"}}>Send Request</Text>
             </TouchableOpacity>
         </Animated.View>
     </View>
@@ -91,9 +94,9 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"space-between",
-        backgroundColor:"whitesmoke",
         paddingHorizontal:15,
         borderRadius:20,
-        marginBottom:10
+        marginBottom:10,
+        flex:1
     }
 })

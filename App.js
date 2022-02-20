@@ -17,8 +17,10 @@ import HomeScreen from './screens/HomeScreen';
 import RoleHomeScreen from './screens/RoleHomeScreen';
 import RideShareScreen from './screens/UserScreens/RideShareScreen';
 import BookNewRideScreen from './screens/UserScreens/BookNewRideScreen';
-import CarShareScreen from './screens/UserScreens/CarShareScreen';
-import CarDetailScreen from './screens/UserScreens/CarDetailScreen';
+import AvailableRidesScreen from './screens/UserScreens/AvailableRidesScreen';
+import RideDetails from './screens/UserScreens/RideDetails';
+import CancelBookingScreen from './screens/UserScreens/CancelBookingScreen';
+import CancelledBookingScreen from './screens/UserScreens/CancelledBookingScreen';
 
 const Stack = createStackNavigator();
 
@@ -44,8 +46,10 @@ function App(){
         <Stack.Screen name="Role Home" component={RoleHomeScreen}/>
         <Stack.Screen name="Ride Share" component={RideShareScreen}/>
         <Stack.Screen name="Book New Ride" component={BookNewRideScreen}/>
-        <Stack.Screen name="Car Share" component={CarShareScreen}/>
-        <Stack.Screen name="Car Details" component={CarDetailScreen}/>
+        <Stack.Screen name="Available Rides" component={AvailableRidesScreen}/>
+        <Stack.Screen name="Ride Details" component={RideDetails}/>
+        <Stack.Screen name="Cancel Booking" component={CancelBookingScreen}/>
+        <Stack.Screen name="Cancelled Booking" component={CancelledBookingScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

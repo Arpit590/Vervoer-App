@@ -196,7 +196,7 @@ const BookNewRideScreen = () => {
                             </View>
                         </View>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate("Car Share")}
+                            onPress={() => navigation.navigate("Available Rides")}
                             activeOpacity={0.8} style={{ marginVertical: 10, width: "80%", alignSelf: "center", backgroundColor: "#F99026", paddingHorizontal: 20, paddingVertical: 10, borderRadius: 100 }}>
                             <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "500", textAlign: "center" }}>Apply</Text>
                         </TouchableOpacity>
