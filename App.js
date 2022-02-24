@@ -15,12 +15,18 @@ import VerifyWithEmailScreen from './screens/Authentication/VerifyWithEmailScree
 import VerifiedWithEmailScreen from './screens/Authentication/VerifiedWithEmailScreen';
 import HomeScreen from './screens/HomeScreen';
 import RoleHomeScreen from './screens/RoleHomeScreen';
-import RideShareScreen from './screens/UserScreens/RideShareScreen';
-import BookNewRideScreen from './screens/UserScreens/BookNewRideScreen';
-import AvailableRidesScreen from './screens/UserScreens/AvailableRidesScreen';
-import RideDetails from './screens/UserScreens/RideDetails';
-import CancelBookingScreen from './screens/UserScreens/CancelBookingScreen';
-import CancelledBookingScreen from './screens/UserScreens/CancelledBookingScreen';
+import RideShareScreen from './screens/UserScreens/RideShareScreens/RideShareScreen';
+import BookNewRideScreen from './screens/UserScreens/RideShareScreens/BookNewRideScreen';
+import AvailableRidesScreen from './screens/UserScreens/RideShareScreens/AvailableRidesScreen';
+import RideDetails from './screens/UserScreens/RideShareScreens/RideDetails';
+import CancelBookingScreen from './screens/UserScreens/RideShareScreens/CancelBookingScreen';
+import CancelledBookingScreen from './screens/UserScreens/RideShareScreens/CancelledBookingScreen';
+import RideHistoryScreen from './screens/UserScreens/RideHistoryScreens/RideHistoryScreen';
+import LiveSessionScreen from './screens/UserScreens/LiveSessionsScreen.js/LiveSessionScreen';
+import DriverRegisterScreen from './screens/UserScreens/DriverApplicationScreen/DriverRegisterScreen';
+import DriverOTPScreen from './screens/UserScreens/DriverApplicationScreen/DriverOTPScreen';
+import VehicleInfoScreen from './screens/UserScreens/DriverApplicationScreen/VehicleInfoScreen';
+import PersonalInfoScreen from './screens/UserScreens/DriverApplicationScreen/PersonalInfoScreen';
 
 const Stack = createStackNavigator();
 
@@ -50,6 +56,12 @@ function App(){
         <Stack.Screen name="Ride Details" component={RideDetails}/>
         <Stack.Screen name="Cancel Booking" component={CancelBookingScreen}/>
         <Stack.Screen name="Cancelled Booking" component={CancelledBookingScreen}/>
+        <Stack.Screen name="Ride History" component={RideHistoryScreen}/>
+        <Stack.Screen name="Live" component={LiveSessionScreen}/>
+        <Stack.Screen name="Driver Register" component={DriverRegisterScreen}/>
+        <Stack.Screen name="Driver OTP" component={DriverOTPScreen}/>
+        <Stack.Screen name="Vehicle Info" component={VehicleInfoScreen}/>
+        <Stack.Screen name="Personal Info" component={PersonalInfoScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,13 +1,10 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions, ImageBackground, TextInput, Modal } from 'react-native'
 import React, { useState } from 'react'
-import ImageSlider from '../../components/ImageSlider'
-import BackArrowIcon from "../../assets/back.svg";
+import BackArrowIcon from "../../../assets/back.svg";
 import { useNavigation, useRoute } from '@react-navigation/native'
-import RoleContainer from '../../components/RoleContainer'
 import AntDesign from "react-native-vector-icons/AntDesign";
-import MenuIcon from "../../assets/Icon metro-menu.svg";
-import AvailableCar from '../../components/AvailableCar';
-import VideoIcon from "../../assets/VideoIcon.svg";
+import MenuIcon from "../../../assets/Icon metro-menu.svg";
+import VideoIcon from "../../../assets/VideoIcon.svg";
 
 const {height, width} = Dimensions.get("window");
 
@@ -44,11 +41,11 @@ const RideDetails = () => {
     <View style={styles.screen}>
         <View style={{}}>
         <Image
-        source={require("../../assets/Map3.png")}
+        source={require("../../../assets/Map3.png")}
         style={{width:width, height:height, zIndex:-1, resizeMode:"cover"}}
         />
         <Image
-        source={require("../../assets/cars.png")}
+        source={require("../../../assets/cars.png")}
         style={{height:250, width:250, resizeMode:"contain", zIndex:5, position:"absolute", top:"20%", alignSelf:"center"}}
         />
         </View>
@@ -57,7 +54,7 @@ const RideDetails = () => {
                 <View style={{flexDirection:"row", alignItems:"center"}}>
                     <TouchableOpacity activeOpacity={0.8} onPress={openHandler}>
                         <Image
-                        source={require("../../assets/Avatar.png")}
+                        source={require("../../../assets/Avatar.png")}
                         style={{height:40, width:40, borderRadius:50}}
                         />
                         <View style={{backgroundColor:"#FFFFFF",height:20, width:20, borderRadius:50, position:"absolute", bottom:0, left:0, alignSelf:"center", alignItems:"center", justifyContent:"center"}}>
@@ -67,26 +64,26 @@ const RideDetails = () => {
                         </View>
                     </TouchableOpacity>
                     <Image
-                    source={require("../../assets/Heading.png")}
+                    source={require("../../../assets/Heading.png")}
                     style={{height:100, width:100, resizeMode:"contain", marginLeft:20}}
                     />
                 </View>
                 <View style={{flexDirection:"row", alignItems:"center"}}>
                     <TouchableOpacity activeOpacity={0.8} style={{}}>
                     <   Image
-                        source={require("../../assets/ic-search.png")}
+                        source={require("../../../assets/ic-search.png")}
                         style={{height:28, width:28, resizeMode:"contain"}}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{marginHorizontal:20}}>
                         <Image
-                        source={require("../../assets/ic-wallet.png")}
+                        source={require("../../../assets/ic-wallet.png")}
                         style={{height:28, width:28, resizeMode:"contain"}}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8}>
                         <Image
-                        source={require("../../assets/ic-notification.png")}
+                        source={require("../../../assets/ic-notification.png")}
                         style={{height:28, width:28, resizeMode:"contain"}}
                         />
                         <View style={{backgroundColor:"#F99026", borderRadius:50, height:15, width:15, position:"absolute", right:0, alignItems:"center", justifyContent:"center"}}>
@@ -124,7 +121,7 @@ const RideDetails = () => {
             <View style={{backgroundColor:"white", paddingHorizontal:15, paddingVertical:5,borderRadius:20, elevation:5,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
                 <View style={{flexDirection:"row", alignItems:"center"}}>
                     <Image
-                    source={require("../../assets/Cab-1.png")}
+                    source={require("../../../assets/Cab-1.png")}
                     style={{height:80, width:80, resizeMode:"contain"}}
                     />
                     <View style={{marginLeft:20}}>
@@ -142,14 +139,14 @@ const RideDetails = () => {
                 <View style={{backgroundColor:"white", paddingHorizontal:15, paddingVertical:10,borderRadius:20, elevation:5,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
                     <View style={{flexDirection:"row", alignItems:"center"}}>
                         <Image
-                        source={require("../../assets/callProfile.png")}
+                        source={require("../../../assets/callProfile.png")}
                         style={{height:50, width:50, resizeMode:"contain"}}
                         />
                         <View style={{marginLeft:20}}>
                             <Text style={{fontSize:13, color:"#000000", marginBottom:5}}>Jason Anderson</Text>
                             <View style={{flexDirection:"row", alignItems:"center"}}>
                                 <Image
-                                source={require("../../assets/Calling.png")}
+                                source={require("../../../assets/Calling.png")}
                                 style={{height:20, width:20, resizeMode:"contain", marginRight:5}}
 
                                 />
@@ -168,7 +165,7 @@ const RideDetails = () => {
                     <View style={{flexDirection:"row", alignItems:"center"}}>
                         <Text style={{fontSize:13, color:"#808080", marginRight:5}}>Fwd Trip</Text>
                         <Image
-                        source={require("../../assets/Share.png")}
+                        source={require("../../../assets/Share.png")}
                         style={{height:20, width:20, resizeMode:"contain"}}
                         />
                     </View>
@@ -180,7 +177,7 @@ const RideDetails = () => {
                             <View style={{ alignItems:"center", justifyContent:"center",backgroundColor:"#FDF1E5", padding:20, borderRadius:20, height:30, width:30}}>
                                 <View style={{alignItems:"center", justifyContent:"center",backgroundColor:"#F99026", borderRadius:30,height:30, width:30}}>
                                 <Image
-                                source={require("../../assets/User.png")}
+                                source={require("../../../assets/User.png")}
                                 style={{height:20, width:20, resizeMode:"contain"}}
                                 />
                                 </View>
@@ -194,7 +191,7 @@ const RideDetails = () => {
                             <View style={{ alignItems:"center", justifyContent:"center",backgroundColor:"#FDF1E5", padding:20, borderRadius:20, height:30, width:30}}>
                                 <View style={{alignItems:"center", justifyContent:"center",backgroundColor:"#F99026", borderRadius:30,height:30, width:30}}>
                                 <Image
-                                source={require("../../assets/User.png")}
+                                source={require("../../../assets/User.png")}
                                 style={{height:20, width:20, resizeMode:"contain"}}
                                 />
                                 </View>
@@ -223,7 +220,7 @@ const RideDetails = () => {
                 <View style={{marginVertical:20}}>
                     <TouchableOpacity activeOpacity={0.8} style={{alignItems:"center"}}>
                         <Image
-                        source={require("../../assets/Avatar.png")}
+                        source={require("../../../assets/Avatar.png")}
                         style={{height:80, width:80, resizeMode:"contain"}}
                         />
                         <Text style={{marginTop:10, fontSize:15, color:"#000000"}}>John Doe</Text>
@@ -232,63 +229,63 @@ const RideDetails = () => {
                 <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal:20, marginVertical:30}}>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../assets/Home.png")}
+                        source={require("../../../assets/Home.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#F99026", fontSize:15, marginLeft:30}}>Home</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../assets/Profile.png")}
+                        source={require("../../../assets/Profile.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>My Profile</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../assets/FaceCard.png")}
+                        source={require("../../../assets/FaceCard.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Face Card</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../assets/Payment.png")}
+                        source={require("../../../assets/Payment.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Payment Methods</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../assets/Tips.png")}
+                        source={require("../../../assets/Tips.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Tips and Info</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../assets/Setting.png")}
+                        source={require("../../../assets/Setting.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Settings</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../assets/Contact.png")}
+                        source={require("../../../assets/Contact.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Contact Us</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../assets/Password.png")}
+                        source={require("../../../assets/Password.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Reset Password</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginTop:60}}>
                         <Image
-                        source={require("../../assets/Logout.png")}
+                        source={require("../../../assets/Logout.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Logout</Text>
