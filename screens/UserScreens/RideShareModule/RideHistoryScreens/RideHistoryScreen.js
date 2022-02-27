@@ -1,21 +1,19 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions, TextInput } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions } from 'react-native'
 import React, { useState } from 'react'
-import BackArrowIcon from "../../../assets/back.svg";
+import BackArrowIcon from "../../../../assets/back.svg";
 import { useNavigation, useRoute } from '@react-navigation/native'
 import AntDesign from "react-native-vector-icons/AntDesign";
-import MenuIcon from "../../../assets/Icon metro-menu.svg";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MenuIcon from "../../../../assets/Icon metro-menu.svg";
+import HistoryDetails from './HistoryDetails';
 
 const {height, width} = Dimensions.get("window");
 
-const DriverRegisterScreen = () => {
+const RideHistoryScreen = () => {
  
     const route = useRoute();
     const navigation = useNavigation();
     const value = useState(new Animated.Value(-500))[0];
     const [menu, setMenu] = useState(false);
-    const [email, setEmail] = useState("");
-    const [number ,setNumber] = useState("");
 
     const openHandler=()=>{
         setMenu(true);
@@ -41,7 +39,7 @@ const DriverRegisterScreen = () => {
             <View style={{flexDirection:"row", alignItems:"center"}}>
                 <TouchableOpacity activeOpacity={0.8} onPress={openHandler}>
                     <Image
-                    source={require("../../../assets/Avatar.png")}
+                    source={require("../../../../assets/Avatar.png")}
                     style={{height:40, width:40, borderRadius:50}}
                     />
                     <View style={{backgroundColor:"#FFFFFF",height:20, width:20, borderRadius:50, position:"absolute", bottom:0, left:0, alignSelf:"center", alignItems:"center", justifyContent:"center"}}>
@@ -51,26 +49,26 @@ const DriverRegisterScreen = () => {
                     </View>
                 </TouchableOpacity>
                 <Image
-                source={require("../../../assets/Heading.png")}
+                source={require("../../../../assets/Heading.png")}
                 style={{height:100, width:100, resizeMode:"contain", marginLeft:20}}
                 />
             </View>
             <View style={{flexDirection:"row", alignItems:"center"}}>
                 <TouchableOpacity activeOpacity={0.8} style={{}}>
                 <   Image
-                    source={require("../../../assets/ic-search.png")}
+                    source={require("../../../../assets/ic-search.png")}
                     style={{height:28, width:28, resizeMode:"contain"}}
                     />
                 </TouchableOpacity>
                 <TouchableOpacity activeOpacity={0.8} style={{marginHorizontal:20}}>
                     <Image
-                    source={require("../../../assets/ic-wallet.png")}
+                    source={require("../../../../assets/ic-wallet.png")}
                     style={{height:28, width:28, resizeMode:"contain"}}
                     />
                 </TouchableOpacity>
                 <TouchableOpacity activeOpacity={0.8}>
                     <Image
-                    source={require("../../../assets/ic-notification.png")}
+                    source={require("../../../../assets/ic-notification.png")}
                     style={{height:28, width:28, resizeMode:"contain"}}
                     />
                     <View style={{backgroundColor:"#F99026", borderRadius:50, height:15, width:15, position:"absolute", right:0, alignItems:"center", justifyContent:"center"}}>
@@ -90,70 +88,30 @@ const DriverRegisterScreen = () => {
                         />
                     </TouchableOpacity>
                     <View style={{marginLeft:20}}>
-                        <Text style={{fontSize:16, color:"#F99026", marginBottom:5}}>Registeration</Text>
+                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>{route.params.heading}</Text>
                     </View>
                 </View>
-                <View style={{marginVertical:50}}>
-                    <Text style={{color:"#000000", fontSize:20, textAlign:"center", maxWidth:width-200, alignSelf:"center"}}>Enter your Phone No. Or Email</Text>
-                    <Text style={{color:"#808080", fontSize:14, textAlign:"center", maxWidth:300, marginVertical:20, alignSelf:"center"}}>Please enter your Phone Number or Email. We will send OTP to verify.</Text>
-                    <View style={{marginBottom:20}}>
-                        <Text style={{fontSize:10, color:"#808080", marginBottom:0}}>Phone Number</Text>
-                        <View style={{flexDirection:"row", alignItems:"center", borderBottomColor:"#808080", borderBottomWidth:1, width:width-40,}}>
-                            <View style={{flexDirection:"row", alignItems:"center"}}>
-                                <Text style={{fontSize:15, color:"#000000", marginRight:10}}>+1</Text>
-                                <TouchableOpacity activeOpacity={0.8}>
-                                    <MaterialIcons
-                                    name="keyboard-arrow-down"
-                                    size={20}
-                                    color="#808080"
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                            <TextInput
-                            placeholder='Enter Phone Number'
-                            placeholderTextColor="#000000"
-                            value={number}
-                            onChangeText={(text)=>setNumber(text)}
-                            keyboardType='number-pad'
-                            style={{color:"#000000", fontSize:15, marginLeft:10}}
-                            />
-                        </View>
-                    </View>
-                    <View style={{backgroundColor:"#FDF1E5", padding:10, borderRadius:50, alignSelf:"center", elevation:5}}>
-                        <Text style={{fontSize:14, color:"#000000"}}>Or</Text>
-                    </View>
-                    <View style={{marginVertical:20}}>
-                        <Text style={{fontSize:10, color:"#808080", marginBottom:0}}>Phone Number</Text>
-                        <View style={{flexDirection:"row", alignItems:"center", borderBottomColor:"#808080", borderBottomWidth:1, width:width-40}}>
-                            <TextInput
-                            placeholder='Enter Your Email'
-                            placeholderTextColor="#000000"
-                            value={email}
-                            onChangeText={(text)=>setEmail(text)}
-                            keyboardType='email-address'
-                            style={{color:"#000000", fontSize:15}}
-                            />
-                        </View>
-                    </View>
-                    <View style={{marginTop:100}}>
-                        <TouchableOpacity activeOpacity={0.8}
-                        onPress={()=>navigation.navigate("Driver OTP")}
-                        style={{width:"90%",alignSelf:"center", backgroundColor:"#F99026", paddingHorizontal:20, paddingVertical:15, borderRadius:100}}>
-                            <Text style={{color:"#FFFFFF", fontSize:15, fontWeight:"500", textAlign:"center"}}>Continue</Text>
-                        </TouchableOpacity>
-                        <View style={{flexDirection:"row", alignItems:"center", marginTop:10, justifyContent:"center"}}>
-                            <TouchableOpacity activeOpacity={0.8}
-                            onPress={()=>navigation.goBack()}
-                            style={{width:"40%",alignSelf:"center", backgroundColor:"#5E5E60", paddingHorizontal:20, paddingVertical:15, borderRadius:100}}>
-                                <Text style={{color:"#FFFFFF", fontSize:15, fontWeight:"500", textAlign:"center"}}>Back</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity activeOpacity={0.8}
-                            onPress={()=>navigation.goBack()}
-                            style={{width:"40%",alignSelf:"center", backgroundColor:"#F99026", paddingHorizontal:20, marginLeft:30,paddingVertical:15, borderRadius:100}}>
-                                <Text style={{color:"#FFFFFF", fontSize:15, fontWeight:"500", textAlign:"center"}}>Cancel</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                <View style={{marginTop:30}}>
+                    <HistoryDetails
+                    imgSrc={require("../../../../assets/Cab-1.png")}
+                    title="Volkswagen Golf"
+                    carNo="DLP-8271"
+                    rating="4.2"
+                    tip={10.00}
+                    totalPrice={150.00}
+                    rideAt="26 May 2021, 10:00 AM"
+                    sessionId="#RS58223"
+                    />
+                    <HistoryDetails
+                    imgSrc={require("../../../../assets/Cab-1.png")}
+                    title="Volkswagen Golf"
+                    carNo="DLP-8271"
+                    rating="4.2"
+                    tip={10.00}
+                    totalPrice={150.00}
+                    rideAt="26 May 2021, 10:00 AM"
+                    sessionId="#RS58223"
+                    />
                 </View>
             </View>
         </ScrollView>
@@ -170,7 +128,7 @@ const DriverRegisterScreen = () => {
                 <View style={{marginVertical:20}}>
                     <TouchableOpacity activeOpacity={0.8} style={{alignItems:"center"}}>
                         <Image
-                        source={require("../../../assets/Avatar.png")}
+                        source={require("../../../../assets/Avatar.png")}
                         style={{height:80, width:80, resizeMode:"contain"}}
                         />
                         <Text style={{marginTop:10, fontSize:15, color:"#000000"}}>John Doe</Text>
@@ -179,63 +137,63 @@ const DriverRegisterScreen = () => {
                 <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal:20, marginVertical:30}}>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Home.png")}
+                        source={require("../../../../assets/Home.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#F99026", fontSize:15, marginLeft:30}}>Home</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Profile.png")}
+                        source={require("../../../../assets/Profile.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>My Profile</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/FaceCard.png")}
+                        source={require("../../../../assets/FaceCard.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Face Card</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Payment.png")}
+                        source={require("../../../../assets/Payment.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Payment Methods</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Tips.png")}
+                        source={require("../../../../assets/Tips.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Tips and Info</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Setting.png")}
+                        source={require("../../../../assets/Setting.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Settings</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Contact.png")}
+                        source={require("../../../../assets/Contact.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Contact Us</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Password.png")}
+                        source={require("../../../../assets/Password.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Reset Password</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginTop:60}}>
                         <Image
-                        source={require("../../../assets/Logout.png")}
+                        source={require("../../../../assets/Logout.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Logout</Text>
@@ -247,7 +205,7 @@ const DriverRegisterScreen = () => {
   )
 }
 
-export default DriverRegisterScreen
+export default RideHistoryScreen
 
 const styles = StyleSheet.create({
     screen:{

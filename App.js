@@ -15,18 +15,26 @@ import VerifyWithEmailScreen from './screens/Authentication/VerifyWithEmailScree
 import VerifiedWithEmailScreen from './screens/Authentication/VerifiedWithEmailScreen';
 import HomeScreen from './screens/HomeScreen';
 import RoleHomeScreen from './screens/RoleHomeScreen';
-import RideShareScreen from './screens/UserScreens/RideShareScreens/RideShareScreen';
-import BookNewRideScreen from './screens/UserScreens/RideShareScreens/BookNewRideScreen';
-import AvailableRidesScreen from './screens/UserScreens/RideShareScreens/AvailableRidesScreen';
-import RideDetails from './screens/UserScreens/RideShareScreens/RideDetails';
-import CancelBookingScreen from './screens/UserScreens/RideShareScreens/CancelBookingScreen';
-import CancelledBookingScreen from './screens/UserScreens/RideShareScreens/CancelledBookingScreen';
-import RideHistoryScreen from './screens/UserScreens/RideHistoryScreens/RideHistoryScreen';
-import LiveSessionScreen from './screens/UserScreens/LiveSessionsScreen.js/LiveSessionScreen';
-import DriverRegisterScreen from './screens/UserScreens/DriverApplicationScreen/DriverRegisterScreen';
-import DriverOTPScreen from './screens/UserScreens/DriverApplicationScreen/DriverOTPScreen';
-import VehicleInfoScreen from './screens/UserScreens/DriverApplicationScreen/VehicleInfoScreen';
-import PersonalInfoScreen from './screens/UserScreens/DriverApplicationScreen/PersonalInfoScreen';
+import RideShareScreen from './screens/UserScreens/RideShareModule/RideShareScreens/RideShareScreen.js';
+import BookNewRideScreen from './screens/UserScreens/RideShareModule/RideShareScreens/BookNewRideScreen';
+import AvailableRidesScreen from './screens/UserScreens/RideShareModule/RideShareScreens/AvailableRidesScreen';
+import RideDetails from './screens/UserScreens/RideShareModule/RideShareScreens/RideDetails';
+import CancelBookingScreen from './screens/UserScreens/RideShareModule/RideShareScreens/CancelBookingScreen';
+import CancelledBookingScreen from './screens/UserScreens/RideShareModule/RideShareScreens/CancelledBookingScreen';
+import RideHistoryScreen from './screens/UserScreens/RideShareModule/RideHistoryScreens/RideHistoryScreen';
+import LiveSessionScreen from './screens/UserScreens/RideShareModule/LiveSessionsScreen.js/LiveSessionScreen';
+import DriverRegisterScreen from './screens/UserScreens/RideShareModule/DriverApplicationScreen/DriverRegisterScreen';
+import DriverOTPScreen from './screens/UserScreens/RideShareModule/DriverApplicationScreen/DriverOTPScreen';
+import VehicleInfoScreen from './screens/UserScreens/RideShareModule/DriverApplicationScreen/VehicleInfoScreen';
+import PersonalInfoScreen from './screens/UserScreens/RideShareModule/DriverApplicationScreen/PersonalInfoScreen';
+import AccountInfoScreen from './screens/UserScreens/RideShareModule/DriverApplicationScreen/AccountInfoScreen';
+import AttestationScreen from './screens/UserScreens/RideShareModule/DriverApplicationScreen/AttestationScreen';
+import ProfilePhotoScreen from './screens/UserScreens/RideShareModule/DriverApplicationScreen/ProfilePhotoScreen';
+import DriverRegisteredScreen from './screens/UserScreens/RideShareModule/DriverApplicationScreen/DriverRegisteredScreen';
+import ParkingMainScreen from "./screens/UserScreens/ParkingModule/ParkingMainScreen";
+import ParkingHistoryScreen from './screens/UserScreens/ParkingModule/ParkingHistoryScreens/ParkingHistoryScreen';
+import ScannerScreen from './screens/UserScreens/ParkingModule/ScannerScreen/ScannerScreen';
+import BookParkingScreen from './screens/UserScreens/ParkingModule/BookParkingScreens/BookParkingScreen';
 
 const Stack = createStackNavigator();
 
@@ -62,6 +70,14 @@ function App(){
         <Stack.Screen name="Driver OTP" component={DriverOTPScreen}/>
         <Stack.Screen name="Vehicle Info" component={VehicleInfoScreen}/>
         <Stack.Screen name="Personal Info" component={PersonalInfoScreen}/>
+        <Stack.Screen name="Account Info" component={AccountInfoScreen}/>
+        <Stack.Screen name="Attestation" component={AttestationScreen}/>
+        <Stack.Screen name="Profile Photo" component={ProfilePhotoScreen}/>
+        <Stack.Screen name="Driver Registered" component={DriverRegisteredScreen}/>
+        <Stack.Screen name="Parking" component={ParkingMainScreen}/>
+        <Stack.Screen name="Parking History" component={ParkingHistoryScreen}/>
+        <Stack.Screen name="Scanner" component={ScannerScreen}/>
+        <Stack.Screen name="Book Parking" component={BookParkingScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

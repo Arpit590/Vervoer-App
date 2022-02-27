@@ -19,7 +19,7 @@ const HistoryDetails = ({title, carNo, rating, sessionId, rideAt, totalPrice, ti
               <Text style={{fontSize:12, color:"#000000", marginBottom:5}}>Hatchback</Text>
               <View style={{flexDirection:"row", alignItems:"center"}}>
                   <Image
-                  source={require("../../../assets/rating.png")}
+                  source={require("../../../../assets/rating.png")}
                   style={{height:15, width:15, resizeMode:"contain"}}
                   />
                   <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>{rating}</Text>

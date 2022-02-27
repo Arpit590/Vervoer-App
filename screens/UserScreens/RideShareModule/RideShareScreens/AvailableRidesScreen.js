@@ -1,11 +1,11 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated,Dimensions, ImageBackground, TextInput, Modal } from 'react-native'
 import React, { useState } from 'react'
-import BackArrowIcon from "../../../assets/back.svg";
+import BackArrowIcon from "../../../../assets/back.svg";
 import { useNavigation, useRoute } from '@react-navigation/native'
-import MenuIcon from "../../../assets/Icon metro-menu.svg";
+import MenuIcon from "../../../../assets/Icon metro-menu.svg";
 import AntDesign from "react-native-vector-icons/AntDesign"
-import AvailableCar from '../../../components/AvailableCar';
-import VideoIcon from "../../../assets/VideoIcon.svg";
+import AvailableCar from '../../../../components/AvailableCar';
+import VideoIcon from "../../../../assets/VideoIcon.svg";
 import CheckBox from "react-native-check-box";
 
 const {height, width} = Dimensions.get("window");
@@ -65,11 +65,11 @@ const AvailableRidesScreen = () => {
     <View style={styles.screen}>
         <View style={{}}>
         <Image
-        source={require("../../../assets/Map3.png")}
+        source={require("../../../../assets/Map3.png")}
         style={{width:width, height:height, zIndex:-1, resizeMode:"cover"}}
         />
         <Image
-        source={require("../../../assets/cars.png")}
+        source={require("../../../../assets/cars.png")}
         style={{height:250, width:250, resizeMode:"contain", zIndex:5, position:"absolute", top:"20%", alignSelf:"center"}}
         />
         </View>
@@ -78,7 +78,7 @@ const AvailableRidesScreen = () => {
                 <View style={{flexDirection:"row", alignItems:"center"}}>
                     <TouchableOpacity activeOpacity={0.8} onPress={openHandler}>
                         <Image
-                        source={require("../../../assets/Avatar.png")}
+                        source={require("../../../../assets/Avatar.png")}
                         style={{height:40, width:40, borderRadius:50}}
                         />
                         <View style={{backgroundColor:"#FFFFFF",height:20, width:20, borderRadius:50, position:"absolute", bottom:0, left:0, alignSelf:"center", alignItems:"center", justifyContent:"center"}}>
@@ -88,26 +88,26 @@ const AvailableRidesScreen = () => {
                         </View>
                     </TouchableOpacity>
                     <Image
-                    source={require("../../../assets/Heading.png")}
+                    source={require("../../../../assets/Heading.png")}
                     style={{height:100, width:100, resizeMode:"contain", marginLeft:20}}
                     />
                 </View>
                 <View style={{flexDirection:"row", alignItems:"center"}}>
                     <TouchableOpacity activeOpacity={0.8} style={{}}>
                     <   Image
-                        source={require("../../../assets/ic-search.png")}
+                        source={require("../../../../assets/ic-search.png")}
                         style={{height:28, width:28, resizeMode:"contain"}}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{marginHorizontal:20}}>
                         <Image
-                        source={require("../../../assets/ic-wallet.png")}
+                        source={require("../../../../assets/ic-wallet.png")}
                         style={{height:28, width:28, resizeMode:"contain"}}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8}>
                         <Image
-                        source={require("../../../assets/ic-notification.png")}
+                        source={require("../../../../assets/ic-notification.png")}
                         style={{height:28, width:28, resizeMode:"contain"}}
                         />
                         <View style={{backgroundColor:"#F99026", borderRadius:50, height:15, width:15, position:"absolute", right:0, alignItems:"center", justifyContent:"center"}}>
@@ -140,7 +140,7 @@ const AvailableRidesScreen = () => {
                         onPress={()=>setIsOpen(true)}
                         activeOpacity={0.8} style={{backgroundColor:"#5E5E60", padding:10, borderRadius:10, flexDirection:"row", alignItems:"center"}}>
                             <Image
-                            source={require("../../../assets/filter.png")}
+                            source={require("../../../../assets/filter.png")}
                             style={{height:15, width:15, resizeMode:"contain"}}
                             />
                             <Text style={{fontSize:12, color:"#FFFFFF", fontWeight:"bold", marginLeft:10}}>FILTERS</Text>
@@ -153,7 +153,7 @@ const AvailableRidesScreen = () => {
         <View style={{position:"absolute", bottom:0}}>
             <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026",padding:10, marginRight:5,borderRadius:30, alignSelf:"flex-end"}}>
                 <Image
-                source={require("../../../assets/currentlocation.png")}
+                source={require("../../../../assets/currentlocation.png")}
                 style={{height:20, width:20, resizeMode:"contain"}}
                 />
             </TouchableOpacity>
@@ -174,7 +174,7 @@ const AvailableRidesScreen = () => {
                     <AvailableCar
                     heading="Economy"
                     carName="Sedan"
-                    imgSrc={require("../../../assets/Cab-1.png")}
+                    imgSrc={require("../../../../assets/Cab-1.png")}
                     price="150.00"
                     description="Hatchbacks, Affordable"
                     noOfPersons="2"
@@ -183,7 +183,7 @@ const AvailableRidesScreen = () => {
                     <AvailableCar
                     heading="Premier"
                     carName="Sedan"
-                    imgSrc={require("../../../assets/Cab-1.png")}
+                    imgSrc={require("../../../../assets/Cab-1.png")}
                     price="200.00"
                     description="Sedans, Top-rated drivers"
                     noOfPersons="2"
@@ -192,7 +192,7 @@ const AvailableRidesScreen = () => {
                     <AvailableCar
                     heading="Economy"
                     carName="Sedan"
-                    imgSrc={require("../../../assets/Cab-1.png")}
+                    imgSrc={require("../../../../assets/Cab-1.png")}
                     price="150.00"
                     description="Hatchbacks, Affordable"
                     noOfPersons="2"
@@ -201,7 +201,7 @@ const AvailableRidesScreen = () => {
                     <AvailableCar
                     heading="Economy"
                     carName="Sedan"
-                    imgSrc={require("../../../assets/Cab-1.png")}
+                    imgSrc={require("../../../../assets/Cab-1.png")}
                     price="150.00"
                     description="Hatchbacks, Affordable"
                     noOfPersons="2"
@@ -224,7 +224,7 @@ const AvailableRidesScreen = () => {
                 <View style={{marginVertical:20}}>
                     <TouchableOpacity activeOpacity={0.8} style={{alignItems:"center"}}>
                         <Image
-                        source={require("../../../assets/Avatar.png")}
+                        source={require("../../../../assets/Avatar.png")}
                         style={{height:80, width:80, resizeMode:"contain"}}
                         />
                         <Text style={{marginTop:10, fontSize:15, color:"#000000"}}>John Doe</Text>
@@ -233,63 +233,63 @@ const AvailableRidesScreen = () => {
                 <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal:20, marginVertical:30}}>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Home.png")}
+                        source={require("../../../../assets/Home.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#F99026", fontSize:15, marginLeft:30}}>Home</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Profile.png")}
+                        source={require("../../../../assets/Profile.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>My Profile</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/FaceCard.png")}
+                        source={require("../../../../assets/FaceCard.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Face Card</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Payment.png")}
+                        source={require("../../../../assets/Payment.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Payment Methods</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Tips.png")}
+                        source={require("../../../../assets/Tips.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Tips and Info</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Setting.png")}
+                        source={require("../../../../assets/Setting.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Settings</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Contact.png")}
+                        source={require("../../../../assets/Contact.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Contact Us</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginBottom:30}}>
                         <Image
-                        source={require("../../../assets/Password.png")}
+                        source={require("../../../../assets/Password.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Reset Password</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginTop:60}}>
                         <Image
-                        source={require("../../../assets/Logout.png")}
+                        source={require("../../../../assets/Logout.png")}
                         style={{height:25, width:25, resizeMode:"contain"}}
                         />
                         <Text style={{color:"#000000", fontSize:15, marginLeft:30}}>Logout</Text>
