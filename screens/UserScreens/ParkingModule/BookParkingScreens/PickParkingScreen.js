@@ -7,7 +7,7 @@ import MenuIcon from "../../../../assets/Icon metro-menu.svg";
 
 const {height, width} = Dimensions.get("window");
 
-const BookParkingScreen = () => {
+const PickParkingScreen = () => {
  
     const route = useRoute();
     const navigation = useNavigation();
@@ -58,10 +58,34 @@ const BookParkingScreen = () => {
         source={require("../../../../assets/Map4.png")}
         style={{width:width, height:height, zIndex:-1}}
         />
-        <Image
-        source={require("../../../../assets/Circle.png")}
-        style={{height:300, width:300, resizeMode:"contain", zIndex:5, position:"absolute", top:"20%", alignSelf:"center"}}
-        />
+        <View style={{position:"absolute", top:"20%", alignSelf:"center"}}>
+            <TouchableOpacity
+            onPress={()=>navigation.navigate("Parking Details", {"title": "R", "heading": "Residence Parking (Driveway)", "address": "123, Lincon Street, New York", "price": "5.00", "timer": "5min", "rating": "4.2", "imgSrc": require("../../../../assets/Parking1.png")})}
+            activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:5, paddingHorizontal:10,borderRadius:3, alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>R</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={{position:"absolute", top:"35%", alignSelf:"flex-start", left:"14%"}}>
+            <TouchableOpacity 
+            onPress={()=>navigation.navigate("Parking Details", {"title": "G", "heading": "Central Shopping Centre (Garage)", "address": "123, Lincon Street, New York", "price": "5.00", "timer": "5min", "rating": "4.2", "imgSrc": require("../../../../assets/Parking2.png")})}
+            activeOpacity={0.8} style={{alignSelf:"flex-start",marginVertical:10,backgroundColor:"#F99026", padding:5, paddingHorizontal:10,borderRadius:3, alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>G</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={{position:"absolute", top:"30%", alignSelf:"flex-end", right:"20%"}}>
+            <TouchableOpacity activeOpacity={0.8} 
+            onPress={()=>navigation.navigate("Parking Details", {"title": "L", "heading": "Central Shopping Centre (Lot)", "address": "123, Lincon Street, New York", "price": "5.00", "timer": "5min", "rating": "4.2", "imgSrc": require("../../../../assets/Parking3.png")})}
+            style={{backgroundColor:"#F99026", padding:5, paddingHorizontal:10,borderRadius:3, alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>L</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={{position:"absolute", top:"27%", alignSelf:"center"}}>
+            <TouchableOpacity activeOpacity={0.8}
+            onPress={()=>navigation.navigate("Parking Details", {"title": "R", "heading": "Residence Parking (Driveway)", "address": "123, Lincon Street, New York", "price": "5.00", "timer": "5min", "rating": "4.2", "imgSrc": require("../../../../assets/Parking1.png")})}
+            style={{marginTop:10,backgroundColor:"#F99026", padding:5, paddingHorizontal:10,borderRadius:3, alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>R</Text>
+            </TouchableOpacity>
+        </View>
         <View style={styles.header}>
             <View style={{flexDirection:"row", alignItems:"center"}}>
                 <TouchableOpacity activeOpacity={0.8} onPress={openHandler}>
@@ -115,7 +139,7 @@ const BookParkingScreen = () => {
                         />
                     </TouchableOpacity>
                     <View style={{marginLeft:20}}>
-                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>{route.params.heading}</Text>
+                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Book Parking</Text>
                     </View>
                 </View>
             </View>
@@ -127,14 +151,8 @@ const BookParkingScreen = () => {
                 style={{height:20, width:20, resizeMode:"contain"}}
                 />
             </TouchableOpacity>
-            <TouchableOpacity style={{elevation:5,marginTop:10,backgroundColor:"#FFFFFF", padding:10, borderRadius:30, alignItems:"center", justifyContent:"center"}}>
-                <Image
-                source={require("../../../../assets/Code.png")}
-                style={{height:15, width:15, resizeMode:"contain"}}
-                />
-            </TouchableOpacity>
         </View>
-        <View style={{position:"absolute", bottom:"3%",alignSelf:"center", backgroundColor:"#FFFFFF", padding:10, borderRadius:10, marginTop:20, width:width-40}}>
+        <View style={{position:"absolute", bottom:"0%",alignSelf:"center", backgroundColor:"#FFFFFF", padding:10, borderRadius:10, marginTop:20, width:width}}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{marginTop:20,paddingHorizontal:20}}>
                     <View style={{marginBottom:20}}>
@@ -147,17 +165,80 @@ const BookParkingScreen = () => {
                                 />
                             </View>
                             <TextInput
-                            placeholder='Change Location'
-                            placeholderTextColor="#808080"
+                            placeholder='Brooklyn, NY'
+                            placeholderTextColor="#000000"
                             keyboardType='default'
                             style={{fontSize:13, color:"#000000", marginLeft:10}}
                             />
                         </View>
+                        <TouchableOpacity activeOpacity={0.8} style={{marginTop:8}}>
+                            <Text style={{fontSize:12, color:"#F99026"}}>Use Current Location</Text>
+                        </TouchableOpacity>
+                        <View style={{marginVertical:20}}>
+                            <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>When</Text>
+                            <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", borderBottomColor:"#808080", borderBottomWidth:1, padding:5, borderRadius:10}}>
+                                <View style={{backgroundColor:"#FDF1E5", padding:5, borderRadius:30, alignItems:"center"}}>
+                                    <Image
+                                    source={require("../../../../assets/calendar.png")}
+                                    style={{height:30, width:30, resizeMode:"contain"}}
+                                    />
+                                </View>
+                                <TextInput
+                                placeholder='Date & Time'
+                                placeholderTextColor="#000000"
+                                keyboardType='default'
+                                style={{fontSize:13, color:"#000000", marginLeft:10}}
+                                />
+                            </View>
+                        </View>
+                        <View style={{marginVertical:20}}>
+                            <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>Duration</Text>
+                            <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", borderBottomColor:"#808080", borderBottomWidth:1, paddingHorizontal:5, borderRadius:10}}>
+                                <View style={{backgroundColor:"#FDF1E5", padding:5, borderRadius:30, alignItems:"center"}}>
+                                    <Image
+                                    source={require("../../../../assets/calendar.png")}
+                                    style={{height:30, width:30, resizeMode:"contain"}}
+                                    />
+                                </View>
+                                <View style={{flex:1,marginLeft:10,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                                    <View style={{flexDirection:"row", alignItems:"center"}}>
+                                        <TextInput
+                                        placeholder='0'
+                                        placeholderTextColor="#000000"
+                                        keyboardType='number-pad'
+                                        maxLength={1}
+                                        style={{fontSize:15, color:"#000000", fontWeight:"bold"}}
+                                        />
+                                        <Text style={{fontSize:13, color:"#808080"}}>Days</Text>
+                                    </View>
+                                    <View style={{flexDirection:"row", alignItems:"center"}}>
+                                        <TextInput
+                                        placeholder='0'
+                                        placeholderTextColor="#000000"
+                                        keyboardType='number-pad'
+                                        maxLength={2}
+                                        style={{fontSize:15, color:"#000000", fontWeight:"bold"}}
+                                        />
+                                        <Text style={{fontSize:13, color:"#808080"}}>Hours</Text>
+                                    </View>
+                                    <View style={{flexDirection:"row", alignItems:"center"}}>
+                                        <TextInput
+                                        placeholder='0'
+                                        placeholderTextColor="#000000"
+                                        keyboardType='number-pad'
+                                        maxLength={2}
+                                        style={{fontSize:15, color:"#000000", fontWeight:"bold"}}
+                                        />
+                                        <Text style={{fontSize:13, color:"#808080"}}>Minutes</Text>
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
                     </View>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("Pick Parking")}
+                        onPress={() => navigation.navigate("CarOrBike")}
                         activeOpacity={0.8} style={{ marginVertical: 10, width: "90%", alignSelf: "center", backgroundColor: "#F99026", paddingHorizontal: 20, paddingVertical: 10, borderRadius: 100 }}>
-                        <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "500", textAlign: "center" }}>Apply</Text>
+                        <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "500", textAlign: "center" }}>Pick Parking Slot</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
@@ -252,7 +333,7 @@ const BookParkingScreen = () => {
   )
 }
 
-export default BookParkingScreen
+export default PickParkingScreen
 
 const styles = StyleSheet.create({
     screen:{

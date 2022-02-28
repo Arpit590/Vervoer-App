@@ -35,6 +35,9 @@ import ParkingMainScreen from "./screens/UserScreens/ParkingModule/ParkingMainSc
 import ParkingHistoryScreen from './screens/UserScreens/ParkingModule/ParkingHistoryScreens/ParkingHistoryScreen';
 import ScannerScreen from './screens/UserScreens/ParkingModule/ScannerScreen/ScannerScreen';
 import BookParkingScreen from './screens/UserScreens/ParkingModule/BookParkingScreens/BookParkingScreen';
+import PickParkingScreen from './screens/UserScreens/ParkingModule/BookParkingScreens/PickParkingScreen';
+import ParkingDetailsScreen from './screens/UserScreens/ParkingModule/BookParkingScreens/ParkingDetailsScreen';
+import CarOrBikeScreen from './screens/UserScreens/ParkingModule/BookParkingScreens/CarOrBikeScreen';
 
 const Stack = createStackNavigator();
 
@@ -78,6 +81,9 @@ function App(){
         <Stack.Screen name="Parking History" component={ParkingHistoryScreen}/>
         <Stack.Screen name="Scanner" component={ScannerScreen}/>
         <Stack.Screen name="Book Parking" component={BookParkingScreen}/>
+        <Stack.Screen name="Pick Parking" component={PickParkingScreen}/>
+        <Stack.Screen name="Parking Details" component={ParkingDetailsScreen}/>
+        <Stack.Screen name="CarOrBike" component={CarOrBikeScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

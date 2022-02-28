@@ -4,20 +4,21 @@ import BackArrowIcon from "../../../../assets/back.svg";
 import { useNavigation, useRoute } from '@react-navigation/native'
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MenuIcon from "../../../../assets/Icon metro-menu.svg";
+import AvailableParking from '../../../../components/AvailableParking';
 
 const {height, width} = Dimensions.get("window");
 
-const BookParkingScreen = () => {
+const CarOrBikeScreen = () => {
  
     const route = useRoute();
     const navigation = useNavigation();
     const value = useState(new Animated.Value(-500))[0];
     const value1 = useState(new Animated.Value(0))[0];
-    const [click, setClick] = useState("Adult");
+    const [click, setClick] = useState("For Car");
     const [menu, setMenu] = useState(false);
 
-    const adultHandler=()=>{
-        setClick("Adult");
+    const carHandler=()=>{
+        setClick("For Car");
         Animated.timing(value1,{
             toValue:0,
             duration:2000,
@@ -26,7 +27,7 @@ const BookParkingScreen = () => {
     }
 
     const chlidHandler=()=>{
-        setClick("Child");
+        setClick("For Bike");
         Animated.timing(value1,{
             toValue:width-300,
             duration:2000,
@@ -58,10 +59,34 @@ const BookParkingScreen = () => {
         source={require("../../../../assets/Map4.png")}
         style={{width:width, height:height, zIndex:-1}}
         />
-        <Image
-        source={require("../../../../assets/Circle.png")}
-        style={{height:300, width:300, resizeMode:"contain", zIndex:5, position:"absolute", top:"20%", alignSelf:"center"}}
-        />
+        <View style={{position:"absolute", top:"20%", alignSelf:"center"}}>
+            <TouchableOpacity
+            onPress={()=>navigation.navigate("Parking Details", {"title": "R", "heading": "Residence Parking (Driveway)", "address": "123, Lincon Street, New York", "price": "5.00", "timer": "5min", "rating": "4.2", "imgSrc": require("../../../../assets/Parking1.png")})}
+            activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:5, paddingHorizontal:10,borderRadius:3, alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>R</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={{position:"absolute", top:"35%", alignSelf:"flex-start", left:"14%"}}>
+            <TouchableOpacity 
+            onPress={()=>navigation.navigate("Parking Details", {"title": "G", "heading": "Central Shopping Centre (Garage)", "address": "123, Lincon Street, New York", "price": "5.00", "timer": "5min", "rating": "4.2", "imgSrc": require("../../../../assets/Parking2.png")})}
+            activeOpacity={0.8} style={{alignSelf:"flex-start",marginVertical:10,backgroundColor:"#F99026", padding:5, paddingHorizontal:10,borderRadius:3, alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>G</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={{position:"absolute", top:"30%", alignSelf:"flex-end", right:"20%"}}>
+            <TouchableOpacity activeOpacity={0.8} 
+            onPress={()=>navigation.navigate("Parking Details", {"title": "L", "heading": "Central Shopping Centre (Lot)", "address": "123, Lincon Street, New York", "price": "5.00", "timer": "5min", "rating": "4.2", "imgSrc": require("../../../../assets/Parking3.png")})}
+            style={{backgroundColor:"#F99026", padding:5, paddingHorizontal:10,borderRadius:3, alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>L</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={{position:"absolute", top:"27%", alignSelf:"center"}}>
+            <TouchableOpacity activeOpacity={0.8}
+            onPress={()=>navigation.navigate("Parking Details", {"title": "R", "heading": "Residence Parking (Driveway)", "address": "123, Lincon Street, New York", "price": "5.00", "timer": "5min", "rating": "4.2", "imgSrc": require("../../../../assets/Parking1.png")})}
+            style={{marginTop:10,backgroundColor:"#F99026", padding:5, paddingHorizontal:10,borderRadius:3, alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold"}}>R</Text>
+            </TouchableOpacity>
+        </View>
         <View style={styles.header}>
             <View style={{flexDirection:"row", alignItems:"center"}}>
                 <TouchableOpacity activeOpacity={0.8} onPress={openHandler}>
@@ -115,50 +140,61 @@ const BookParkingScreen = () => {
                         />
                     </TouchableOpacity>
                     <View style={{marginLeft:20}}>
-                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>{route.params.heading}</Text>
+                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Book Parking</Text>
                     </View>
                 </View>
             </View>
         </View>
-        <View style={{alignItems:"center", alignSelf:"flex-end", position:"absolute", right:"3%", top:"35%"}}>
-            <TouchableOpacity style={{backgroundColor:"#F99026", padding:10, borderRadius:30, alignItems:"center", justifyContent:"center"}}>
-                <Image
-                source={require("../../../../assets/currentlocation.png")}
-                style={{height:20, width:20, resizeMode:"contain"}}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity style={{elevation:5,marginTop:10,backgroundColor:"#FFFFFF", padding:10, borderRadius:30, alignItems:"center", justifyContent:"center"}}>
-                <Image
-                source={require("../../../../assets/Code.png")}
-                style={{height:15, width:15, resizeMode:"contain"}}
-                />
-            </TouchableOpacity>
-        </View>
-        <View style={{position:"absolute", bottom:"3%",alignSelf:"center", backgroundColor:"#FFFFFF", padding:10, borderRadius:10, marginTop:20, width:width-40}}>
+        <View style={{position:"absolute", bottom:"0%",maxHeight:500,alignSelf:"center", backgroundColor:"#FFFFFF", padding:10, borderRadius:10, marginTop:20, width:width}}>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={{marginTop:20,paddingHorizontal:20}}>
-                    <View style={{marginBottom:20}}>
-                        <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>Location</Text>
-                        <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", borderBottomColor:"#808080", borderBottomWidth:1, padding:5, borderRadius:10}}>
-                            <View style={{backgroundColor:"#FDF1E5", padding:5, borderRadius:30, alignItems:"center"}}>
-                                <Image
-                                source={require("../../../../assets/location.png")}
-                                style={{height:30, width:30, resizeMode:"contain"}}
-                                />
-                            </View>
-                            <TextInput
-                            placeholder='Change Location'
-                            placeholderTextColor="#808080"
-                            keyboardType='default'
-                            style={{fontSize:13, color:"#000000", marginLeft:10}}
-                            />
-                        </View>
-                    </View>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate("Pick Parking")}
-                        activeOpacity={0.8} style={{ marginVertical: 10, width: "90%", alignSelf: "center", backgroundColor: "#F99026", paddingHorizontal: 20, paddingVertical: 10, borderRadius: 100 }}>
-                        <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "500", textAlign: "center" }}>Apply</Text>
+                <View style={{elevation:5,marginVertical:20, flexDirection:"row", alignItems:"center", alignSelf:"center", backgroundColor:"#FFFFFF", borderRadius:30, paddingHorizontal:10, paddingVertical:5}}>
+                    <TouchableOpacity activeOpacity={0.8} 
+                    onPress={carHandler}
+                    style={{flexDirection:"row", alignItems:"center", backgroundColor:(click==="For Car") ? "#FDF1E5" : "transparent", paddingVertical:8, paddingHorizontal:30, borderRadius:30}}>
+                        <Image
+                        source={require("../../../../assets/Car2.png")}
+                        style={{height:30, width: 30, resizeMode:"contain", marginRight:10}}
+                        />
+                        <Text style={{fontSize:13, color:"#000000"}}>For Car</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={chlidHandler}
+                    activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center",marginLeft:10,backgroundColor:(click==="For Bike") ? "#FDF1E5" : "transparent", paddingVertical:8, paddingHorizontal:30, borderRadius:30}}>
+                        <Image
+                        source={require("../../../../assets/Bike.png")}
+                        style={{height:30, width: 30, resizeMode:"contain", marginRight:10}}
+                        />
+                        <Text style={{fontSize:13, color:"#000000"}}>For Bike</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={{marginTop:20,paddingHorizontal:20}}>
+                    <AvailableParking
+                    title="G"
+                    heading="Central Shopping Centre (Garage)"
+                    imgSrc={require("../../../../assets/Parking2.png")}
+                    rating="4.2"
+                    timer="5 min"
+                    price="5.00"
+                    address="123, Lincon Street, New York"
+                    />
+                    <AvailableParking
+                    title="L"
+                    heading="Central Shopping Centre (Lot)"
+                    imgSrc={require("../../../../assets/Parking3.png")}
+                    rating="4.2"
+                    timer="5 min"
+                    price="5.00"
+                    address="123, Lincon Street, New York"
+                    />
+                    <AvailableParking
+                    title="R"
+                    heading="Residence Parking (Driveway)"
+                    imgSrc={require("../../../../assets/Parking1.png")}
+                    rating="4.2"
+                    timer="5 min"
+                    price="5.00"
+                    address="123, Lincon Street, New York"
+                    />
                 </View>
             </ScrollView>
         </View>
@@ -252,7 +288,7 @@ const BookParkingScreen = () => {
   )
 }
 
-export default BookParkingScreen
+export default CarOrBikeScreen
 
 const styles = StyleSheet.create({
     screen:{
