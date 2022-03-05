@@ -127,14 +127,17 @@ const RoleHomeScreen = () => {
                     <RoleContainer
                     text="Parking Lot"
                     imageUrl={require("../assets/Locate.png")}
+                    tabHandler=""
                     />
                     <RoleContainer
                     text="Parking Garage"
                     imageUrl={require("../assets/Parking.png")}
+                    tabHandler=""
                     />
                     <RoleContainer
                     text="Residence Parking"
                     imageUrl={require("../assets/Parking.png")}
+                    tabHandler=""
                     />
                 </View>
                 <View style={{paddingHorizontal:10}}>
@@ -152,28 +155,34 @@ const RoleHomeScreen = () => {
                     <RoleContainer
                     text="Locate Rider"
                     imageUrl={require("../assets/Locate.png")}
+                    tabHandler=""
                     />
                     <RoleContainer
                     text="Dry Cleaning"
                     imageUrl={require("../assets/DryCleaner.png")}
+                    tabHandler=""
                     />
                     <RoleContainer
                     text="Food Delivery"
                     imageUrl={require("../assets/FoodDelivery.png")}
+                    tabHandler=""
                     />
                 </View>
                 <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-evenly"}}>
                     <RoleContainer
                     text="Driver Registration"
                     imageUrl={require("../assets/Driver.png")}
+                    tabHandler=""
                     />
                     <RoleContainer
                     text="Scan QBR"
                     imageUrl={require("../assets/scan.png")}
+                    tabHandler=""
                     />
                     <RoleContainer
                     text="Micro Mobility"
                     imageUrl={require("../assets/scooty.png")}
+                    tabHandler=""
                     />
                 </View>
             </View>

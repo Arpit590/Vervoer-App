@@ -26,7 +26,7 @@ const CarOrBikeScreen = () => {
         }).start()
     }
 
-    const chlidHandler=()=>{
+    const bikeHandler=()=>{
         setClick("For Bike");
         Animated.timing(value1,{
             toValue:width-300,
@@ -158,7 +158,7 @@ const CarOrBikeScreen = () => {
                         <Text style={{fontSize:13, color:"#000000"}}>For Car</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                    onPress={chlidHandler}
+                    onPress={bikeHandler}
                     activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center",marginLeft:10,backgroundColor:(click==="For Bike") ? "#FDF1E5" : "transparent", paddingVertical:8, paddingHorizontal:30, borderRadius:30}}>
                         <Image
                         source={require("../../../../assets/Bike.png")}

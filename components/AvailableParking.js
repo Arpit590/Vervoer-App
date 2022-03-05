@@ -69,7 +69,7 @@ const AvailableParking = ({title, timer, price, heading, address, rating, imgSrc
                 <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold", textAlign:"center"}}>View Details</Text>
             </TouchableOpacity>
             <TouchableOpacity 
-            onPress={()=>navigation.navigate("")}
+            onPress={()=>navigation.navigate("Available Parking", {"heading": heading,"title": title, "timer": timer, "price":price, "rating": rating, "address": address})}
             activeOpacity={0.8} style={{marginLeft:10,width:"50%",alignSelf:"center",marginTop:10,backgroundColor:"#F99026", padding:15, borderRadius:30, paddingHorizontal:30}}>
                 <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold", textAlign:"center"}}>Find Parking</Text>
             </TouchableOpacity>
