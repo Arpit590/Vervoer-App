@@ -271,8 +271,34 @@ const BookingConfirmationScreen = () => {
                 </View>
             </ScrollView>
         </View>
-        <View style={{position:"absolute", bottom:0, width:width, backgroundColor:"#FFFFFF", padding:10}}>
-            <View style={{flexDirection:"row"}}></View>    
+        <View style={{position:"absolute", bottom:0, width:width, backgroundColor:"#FFFFFF", padding:20}}>
+            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                <View style={{flexDirection:"row", alignItems:"center"}}>
+                    <Image
+                    source={require("../../../../assets/ic-wallet.png")}
+                    style={{height:30, width:30, resizeMode:"contain"}}
+                    />
+                    <View style={{flexDirection:"row", alignItems:"center", marginLeft:20}}>
+                        <Text style={{fontSize:16, color:"#000000", marginRight:5}}>Wallet</Text>
+                        <Text style={{fontSize:14, color:"#F99026"}}>(Balance: $2500.00)</Text>
+                    </View>
+                </View> 
+                <Image
+                source={require("../../../../assets/ArrowForward.png")}
+                style={{height:20, width:20, resizeMode:"contain"}}
+                />  
+            </View> 
+            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginTop:10}}>
+                <View style={{}}>
+                    <Text style={{fontSize:13, color:"#808080"}}>Total Fare (*approx)</Text>
+                    <Text style={{fontSize:18, color:"#F99026", marginTop:5}}>$140.00</Text>
+                </View>
+                <TouchableOpacity 
+                onPress={()=>navigation.navigate("Payment")}
+                activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:20, borderRadius:50, paddingHorizontal:30}}>
+                    <Text style={{fontSize:16, color:"#FFFFFF"}}>Confirm Booking</Text>
+                </TouchableOpacity>
+            </View>
         </View>
         <Animated.View style={{backgroundColor:"#FFFFFF",position:"absolute",top:0,left:value, height:height, width: width-80, zIndex:1000, padding:20, paddingHorizontal:0}}>
             <View style={{paddingHorizontal:20, display: menu ? "flex" : "none"}}>

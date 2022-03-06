@@ -113,7 +113,7 @@ const CancelledBookingScreen = () => {
                         <Text style={{fontSize:14, color:"#808080", textAlign:"center", marginTop:20}}>BOOKING ID: <Text style={{color:"#F99026"}}>#RS58223</Text></Text>
                     </View>
                 </View>
-                <View style={{marginTop:100}}>
+                <View style={{marginVertical:120}}>
                     <TouchableOpacity 
                     onPress={()=>navigation.navigate("Book New Ride", {"heading": "Book New Ride"})}
                     activeOpacity={0.8} style={{width:width-100, alignSelf:"center", alignItems:"center", padding:15, borderRadius:40, backgroundColor:"#F99026"}}>

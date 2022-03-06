@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions, ImageBackground, TextInput } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import BackArrowIcon from "../../../../assets/back.svg";
 import { useNavigation, useRoute } from '@react-navigation/native'
@@ -7,32 +7,13 @@ import MenuIcon from "../../../../assets/Icon metro-menu.svg";
 
 const {height, width} = Dimensions.get("window");
 
-const BookNewRideScreen = () => {
+const PaymentScreen = () => {
  
     const route = useRoute();
     const navigation = useNavigation();
     const value = useState(new Animated.Value(-500))[0];
-    const value1 = useState(new Animated.Value(0))[0];
-    const [click, setClick] = useState("Adult");
     const [menu, setMenu] = useState(false);
-
-    const adultHandler=()=>{
-        setClick("Adult");
-        Animated.timing(value1,{
-            toValue:0,
-            duration:2000,
-            useNativeDriver:false
-        }).start()
-    }
-
-    const chlidHandler=()=>{
-        setClick("Child");
-        Animated.timing(value1,{
-            toValue:width-300,
-            duration:2000,
-            useNativeDriver:false
-        }).start()
-    }
+    const [click, setClick] = useState("");
 
     const openHandler=()=>{
         setMenu(true);
@@ -54,10 +35,6 @@ const BookNewRideScreen = () => {
     
   return (
     <View style={styles.screen}>
-        <ImageBackground
-        source={require("../../../../assets/Map.png")}
-        style={{width:width, height:height, zIndex:-1}}
-        />
         <View style={styles.header}>
             <View style={{flexDirection:"row", alignItems:"center"}}>
                 <TouchableOpacity activeOpacity={0.8} onPress={openHandler}>
@@ -100,8 +77,8 @@ const BookNewRideScreen = () => {
                 </TouchableOpacity>
             </View>
         </View>
-        <View style={{position:"absolute", top:"12%", alignSelf:"center"}}>
-            <View style={{zIndex:10,flexDirection:"column",marginTop:20}}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{zIndex:10,flexDirection:"column",marginTop:20, marginHorizontal:20}}>
                 <View style={{flexDirection:"row", alignItems:"flex-start"}}>
                     <TouchableOpacity activeOpacity={0.8}
                     style={{}}
@@ -111,98 +88,117 @@ const BookNewRideScreen = () => {
                         />
                     </TouchableOpacity>
                     <View style={{marginLeft:20}}>
-                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>{route.params.heading}</Text>
+                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Payment</Text>
+                    </View>
+                </View>
+                <View style={{marginTop:30}}>
+                    <View style={{backgroundColor:"#FFFFFF", padding:10, borderRadius:20, elevation:5}}>
+                        <View style={{marginBottom:20,paddingBottom:20,flexDirection:"row", alignItems:"center", justifyContent:"space-between", borderBottomColor:"#808080", borderBottomWidth:1}}>
+                            <Text style={{fontSize:18, color:"#F99026"}}>TICKET NUMBER</Text>   
+                            <Text style={{fontSize:18, color:"#F99026"}}>#DC58223</Text> 
+                        </View>
+                        <View style={{marginBottom:20,paddingBottom:20,flexDirection:"row", alignItems:"center", justifyContent:"space-between", borderBottomColor:"#808080", borderBottomWidth:1}}>
+                            <Text style={{fontSize:18, color:"#000000"}}>Sub Total</Text>   
+                            <Text style={{fontSize:18, color:"#000000"}}>$125.00</Text> 
+                        </View>
+                        <View style={{marginBottom:20,paddingBottom:20,flexDirection:"row", alignItems:"center", justifyContent:"space-between", borderBottomColor:"#808080", borderBottomWidth:1}}>
+                            <Text style={{fontSize:15, color:"#000000"}}>Fees</Text>   
+                            <Text style={{fontSize:15, color:"#000000"}}>$15.00</Text> 
+                        </View>
+                        <View style={{marginBottom:20,paddingBottom:20,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                            <Text style={{fontSize:18, color:"#F99026"}}>Total Payment (*Approx)</Text>   
+                            <Text style={{fontSize:18, color:"#F99026"}}>$140.00</Text> 
+                        </View>
+                    </View>
+                    <Text style={{fontSize:20, color:"#808080", marginVertical:30}}>Payment Method</Text>
+                    <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+                        <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#FDF1E5", padding:10, borderRadius:10, paddingHorizontal:20}}>
+                            <AntDesign
+                            name="plus"
+                            size={24}
+                            color="#000000"
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",backgroundColor:"#000000", padding:0, paddingHorizontal:20, borderRadius:10,marginHorizontal:10}}>
+                            <Image
+                            source={require("../../../../assets/apple-pay.png")}
+                            style={{height:40, width:40, resizeMode:"contain"}}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={0.8} style={{marginHorizontal:10}}>
+                            <Image
+                            source={require("../../../../assets/mastercard.png")}
+                            style={{height:60, width:60, resizeMode:"contain"}}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={0.8} style={{marginHorizontal:10}}>
+                            <Image
+                            source={require("../../../../assets/visa.png")}
+                            style={{height:60, width:60, resizeMode:"contain"}}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={0.8} style={{alignItems:"center",justifyContent:"center",backgroundColor:"#000000", padding:0, paddingHorizontal:20, borderRadius:10,marginHorizontal:10}}>
+                            <Image
+                            source={require("../../../../assets/google.png")}
+                            style={{height:30, width:30, resizeMode:"contain"}}
+                            />
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <View style={{ marginBottom:100,marginTop:30,backgroundColor:"#FFFFFF", padding:20, borderRadius:20, elevation:5}}>
+                        <View style={{flexDirection:"row", alignItems:"center", marginBottom:20}}>
+                            <TouchableOpacity
+                            onPress={()=>setClick("Debit Card")}
+                            activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center", marginRight:20}}>
+                                <View style={{borderRadius:50, padding:5, borderColor:(click==="Debit Card") ? "#F99026" : "#808080", borderWidth:1,backgroundColor:"#FFFFFF"}}>
+                                    <View style={{backgroundColor:(click==="Debit Card") ? "#F99026" : "transparent", padding:6, borderRadius:30}}></View>
+                                </View>
+                                <Text style={{fontSize:15, color:"#000000", marginLeft:10}}>Debit Card</Text>
+                            </TouchableOpacity>   
+                            <TouchableOpacity
+                            onPress={()=>setClick("Credit Card")}
+                            activeOpacity={0.8} style={{flexDirection:"row", alignItems:"center"}}>
+                                <View style={{borderRadius:50, padding:5, borderColor:(click==="Credit Card") ? "#F99026" : "#808080", borderWidth:1,backgroundColor:"#FFFFFF"}}>
+                                    <View style={{backgroundColor:(click==="Credit Card") ? "#F99026" : "transparent", padding:6, borderRadius:30}}></View>
+                                </View>
+                                <Text style={{fontSize:15, color:"#000000", marginLeft:10}}>Credit Card</Text>
+                            </TouchableOpacity>     
+                        </View>
+                        <View style={{}}>
+                            <TextInput
+                            placeholder='Card Holder Name'
+                            placeholderTextColor="#808080"
+                            style={{padding:10, borderBottomColor:"#808080", borderBottomWidth:1, marginBottom:20}}
+                            />   
+                            <TextInput
+                            placeholder='Card Number'
+                            placeholderTextColor="#808080"
+                            keyboardType='number-pad'
+                            style={{padding:10, borderBottomColor:"#808080", borderBottomWidth:1, marginBottom:20}}
+                            />  
+                            <TextInput
+                            placeholder='Expires MM/YY'
+                            keyboardType='number-pad'
+                            placeholderTextColor="#808080"
+                            style={{padding:10, borderBottomColor:"#808080", borderBottomWidth:1, marginBottom:20}}
+                            />  
+                            <TextInput
+                            placeholder='CVV'
+                            keyboardType='number-pad'
+                            maxLength={3}
+                            placeholderTextColor="#808080"
+                            style={{padding:10, borderBottomColor:"#808080", borderBottomWidth:1, marginBottom:20}}
+                            />   
+                        </View>
+                        <TouchableOpacity 
+                        onPress={()=>navigation.navigate("Booking Confirmed")}
+                        activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:15, paddingHorizontal:30, width:width-100, borderRadius:30, alignItems:"center", alignSelf:"center", marginTop:20}}>
+                            <Text style={{fontSize:15, color:"#FFFFFF"}}>Pay Now</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
-            <View style={{alignSelf:"center", backgroundColor:"#FFFFFF", padding:10, borderRadius:10, marginTop:20, width:width-40}}>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <View style={{elevation:5,marginVertical:20, flexDirection:"row", alignItems:"center", alignSelf:"center", backgroundColor:"#FFFFFF", borderRadius:30, paddingHorizontal:10, paddingVertical:5}}>
-                        <TouchableOpacity activeOpacity={0.8} 
-                        onPress={adultHandler}
-                        style={{backgroundColor:(click==="Adult") ? "#FDF1E5" : "transparent", paddingVertical:8, paddingHorizontal:30, borderRadius:30}}>
-                            <Text style={{fontSize:13, color:"#000000"}}>Adult</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                        onPress={chlidHandler}
-                        activeOpacity={0.8} style={{marginLeft:10,backgroundColor:(click==="Child") ? "#FDF1E5" : "transparent", paddingVertical:8, paddingHorizontal:30, borderRadius:30}}>
-                            <Text style={{fontSize:13, color:"#000000"}}>Child</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{marginTop:20,paddingHorizontal:20}}>
-                        <View style={{marginBottom:20}}>
-                            <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>Pickup Location</Text>
-                            <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", elevation:5, padding:5, borderRadius:10}}>
-                                <Image
-                                source={require("../../../../assets/location.png")}
-                                style={{height:30, width:30, resizeMode:"contain"}}
-                                />
-                                <TextInput
-                                placeholder='Enter Location'
-                                placeholderTextColor="#000000"
-                                keyboardType='default'
-                                style={{fontSize:13, color:"#000000", marginLeft:10}}
-                                />
-                            </View>
-                            <TouchableOpacity activeOpacity={0.8} style={{marginTop:8}}>
-                                <Text style={{fontSize:12, color:"#F99026"}}>Use Current Location</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{marginBottom:20}}>
-                            <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>Drop-ff Location</Text>
-                            <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", elevation:5, padding:5, borderRadius:10}}>
-                                <Image
-                                source={require("../../../../assets/droplocation.png")}
-                                style={{height:30, width:30, resizeMode:"contain"}}
-                                />
-                                <TextInput
-                                placeholder='Enter Location'
-                                placeholderTextColor="#000000"
-                                keyboardType='default'
-                                style={{fontSize:13, color:"#000000", marginLeft:10}}
-                                />
-                            </View>
-                        </View>
-                        <View style={{marginBottom:20}}>
-                            <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>When</Text>
-                            <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", elevation:5, padding:5, borderRadius:10}}>
-                                <Image
-                                source={require("../../../../assets/calendar.png")}
-                                style={{height:30, width:30, resizeMode:"contain"}}
-                                />
-                                <TextInput
-                                placeholder='Enter Location'
-                                placeholderTextColor="#000000"
-                                keyboardType='default'
-                                style={{fontSize:13, color:"#000000", marginLeft:10}}
-                                />
-                            </View>
-                        </View>
-                        <View style={{marginBottom:20}}>
-                            <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>No. of Persons</Text>
-                            <View style={{flexDirection:"row", alignItems:"center", backgroundColor:"#FFFFFF", elevation:5, padding:5, borderRadius:10}}>
-                                <Image
-                                source={require("../../../../assets/person.png")}
-                                style={{height:30, width:30, resizeMode:"contain"}}
-                                />
-                                <TextInput
-                                placeholder='Enter Number of Person'
-                                placeholderTextColor="#000000"
-                                keyboardType='number-pad'
-                                style={{fontSize:13, color:"#000000", marginLeft:10}}
-                                />
-                            </View>
-                        </View>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate("Available Rides")}
-                            activeOpacity={0.8} style={{ marginVertical: 10, width: "80%", alignSelf: "center", backgroundColor: "#F99026", paddingHorizontal: 20, paddingVertical: 10, borderRadius: 100, marginBottom:100}}>
-                            <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "500", textAlign: "center" }}>Apply</Text>
-                        </TouchableOpacity>
-                    </View>
-                </ScrollView>
-            </View>
-        </View>
-        <Animated.View style={{backgroundColor:"#FFFFFF",position:"absolute",top:0,left:value, height:height, width: width-80, zIndex:1000, padding:20, paddingHorizontal:0}}>
+        </ScrollView>
+        <Animated.View style={{backgroundColor:"#FFFFFF",position:"absolute",top:0,left:value, height:height, width: width-80, zIndex:100, padding:20, paddingHorizontal:0}}>
             <View style={{paddingHorizontal:20, display: menu ? "flex" : "none"}}>
                 <TouchableOpacity 
                 activeOpacity={0.8} onPress={closeHandler}>
@@ -292,7 +288,7 @@ const BookNewRideScreen = () => {
   )
 }
 
-export default BookNewRideScreen
+export default PaymentScreen
 
 const styles = StyleSheet.create({
     screen:{
@@ -307,9 +303,6 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"space-between",
-        elevation:5,
-        position:"absolute",
-        top:0,
-        width:width
+        elevation:5
     }
 })

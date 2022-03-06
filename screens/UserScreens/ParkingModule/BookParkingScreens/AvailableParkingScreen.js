@@ -149,9 +149,9 @@ const AvailableParkingScreen = () => {
                     <View style={{flexDirection:"row", alignItems:"center"}}>
                         <TouchableOpacity 
                         onPress={()=>setParking("Parked")}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -165,7 +165,7 @@ const AvailableParkingScreen = () => {
                             setParking("A-02")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:(parking==="A-02") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:(parking==="A-02") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             {(parking!=="A-02")
                             ?<Text style={{fontSize:15, color: "#000000"}}>A-02</Text>
                             :
@@ -179,7 +179,7 @@ const AvailableParkingScreen = () => {
                             setParking("A-03")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:(parking==="A-03") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:(parking==="A-03") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             {(parking!=="A-03")
                             ?<Text style={{fontSize:15, color: "#000000"}}>A-03</Text>
                             :
@@ -191,9 +191,9 @@ const AvailableParkingScreen = () => {
                             setParking("Parked")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -209,9 +209,9 @@ const AvailableParkingScreen = () => {
                             setParking("Parked")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -224,7 +224,7 @@ const AvailableParkingScreen = () => {
                         onPress={()=>{
                             setParking("A-06")
                         }}
-                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:(parking==="A-06") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:(parking==="A-06") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             {(parking!=="A-06")
                             ?<Text style={{fontSize:15, color: "#000000"}}>A-06</Text>
                             :
@@ -238,9 +238,9 @@ const AvailableParkingScreen = () => {
                             setParking("Parked")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -254,9 +254,9 @@ const AvailableParkingScreen = () => {
                             setParking("Parked")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -267,7 +267,7 @@ const AvailableParkingScreen = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View style={{margin:20}}>
+                <View style={{margin:20, marginBottom:100}}>
                     <View style={{backgroundColor:"#F99026", padding:10, borderRadius:10, alignSelf:"flex-start", marginBottom:20}}>
                         <Text style={{fontSize:14, color:"#FFFFFF"}}>A3</Text>
                     </View>
@@ -275,9 +275,9 @@ const AvailableParkingScreen = () => {
                     <View style={{flexDirection:"row", alignItems:"center"}}>
                         <TouchableOpacity 
                         onPress={()=>setParking("Parked")}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -291,7 +291,7 @@ const AvailableParkingScreen = () => {
                             setParking("A-02")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:(parking==="A-02") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:(parking==="A-02") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             {(parking!=="A-02")
                             ?<Text style={{fontSize:15, color: "#000000"}}>A-02</Text>
                             :
@@ -305,7 +305,7 @@ const AvailableParkingScreen = () => {
                             setParking("A-03")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:(parking==="A-03") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:(parking==="A-03") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             {(parking!=="A-03")
                             ?<Text style={{fontSize:15, color: "#000000"}}>A-03</Text>
                             :
@@ -317,9 +317,9 @@ const AvailableParkingScreen = () => {
                             setParking("Parked")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -335,9 +335,9 @@ const AvailableParkingScreen = () => {
                             setParking("Parked")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -351,7 +351,7 @@ const AvailableParkingScreen = () => {
                             setParking("A-06")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:(parking==="A-06") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{alignItems:"center", justifyContent:"center",maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:(parking==="A-06") ? "#F99026" :"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             {(parking!=="A-06")
                             ?<Text style={{fontSize:15, color: "#000000"}}>A-06</Text>
                             :
@@ -365,9 +365,9 @@ const AvailableParkingScreen = () => {
                             setParking("Parked")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
@@ -381,9 +381,9 @@ const AvailableParkingScreen = () => {
                             setParking("Parked")
                             setZone("A")
                         }}
-                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:180, minWidth:180,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
+                        activeOpacity={0.8} style={{maxHeight:150, minHeight:150,maxWidth:150, minWidth:150,backgroundColor:"#FFFFFF", borderWidth:1, borderColor:"#808080", padding:20}}>
                             <Image source={require("../../../../assets/Ride.jpg")}
-                            style={{width:130, height:100, resizeMode:"contain"}}
+                            style={{width:100, height:100, resizeMode:"contain"}}
                             />
                             <View style={{position:"absolute",right:0,backgroundColor:"#FDF1E5", padding:5, borderRadius:10}}>
                                 <Image
