@@ -117,6 +117,7 @@ const RoleHomeScreen = () => {
                 <RoleContainer
                 text="Dry Cleaners"
                 imageUrl={require("../assets/DryCleaner.png")}
+                tabHandler=""
                 />
             </View>
             }
@@ -144,6 +145,7 @@ const RoleHomeScreen = () => {
                     <RoleContainer
                     text="Dry Cleaner Merchant"
                     imageUrl={require("../assets/DryCleaner.png")}
+                    tabHandler=""
                     />
                 </View>
             </View>
