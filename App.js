@@ -43,6 +43,25 @@ import BookingConfirmationScreen from './screens/UserScreens/ParkingModule/BookP
 import PaymentScreen from './screens/UserScreens/ParkingModule/BookParkingScreens/PaymentScreen';
 import BookingConfirmedScreen from './screens/UserScreens/ParkingModule/BookParkingScreens/BookingConfirmedScreen';
 import SummaryScreen from './screens/UserScreens/ParkingModule/BookParkingScreens/SummaryScreen';
+//Food delivery screen
+import FoodDeliveryScreen from './screens/DriverScreens/FoodDeliveryScreen/Index';
+import NewOrder from './screens/DriverScreens/FoodDeliveryScreen/NewOrder/Index';
+import ListItems from './screens/DriverScreens/FoodDeliveryScreen/NewOrder/ListItems';
+import ItemDetail from './screens/DriverScreens/FoodDeliveryScreen/NewOrder/ItemDetail';
+import FoodMenu from './screens/DriverScreens/FoodDeliveryScreen/NewOrder/FoodMenu';
+import MenuDetails from './screens/DriverScreens/FoodDeliveryScreen/NewOrder/MenuDetails';
+import Checkout from './screens/DriverScreens/FoodDeliveryScreen/NewOrder/Checkout';
+import CheckoutBill from './screens/DriverScreens/FoodDeliveryScreen/NewOrder/CheckoutBill';
+import OrderPlaced from './screens/DriverScreens/FoodDeliveryScreen/NewOrder/OrderPlaced';
+import TrackOrder from './screens/DriverScreens/FoodDeliveryScreen/TrackOrder/Index';
+import FoodHistory from './screens/DriverScreens/FoodDeliveryScreen/History/Index';
+import MyCart from './screens/DriverScreens/FoodDeliveryScreen/MyCart/Index';
+import LocateScreen from './screens/UserScreens/DryCleanersModule/LocateScreen';
+import DryCleaningDetailPage from './screens/UserScreens/DryCleanersModule/DryCleaningDetailPage';
+import OrderHistoryScreen from './screens/UserScreens/DryCleanersModule/OrderHistoryScreen';
+import DetailedScreen from './screens/UserScreens/DryCleanersModule/DetailedScreen';
+import AvailableDryCleanersScreen from './screens/UserScreens/DryCleanersModule/AvailableDryCleanersScreen';
+import SelectItemsScreen from './screens/UserScreens/DryCleanersModule/SelectItemsScreen';
 
 const Stack = createStackNavigator();
 
@@ -94,6 +113,27 @@ function App(){
         <Stack.Screen name="Payment" component={PaymentScreen}/>
         <Stack.Screen name="Booking Confirmed" component={BookingConfirmedScreen}/>
         <Stack.Screen name='Summary' component={SummaryScreen}/>
+        {/* Dry Cleaners For Users */}
+        <Stack.Screen name="Locate" component={LocateScreen}/>
+        <Stack.Screen name="Dry Cleaning Details" component={DryCleaningDetailPage}/>
+        <Stack.Screen name="Order History" component={OrderHistoryScreen}/>
+        <Stack.Screen name="Detailed Screen" component={DetailedScreen}/>
+        <Stack.Screen name="Available Dry Cleaners" component={AvailableDryCleanersScreen}/>
+        <Stack.Screen name="Select Items" component={SelectItemsScreen}/>
+        {/* Food Delivery */}
+        <Stack.Screen name='Food Delivery' component={FoodDeliveryScreen}/>
+        <Stack.Screen name='NewOrder' component={NewOrder}/>
+        <Stack.Screen name='ListItems' component={ListItems}/>
+        <Stack.Screen name='ItemDetail' component={ItemDetail}/>
+        <Stack.Screen name='FoodMenu' component={FoodMenu}/>
+        <Stack.Screen name='MenuDetails' component={MenuDetails}/>
+        <Stack.Screen name='Checkout' component={Checkout}/>
+        <Stack.Screen name='CheckoutBill' component={CheckoutBill}/>
+        <Stack.Screen name='OrderPlaced' component={OrderPlaced}/>
+        <Stack.Screen name='TrackOrder' component={TrackOrder}/>
+        <Stack.Screen name='History' component={FoodHistory}/>
+        <Stack.Screen name='MyCart' component={MyCart}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );

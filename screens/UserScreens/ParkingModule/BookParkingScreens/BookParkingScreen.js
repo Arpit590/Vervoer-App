@@ -13,26 +13,8 @@ const BookParkingScreen = () => {
     const navigation = useNavigation();
     const value = useState(new Animated.Value(-500))[0];
     const value1 = useState(new Animated.Value(0))[0];
-    const [click, setClick] = useState("Adult");
     const [menu, setMenu] = useState(false);
 
-    const adultHandler=()=>{
-        setClick("Adult");
-        Animated.timing(value1,{
-            toValue:0,
-            duration:2000,
-            useNativeDriver:false
-        }).start()
-    }
-
-    const chlidHandler=()=>{
-        setClick("Child");
-        Animated.timing(value1,{
-            toValue:width-300,
-            duration:2000,
-            useNativeDriver:false
-        }).start()
-    }
 
     const openHandler=()=>{
         setMenu(true);

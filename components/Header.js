@@ -4,14 +4,14 @@ import MenuIcon from "../assets/Icon metro-menu.svg";
 
 const {height, width} = Dimensions.get("window");
 
-const Header = () => {
+const Header = ({openHandler}) => {
 
     const [menu, setMenu] = useState(false);
 
   return (
     <View style={styles.header}>
         <View style={{flexDirection:"row", alignItems:"center"}}>
-            <TouchableOpacity activeOpacity={0.8} >
+            <TouchableOpacity onPress={openHandler} activeOpacity={0.8} >
                 <Image
                 source={require("../assets/Avatar.png")}
                 style={{height:40, width:40, borderRadius:50}}

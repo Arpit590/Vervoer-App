@@ -351,38 +351,38 @@ const AvailableRidesScreen = () => {
                             </View>
                         </View>
                         <View style={{marginTop:20}}>
-                                <Text style={{fontSize:17, color:"#000000"}}>Ride Type</Text>
-                                <View style={{flexDirection:"row", alignItems:"center", borderBottomColor:"lightgray", borderBottomWidth:1, paddingVertical:10}}>
-                                    <CheckBox
-                                    checkedCheckBoxColor='#27AE60'
-                                    uncheckedCheckBoxColor='#5E5E60'
-                                    disabled={false}
-                                    isChecked={filtered}
-                                    onClick={()=>setFiltered(prevCheck => !prevCheck)}
-                                    />
-                                    <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Lorem Ipsum Dolor sit</Text>
-                                </View>
-                                <View style={{flexDirection:"row", alignItems:"center",borderBottomColor:"lightgray", borderBottomWidth:1, paddingVertical:10}}>
-                                    <CheckBox
-                                    checkedCheckBoxColor='#27AE60'
-                                    uncheckedCheckBoxColor='#5E5E60'
-                                    disabled={false}
-                                    isChecked={filtered}
-                                    onClick={()=>setFiltered(prevCheck => !prevCheck)}
-                                    />
-                                    <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Lorem Ipsum Dolor sit</Text>
-                                </View>
-                                <View style={{flexDirection:"row", alignItems:"center", borderBottomColor:"lightgray", borderBottomWidth:1, paddingVertical:10}}>
-                                    <CheckBox
-                                    checkedCheckBoxColor='#27AE60'
-                                    uncheckedCheckBoxColor='#5E5E60'
-                                    disabled={false}
-                                    isChecked={filtered}
-                                    onClick={()=>setFiltered(prevCheck => !prevCheck)}
-                                    />
-                                    <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Lorem Ipsum Dolor sit</Text>
-                                </View>
+                            <Text style={{fontSize:17, color:"#000000"}}>Ride Type</Text>
+                            <View style={{flexDirection:"row", alignItems:"center", borderBottomColor:"lightgray", borderBottomWidth:1, paddingVertical:10}}>
+                                <CheckBox
+                                checkedCheckBoxColor='#27AE60'
+                                uncheckedCheckBoxColor='#5E5E60'
+                                disabled={false}
+                                isChecked={filtered}
+                                onClick={()=>setFiltered(prevCheck => !prevCheck)}
+                                />
+                                <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Lorem Ipsum Dolor sit</Text>
                             </View>
+                            <View style={{flexDirection:"row", alignItems:"center",borderBottomColor:"lightgray", borderBottomWidth:1, paddingVertical:10}}>
+                                <CheckBox
+                                checkedCheckBoxColor='#27AE60'
+                                uncheckedCheckBoxColor='#5E5E60'
+                                disabled={false}
+                                isChecked={filtered}
+                                onClick={()=>setFiltered(prevCheck => !prevCheck)}
+                                />
+                                <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Lorem Ipsum Dolor sit</Text>
+                            </View>
+                            <View style={{flexDirection:"row", alignItems:"center", borderBottomColor:"lightgray", borderBottomWidth:1, paddingVertical:10}}>
+                                <CheckBox
+                                checkedCheckBoxColor='#27AE60'
+                                uncheckedCheckBoxColor='#5E5E60'
+                                disabled={false}
+                                isChecked={filtered}
+                                onClick={()=>setFiltered(prevCheck => !prevCheck)}
+                                />
+                                <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Lorem Ipsum Dolor sit</Text>
+                            </View>
+                        </View>
                     </View>
                 </View>
             </View>

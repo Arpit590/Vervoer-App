@@ -3,12 +3,14 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 const RoleContainer = ({imageUrl, text, tabHandler, tab}) => {
+  console.log('asdasd', text);
 
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
-    onPress={()=>navigation.navigate(tabHandler, {"heading": tab})}
+    onPress={text ==="Ride Share" || text ==="Book New Ride" || text ==="Live Session" || text ==="History" || text ==="Driver Application" || text ==="Find Parking" || text ==="My QBR code" || text ==="Live Session" || text ==="Parking" || text ==="Food Delivery" || text ==="NewOrder" || text ==="Place New Order" || text ==="My Cart" || text ==="Track Order" || text==="Dry Cleaners"? ()=>navigation.navigate(tabHandler, {"heading": tab}) : ()=>navigation.goBack()}
+    // onPress={()=>navigation.navigate(tabHandler, {"heading": tab})}
     activeOpacity={0.8} style={styles.container}>
       <Image
       source={imageUrl}
