@@ -62,6 +62,15 @@ import OrderHistoryScreen from './screens/UserScreens/DryCleanersModule/OrderHis
 import DetailedScreen from './screens/UserScreens/DryCleanersModule/DetailedScreen';
 import AvailableDryCleanersScreen from './screens/UserScreens/DryCleanersModule/AvailableDryCleanersScreen';
 import SelectItemsScreen from './screens/UserScreens/DryCleanersModule/SelectItemsScreen';
+import PickupLocation from "./screens/UserScreens/DryCleanersModule/PIckupLocationScreen";
+import DropLocationScreen from './screens/UserScreens/DryCleanersModule/DropLocationScreen';
+import ScheduleScreen from './screens/UserScreens/DryCleanersModule/ScheduleScreen';
+import OrderSummaryScreen from './screens/UserScreens/DryCleanersModule/OrderSummaryScreen';
+import OrderPaymentScreen from './screens/UserScreens/DryCleanersModule/OrderPaymentScreen';
+import OrderConfirmedScreen from './screens/UserScreens/DryCleanersModule/OrderConfirmedScreen';
+import ReceiptScreen from './screens/UserScreens/DryCleanersModule/ReceiptScreen';
+import ActiveOrderScreen from './screens/UserScreens/DryCleanersModule/ActiveOrderScreen';
+import LocateRiderScreen from './screens/DriverScreens/LocateRiderScreens/LocateRiderMainScreen';
 
 const Stack = createStackNavigator();
 
@@ -120,6 +129,14 @@ function App(){
         <Stack.Screen name="Detailed Screen" component={DetailedScreen}/>
         <Stack.Screen name="Available Dry Cleaners" component={AvailableDryCleanersScreen}/>
         <Stack.Screen name="Select Items" component={SelectItemsScreen}/>
+        <Stack.Screen name="Pickup Location" component={PickupLocation}/>
+        <Stack.Screen name="Drop Location" component={DropLocationScreen}/>
+        <Stack.Screen name="Schedule" component={ScheduleScreen}/>
+        <Stack.Screen name="Order Summary" component={OrderSummaryScreen}/>
+        <Stack.Screen name="Order Payment" component={OrderPaymentScreen}/>
+        <Stack.Screen name="Order Confirmed" component={OrderConfirmedScreen}/>
+        <Stack.Screen name="Receipt" component={ReceiptScreen}/>
+        <Stack.Screen name="Active Order" component={ActiveOrderScreen}/>
         {/* Food Delivery */}
         <Stack.Screen name='Food Delivery' component={FoodDeliveryScreen}/>
         <Stack.Screen name='NewOrder' component={NewOrder}/>
@@ -133,7 +150,8 @@ function App(){
         <Stack.Screen name='TrackOrder' component={TrackOrder}/>
         <Stack.Screen name='History' component={FoodHistory}/>
         <Stack.Screen name='MyCart' component={MyCart}/>
-
+        {/* Locate Rider */}
+        <Stack.Screen name="Locate Rider" component={LocateRiderScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
