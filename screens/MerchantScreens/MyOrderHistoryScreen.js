@@ -101,7 +101,7 @@ const MyOrderHistoryScreen = () => {
                         </View>
                     </View>
                     <TouchableOpacity 
-                    onPress={()=>setIsOpen(true)}
+                    onPress={()=>{}}
                     activeOpacity={0.8} style={{backgroundColor:"#5E5E60", padding:10, borderRadius:10, flexDirection:"row", alignItems:"center"}}>
                         <Image
                         source={require("../../assets/filter.png")}
