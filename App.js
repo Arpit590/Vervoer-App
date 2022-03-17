@@ -81,6 +81,7 @@ import OrderDropScreen from './screens/DriverScreens/DryCleaningScreens/OrderDro
 import DropOffConfirmedScreen from './screens/DriverScreens/DryCleaningScreens/DropOffConfirmedScreen';
 import DryCleaningReceiptScreen from './screens/DriverScreens/DryCleaningScreens/DryCleaningReceiptScreen';
 import DryCleaningServiceScreen from './screens/MerchantScreens/DryCleanerScreens/DryCleaningServiceScreen';
+import MyOrderHistoryScreen from './screens/MerchantScreens/MyOrderHistoryScreen';
 
 const Stack = createStackNavigator();
 
@@ -175,6 +176,7 @@ function App(){
         {/* Merchant */}
         {/* Dry Cleaning Service */}
         <Stack.Screen name="Dry Cleaning Service" component={DryCleaningServiceScreen}/>
+        <Stack.Screen name='MyOrderHistory' component={MyOrderHistoryScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

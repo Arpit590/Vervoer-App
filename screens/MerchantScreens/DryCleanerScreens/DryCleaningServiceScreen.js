@@ -4,6 +4,7 @@ import BackArrowIcon from "../../../assets/back.svg";
 import { useNavigation, useRoute } from '@react-navigation/native'
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MenuIcon from "../../../assets/Icon metro-menu.svg";
+import EditItemContainer from './EditItemContainer';
 
 const {height, width} = Dimensions.get("window");
 
@@ -13,15 +14,19 @@ const DryCleaningServiceScreen = () => {
     const navigation = useNavigation();
     const value = useState(new Animated.Value(-500))[0];
     const [click, setClick] = useState("");
+    const [click1, setClick1] = useState("");
     const [menu, setMenu] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen1, setIsOpen1] = useState(false);
+    const [isOpen2, setIsOpen2] = useState(false);
     const [dryCleanerName, setDryCleanerName] = useState("");
     const [address, setAddress] = useState("");
     const [state, setState] = useState("");
     const [city, setCity] = useState("");
     const [zipCode, setZipCode] = useState("");
     const [description, setDescription] = useState("");
+    const [contactName, setContactName] = useState("");
+    const [number, setNumber] = useState("");
 
     const closeHandle=()=>{
         setIsOpen(false);
@@ -30,12 +35,20 @@ const DryCleaningServiceScreen = () => {
         setIsOpen1(false);
     }
 
+    const closeHandle2=()=>{
+        setIsOpen2(false);
+    }
+
     const submitHandler =()=>{
         setIsOpen(false);
     }
 
     const submitHandler1=()=>{
         setIsOpen1(false);
+    }
+
+    const submitHandler2=()=>{
+        setIsOpen2(false);
     }
 
     const openHandler=()=>{
@@ -57,7 +70,7 @@ const DryCleaningServiceScreen = () => {
     }
     
   return (
-    <View style={[styles.screen, {backgroundColor:isOpen || isOpen1 ? "#000000" : "whitesmoke"}]}>
+    <View style={[styles.screen, {backgroundColor:isOpen || isOpen1 || isOpen2 ? "#000000" : "whitesmoke"}]}>
         <View style={styles.header}>
             <View style={{flexDirection:"row", alignItems:"center"}}>
                 <TouchableOpacity activeOpacity={0.8} onPress={openHandler}>
@@ -123,7 +136,7 @@ const DryCleaningServiceScreen = () => {
                         <Text style={{fontSize:12, color:"#808080", marginTop:5}}>Scan QR</Text>
                     </TouchableOpacity>
                 </View>
-                <ScrollView showsVerticalScrollIndicator={false} style={{display:isOpen || isOpen1 ? "none" : "flex",marginTop:10}}>
+                <ScrollView showsVerticalScrollIndicator={false} style={{display:isOpen || isOpen1 || isOpen2 ? "none" : "flex",marginTop:10}}>
                     <View style={{}}>
                         <Image
                         source={require("../../../assets/DryCleaning.png")}
@@ -133,86 +146,99 @@ const DryCleaningServiceScreen = () => {
                             <Text style={{fontSize:13, color:"#808080", textAlign:"center"}}>Edit Image</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={{flexDirection:"row", alignItems:"flex-end", backgroundColor:"#FDF1E5", padding:10, borderRadius:10, marginVertical:20}}>
-                        <View style={{flexDirection:"row", alignItems:"flex-start"}}>
-                            <View style={{alignItems:"center", justifyContent:"center",backgroundColor:"#F99026", padding:10,borderRadius:20}}>
-                                <Image
-                                source={require("../../../assets/service.png")}
-                                style={{height:15, width:15, resizeMode:"contain"}}
-                                />
-                            </View>
-                            <View style={{marginLeft:10, flexDirection:"row", alignItems:"flex-start", justifyContent:"space-between", flex:1}}>
-                                <View style={{}}>
-                                    <View style={{flexDirection:"row", alignItems:"center", marginBottom:5}}>
-                                        <Text style={{fontSize:15, color:"#000000"}}>{dryCleanerName}</Text>
-                                        <View style={{flexDirection:"row", alignItems:"center", marginLeft:20}}>
-                                            <Image
-                                            source={require("../../../assets/rating.png")}
-                                            style={{height:15, width:15, resizeMode:"contain"}}
-                                            />
-                                            <Text style={{fontSize:12, color:"#000000", marginLeft:5}}>4.2</Text>
-                                        </View>
-                                    </View>
-                                    <Text style={{fontSize:12, color:"#808080"}}>{address}, {city}, {state}</Text>
-                                    <View style={{flexDirection:"row", alignItems:"center", marginVertical:10}}>
-                                        <View style={{flexDirection:"row", alignItems:"center", marginLeft:-35}}>
-                                            <Image
-                                            source={require("../../../assets/timer.png")}
-                                            style={{height:15, width:15, resizeMode:"contain"}}
-                                            />
-                                            <Text style={{fontSize:12, color:"#808080", marginLeft:10}}>Mon - Fri 12:00 PM - 08:00 PM</Text>
-                                        </View>
-                                    </View>
+                    <View style={{backgroundColor:"white", elevation:5, width:"100%", padding:10, marginVertical:10}}>
+                        <View style={{flexDirection:"row", alignItems:"flex-end", backgroundColor:"#FDF1E5", padding:10, borderRadius:10, marginVertical:20}}>
+                            <View style={{flexDirection:"row", alignItems:"flex-start"}}>
+                                <View style={{alignItems:"center", justifyContent:"center",backgroundColor:"#F99026", padding:10,borderRadius:20}}>
+                                    <Image
+                                    source={require("../../../assets/service.png")}
+                                    style={{height:15, width:15, resizeMode:"contain"}}
+                                    />
                                 </View>
-                                <View style={{alignItems:"flex-end"}}>
-                                    <TouchableOpacity activeOpacity={0.8}
-                                    onPress={()=>setIsOpen(true)}>
-                                        <Text style={{fontSize:14, color:"#808080"}}>Edit</Text>
-                                    </TouchableOpacity>  
+                                <View style={{marginLeft:10, flexDirection:"row", alignItems:"flex-start", justifyContent:"space-between", flex:1}}>
+                                    <View style={{}}>
+                                        <View style={{flexDirection:"row", alignItems:"center", marginBottom:5}}>
+                                            <Text style={{fontSize:15, color:"#000000"}}>{dryCleanerName}</Text>
+                                            <View style={{flexDirection:"row", alignItems:"center", marginLeft:20}}>
+                                                <Image
+                                                source={require("../../../assets/rating.png")}
+                                                style={{height:15, width:15, resizeMode:"contain"}}
+                                                />
+                                                <Text style={{fontSize:12, color:"#000000", marginLeft:5}}>4.2</Text>
+                                            </View>
+                                        </View>
+                                        <Text style={{fontSize:12, color:"#808080"}}>{address}, {city}, {state}</Text>
+                                        <View style={{flexDirection:"row", alignItems:"center", marginVertical:10}}>
+                                            <View style={{flexDirection:"row", alignItems:"center", marginLeft:-35}}>
+                                                <Image
+                                                source={require("../../../assets/timer.png")}
+                                                style={{height:15, width:15, resizeMode:"contain"}}
+                                                />
+                                                <Text style={{fontSize:12, color:"#808080", marginLeft:10}}>Mon - Fri 12:00 PM - 08:00 PM</Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                    <View style={{alignItems:"flex-end"}}>
+                                        <TouchableOpacity activeOpacity={0.8}
+                                        onPress={()=>setIsOpen(true)}>
+                                            <Text style={{fontSize:14, color:"#808080"}}>Edit</Text>
+                                        </TouchableOpacity>  
+                                    </View>
                                 </View>
                             </View>
                         </View>
-                    </View>
-                    <View style={{marginVertical:20}}>
-                        <View style={{backgroundColor:"#FFFFFF", padding:10, borderRadius:10}}>
-                            <View style={{flexDirection:"row", alignItems:"center", marginBottom:10}}>
-                                <Text style={{fontSize:16, color:"#000000", marginRight:10}}>About:</Text>
+                        <View style={{marginVertical:20}}>
+                            <View style={{backgroundColor:"#FFFFFF", padding:10, borderRadius:10}}>
+                                <View style={{flexDirection:"row", alignItems:"center", marginBottom:10}}>
+                                    <Text style={{fontSize:16, color:"#000000", marginRight:10}}>About:</Text>
+                                    <TouchableOpacity activeOpacity={0.8}
+                                    onPress={()=>setIsOpen1(true)}
+                                    >
+                                        <Text style={{fontSize:12, color:"#808080"}}>Edit</Text>
+                                    </TouchableOpacity>
+                                </View>
+                                <Text style={{fontSize:14, color:"#000000", marginBottom:10}}>{description}</Text>
+                            </View>
+                        </View>
+                        <View style={{marginBottom:10}}>
+                            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                                <Text style={{fontSize:15, color:"#000000", marginBottom:10}}>Contact Info</Text>
                                 <TouchableOpacity activeOpacity={0.8}
-                                onPress={()=>setIsOpen1(true)}
+                                onPress={()=>setIsOpen2(true)}
                                 >
                                     <Text style={{fontSize:12, color:"#808080"}}>Edit</Text>
                                 </TouchableOpacity>
                             </View>
-                            <Text style={{fontSize:14, color:"#000000", marginBottom:10}}>{description}</Text>
-                        </View>
-                    </View>
-                    <View style={{marginBottom:10}}>
-                        <Text style={{fontSize:15, color:"#000000", marginBottom:10}}>Contact Info</Text>
-                        <View style={{backgroundColor:"white", paddingHorizontal:15, paddingVertical:10,borderRadius:20,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
-                            <View style={{flexDirection:"row", alignItems:"center"}}>
-                                <Image
-                                source={require("../../../assets/callProfile.png")}
-                                style={{height:50, width:50, resizeMode:"contain"}}
-                                />
-                                <View style={{marginLeft:20}}>
-                                    <Text style={{fontSize:13, color:"#000000", marginBottom:5}}>Jason Anderson</Text>
-                                    <View style={{flexDirection:"row", alignItems:"center"}}>
-                                        <Image
-                                        source={require("../../../assets/Calling.png")}
-                                        style={{height:20, width:20, resizeMode:"contain", marginRight:5}}
+                            <View style={{backgroundColor:"white", paddingHorizontal:15, paddingVertical:10,borderRadius:20,flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                                <View style={{flexDirection:"row", alignItems:"center"}}>
+                                    <Image
+                                    source={require("../../../assets/callProfile.png")}
+                                    style={{height:50, width:50, resizeMode:"contain"}}
+                                    />
+                                    <View style={{marginLeft:20}}>
+                                        <Text style={{fontSize:13, color:"#000000", marginBottom:5}}>{contactName}</Text>
+                                        <View style={{flexDirection:"row", alignItems:"center"}}>
+                                            <Image
+                                            source={require("../../../assets/Calling.png")}
+                                            style={{height:20, width:20, resizeMode:"contain", marginRight:5}}
 
-                                        />
-                                        <Text style={{fontSize:11, color:"#000000"}}>+1 1048285215</Text>
+                                            />
+                                            <Text style={{fontSize:11, color:"#000000"}}>{number}</Text>
+                                        </View>
                                     </View>
                                 </View>
                             </View>
-                            <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#5E5E60", padding:10, borderRadius:10}}>
-                                <Text style={{fontSize:13, color:"#FFFFFF"}}>Call</Text>
-                            </TouchableOpacity>
                         </View>
                     </View>
                     <View style={{marginBottom:200}}>
-                        <Text style={{fontSize:15, color:"#000000", marginBottom:10}}>Availability</Text>
+                        <View style={{flexDirection:"row", alignItems:"center", marginBottom:10, justifyContent:"space-between", marginVertical:20}}>
+                            <Text style={{fontSize:16, color:"#000000"}}>Hours Of Operation</Text>
+                            <TouchableOpacity activeOpacity={0.8}
+                            onPress={()=>{}}
+                            >
+                                <Text style={{fontSize:12, color:"#808080"}}>Edit</Text>
+                            </TouchableOpacity>
+                        </View>
                         <ScrollView horizontal={true}>
                             <TouchableOpacity activeOpacity={0.8}
                             onPress={()=>setClick("Monday 12:00PM-8:00PM")}
@@ -271,6 +297,77 @@ const DryCleaningServiceScreen = () => {
                                 <Text style={{fontSize:12, color:"#000000", marginBottom:10}}>08:00 PM</Text>
                             </TouchableOpacity>
                         </ScrollView>
+                        <View style={{flexDirection:"row", alignItems:"center", marginVertical:20, justifyContent:"space-between"}}>
+                            <TouchableOpacity activeOpacity={0.8}
+                            onPress={()=>navigation.navigate("")}
+                            >
+                                <Text style={{fontSize:15, color:"#F99026"}}>ACTIVE ORDERS</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity activeOpacity={0.8}
+                            onPress={()=>navigation.navigate("MyOrderHistory")}
+                            >
+                                <Text style={{fontSize:15, color:"#F99026"}}>ORDER HISTORY</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{marginVertical:10}}>
+                            <View style={{flexDirection:"row", alignItems:"center", marginVertical:20, justifyContent:"space-between"}}>
+                                <Text style={{fontSize:15, color:"#000000"}}>Services</Text>
+                                <TouchableOpacity activeOpacity={0.8}
+                                onPress={()=>{}}
+                                >
+                                    <Text style={{fontSize:13, color:"#808080"}}>Edit</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                                <TouchableOpacity 
+                                onPress={()=>setClick1("Blanket")}
+                                activeOpacity={0.8} style={{backgroundColor:(click1==="Blanket") ? "#F99026" :"#5E5E60", paddingHorizontal:15, paddingVertical:10, borderRadius:10}}>
+                                    <Text style={{fontSize:12, color:"#FFFFFF"}}>Blanket</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity 
+                                onPress={()=>setClick1("Blouse/Tops")}
+                                activeOpacity={0.8} style={{backgroundColor:(click1==="Blouse/Tops") ? "#F99026" :"#5E5E60", marginHorizontal:10,paddingHorizontal:15, paddingVertical:10, borderRadius:10}}>
+                                    <Text style={{fontSize:12, color:"#FFFFFF"}}>Blouse/Tops</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity 
+                                onPress={()=>setClick1("Coat")}
+                                activeOpacity={0.8} style={{backgroundColor:(click1==="Coat") ? "#F99026" :"#5E5E60", marginHorizontal:10,paddingHorizontal:15, paddingVertical:10, borderRadius:10}}>
+                                    <Text style={{fontSize:12, color:"#FFFFFF"}}>Coat</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity 
+                                onPress={()=>setClick1("Comforter")}
+                                activeOpacity={0.8} style={{backgroundColor:(click1==="Comforter") ? "#F99026" :"#5E5E60", marginHorizontal:10,paddingHorizontal:15, paddingVertical:10, borderRadius:10}}>
+                                    <Text style={{fontSize:12, color:"#FFFFFF"}}>Comforter</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity 
+                                onPress={()=>setClick1("Duvet Cover")}
+                                activeOpacity={0.8} style={{backgroundColor:(click1==="Duvet Cover") ? "#F99026" :"#5E5E60", marginHorizontal:10,paddingHorizontal:15, paddingVertical:10, borderRadius:10}}>
+                                    <Text style={{fontSize:12, color:"#FFFFFF"}}>Duvet Cover</Text>
+                                </TouchableOpacity>
+                            </ScrollView>
+                            <View style={{marginVertical:20, marginBottom:200}}>
+                                <EditItemContainer
+                                title="T-Shirt"
+                                price="5.00"
+                                />
+                                <EditItemContainer
+                                title="Shirt"
+                                price="10.00"
+                                />
+                                <EditItemContainer
+                                title="Jeans"
+                                price="15.00"
+                                />
+                                <EditItemContainer
+                                title="Short"
+                                price="5.00"
+                                />
+                                <EditItemContainer
+                                title="Jacket"
+                                price="25.00"
+                                />
+                            </View>
+                        </View>
                     </View>
                 </ScrollView>
             </View>
@@ -473,6 +570,62 @@ const DryCleaningServiceScreen = () => {
                             </TouchableOpacity>
                             <TouchableOpacity 
                             onPress={closeHandle1}
+                            activeOpacity={0.8} style={{marginTop:10,backgroundColor:"#5E5E60", padding:20, borderRadius:30, width:width-100, alignItems:"center", alignSelf:"center"}}>
+                                <Text style={{fontSize:15, color:"#FFFFFF"}}>Cancel</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </View>
+        </Modal>
+        <Modal
+        animationType={"slide"}
+        onRequestClose={closeHandle2}
+        transparent={true}
+        visible={isOpen2}>
+            <View style={{alignItems:"center", width:"90%", flex:1, justifyContent:"flex-start", top:"20%",alignSelf:"center"}}>
+                <View style={styles.modal}>
+                    <View style={{}}>
+                        <Text style={{fontSize:15, color:"#000000", marginBottom:20}}>Contact Info</Text>
+                        <View style={{flexDirection:"row", alignItems:"center", marginBottom:20}}>
+                            <Image
+                            source={require("../../../assets/callProfile.png")}
+                            style={{height:100, width:100, resizeMode:"contain", borderRadius:100}}
+                            />
+                            <TouchableOpacity activeOpacity={0.8}>
+                                <Text style={{fontSize:15, color:"#808080", marginLeft:20}}>Change Image</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{marginBottom:15}}>
+                            <Text style={{fontSize:15, color:"#000000", marginBottom:10}}>Contact Name</Text>
+                            <TextInput
+                            placeholder='Jason Anderson'
+                            value={contactName}
+                            onChangeText={(text)=>setContactName(text)}
+                            placeholderTextColor="#808080"
+                            keyboardType='default'
+                            style={{fontSize:14, color:"#000000", borderBottomColor:"#808080", borderBottomWidth:1, paddingBottom:10}}
+                            />
+                        </View>
+                        <View style={{marginBottom:15}}>
+                            <Text style={{fontSize:15, color:"#000000", marginBottom:10}}>Contact Name</Text>
+                            <TextInput
+                            placeholder='123-456-789'
+                            value={number}
+                            onChangeText={(text)=>setNumber(text)}
+                            placeholderTextColor="#808080"
+                            keyboardType='number-pad'
+                            style={{fontSize:14, color:"#000000", borderBottomColor:"#808080", borderBottomWidth:1, paddingBottom:10}}
+                            />
+                        </View>
+                        <View style={{marginTop:20}}>
+                            <TouchableOpacity
+                            onPress={submitHandler2}
+                            activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:20, borderRadius:30, width:width-100, alignItems:"center", alignSelf:"center"}}>
+                                <Text style={{fontSize:15, color:"#FFFFFF"}}>Apply</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity 
+                            onPress={closeHandle2}
                             activeOpacity={0.8} style={{marginTop:10,backgroundColor:"#5E5E60", padding:20, borderRadius:30, width:width-100, alignItems:"center", alignSelf:"center"}}>
                                 <Text style={{fontSize:15, color:"#FFFFFF"}}>Cancel</Text>
                             </TouchableOpacity>
