@@ -452,7 +452,7 @@ const PersonalInfoScreen = () => {
                 </View>
                 <View style={{marginTop:30, marginBottom:100}}>
                     <TouchableOpacity activeOpacity={0.8}
-                    onPress={()=>navigation.navigate("Account Info")}
+                    onPress={()=>navigation.navigate("Account Info", {"role": route.params.role})}
                     style={{width:"90%",alignSelf:"center", backgroundColor:"#F99026", paddingHorizontal:20, paddingVertical:15, borderRadius:100}}>
                         <Text style={{color:"#FFFFFF", fontSize:15, fontWeight:"500", textAlign:"center"}}>Continue</Text>
                     </TouchableOpacity>

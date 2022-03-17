@@ -151,6 +151,7 @@ const RideShareScreen = () => {
                 tabHandler="Driver Register"
                 tab="Driver Register"
                 imageUrl={require("../../../../assets/Driver.png")}
+                role="Users"
                 />
             </View>
         </ScrollView>

@@ -2,14 +2,14 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-const RoleContainer = ({imageUrl, text, tabHandler, tab}) => {
+const RoleContainer = ({imageUrl, text, tabHandler, tab, role}) => {
   console.log('asdasd', text);
 
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
-    onPress={text ==="Ride Share" || text ==="Book New Ride" || text ==="Live Session" || text ==="History" || text ==="Driver Application" || text ==="Find Parking" || text ==="My QBR code" || text ==="Live Session" || text ==="Parking" || text ==="Food Delivery" || text ==="NewOrder" || text ==="Place New Order" || text ==="My Cart" || text ==="Track Order" || text==="Dry Cleaners" || text==="Locate Rider"? ()=>navigation.navigate(tabHandler, {"heading": tab}) : ()=>navigation.goBack()}
+    onPress={text ==="Ride Share" || text ==="Book New Ride" || text ==="Live Session" || text ==="History" || text ==="Driver Application" || text ==="Find Parking" || text ==="My QBR code" || text ==="Live Session" || text ==="Parking" || text ==="Food Delivery" || text ==="NewOrder" || text ==="Place New Order" || text ==="My Cart" || text ==="Track Order" || text==="Dry Cleaners" || text==="Locate Rider" || text==="Dry Cleaning" || text==="Driver Registration" || text==="Dry Cleaner Merchant" ? ()=>navigation.navigate(tabHandler, {"heading": tab, "role": role}) : ()=>navigation.goBack()}
     // onPress={()=>navigation.navigate(tabHandler, {"heading": tab})}
     activeOpacity={0.8} style={styles.container}>
       <Image

@@ -71,6 +71,16 @@ import OrderConfirmedScreen from './screens/UserScreens/DryCleanersModule/OrderC
 import ReceiptScreen from './screens/UserScreens/DryCleanersModule/ReceiptScreen';
 import ActiveOrderScreen from './screens/UserScreens/DryCleanersModule/ActiveOrderScreen';
 import LocateRiderScreen from './screens/DriverScreens/LocateRiderScreens/LocateRiderMainScreen';
+import CancelTripScreen from './screens/DriverScreens/LocateRiderScreens/CancelTripScreen';
+import RideAcceptedScreen from './screens/DriverScreens/LocateRiderScreens/RideAcceptedScreen';
+import RideSummaryScreen from './screens/DriverScreens/LocateRiderScreens/RideSummaryScreen';
+import LocateDryCleaningScreen from './screens/DriverScreens/DryCleaningScreens/LocateDryCleaningScreen';
+import OrderAcceptingScreen from './screens/DriverScreens/DryCleaningScreens/OrderAcceptingScreen';
+import OrderPickedUpScreen from './screens/DriverScreens/DryCleaningScreens/OrderPickedUpScreen';
+import OrderDropScreen from './screens/DriverScreens/DryCleaningScreens/OrderDropScreen';
+import DropOffConfirmedScreen from './screens/DriverScreens/DryCleaningScreens/DropOffConfirmedScreen';
+import DryCleaningReceiptScreen from './screens/DriverScreens/DryCleaningScreens/DryCleaningReceiptScreen';
+import DryCleaningServiceScreen from './screens/MerchantScreens/DryCleanerScreens/DryCleaningServiceScreen';
 
 const Stack = createStackNavigator();
 
@@ -152,6 +162,19 @@ function App(){
         <Stack.Screen name='MyCart' component={MyCart}/>
         {/* Locate Rider */}
         <Stack.Screen name="Locate Rider" component={LocateRiderScreen}/>
+        <Stack.Screen name="Cancel Trip" component={CancelTripScreen}/>
+        <Stack.Screen name="Ride Accepted" component={RideAcceptedScreen}/>
+        <Stack.Screen name="Ride Summary" component={RideSummaryScreen}/>
+        {/* Locate Dry Cleaning */}
+        <Stack.Screen name="Locate Dry Cleaning" component={LocateDryCleaningScreen}/>
+        <Stack.Screen name="Order Accepting" component={OrderAcceptingScreen}/>
+        <Stack.Screen name="Order PickedUp" component={OrderPickedUpScreen}/>
+        <Stack.Screen name="Order Drop" component={OrderDropScreen}/>
+        <Stack.Screen name="Drop Off" component={DropOffConfirmedScreen}/>
+        <Stack.Screen name='Dry Cleaning Receipt' component={DryCleaningReceiptScreen}/>
+        {/* Merchant */}
+        {/* Dry Cleaning Service */}
+        <Stack.Screen name="Dry Cleaning Service" component={DryCleaningServiceScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

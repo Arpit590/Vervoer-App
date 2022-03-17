@@ -123,7 +123,7 @@ const DriverRegisterScreen = () => {
                         <Text style={{fontSize:14, color:"#000000"}}>Or</Text>
                     </View>
                     <View style={{marginVertical:20}}>
-                        <Text style={{fontSize:10, color:"#808080", marginBottom:0}}>Phone Number</Text>
+                        <Text style={{fontSize:10, color:"#808080", marginBottom:0}}>Email Address</Text>
                         <View style={{flexDirection:"row", alignItems:"center", borderBottomColor:"#808080", borderBottomWidth:1, width:width-40}}>
                             <TextInput
                             placeholder='Enter Your Email'
@@ -137,7 +137,7 @@ const DriverRegisterScreen = () => {
                     </View>
                     <View style={{marginTop:100}}>
                         <TouchableOpacity activeOpacity={0.8}
-                        onPress={()=>navigation.navigate("Driver OTP")}
+                        onPress={()=>navigation.navigate("Driver OTP", {"role": route.params.role})}
                         style={{width:"90%",alignSelf:"center", backgroundColor:"#F99026", paddingHorizontal:20, paddingVertical:15, borderRadius:100}}>
                             <Text style={{color:"#FFFFFF", fontSize:15, fontWeight:"500", textAlign:"center"}}>Continue</Text>
                         </TouchableOpacity>

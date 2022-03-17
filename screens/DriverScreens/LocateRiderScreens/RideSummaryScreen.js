@@ -1,19 +1,17 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions, ImageBackground, TextInput } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import BackArrowIcon from "../../../assets/back.svg";
 import { useNavigation, useRoute } from '@react-navigation/native'
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MenuIcon from "../../../assets/Icon metro-menu.svg";
-import RiderContainer from './RiderContainer';
 
 const {height, width} = Dimensions.get("window");
 
-const LocateRiderScreen = () => {
+const RideSummaryScreen = () => {
  
     const route = useRoute();
     const navigation = useNavigation();
     const value = useState(new Animated.Value(-500))[0];
-    const value1 = useState(new Animated.Value(0))[0];
     const [menu, setMenu] = useState(false);
 
     const openHandler=()=>{
@@ -36,10 +34,6 @@ const LocateRiderScreen = () => {
     
   return (
     <View style={styles.screen}>
-        <ImageBackground
-        source={require("../../../assets/Map.png")}
-        style={{width:width, height:height, zIndex:-1}}
-        />
         <View style={styles.header}>
             <View style={{flexDirection:"row", alignItems:"center"}}>
                 <TouchableOpacity activeOpacity={0.8} onPress={openHandler}>
@@ -82,71 +76,111 @@ const LocateRiderScreen = () => {
                 </TouchableOpacity>
             </View>
         </View>
-        <View style={{position:"absolute", top:"12%", paddingHorizontal:20}}>
-            <View style={{zIndex:10,flexDirection:"column",marginTop:20}}>
-                <View style={{flexDirection:"row", alignItems:"flex-start"}}>
-                    <TouchableOpacity activeOpacity={0.8}
-                    style={{}}
-                    onPress={()=>navigation.goBack()}>
-                        <BackArrowIcon
-                        height={'30'}
-                        />
-                    </TouchableOpacity>
-                    <View style={{marginLeft:20}}>
-                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Locate Rider</Text>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{zIndex:10,flexDirection:"column",marginTop:20, marginHorizontal:20}}>
+                <View style={{flexDirection:"row" ,alignItems:"center", justifyContent:"space-between"}}>
+                    <View style={{flexDirection:"row", alignItems:"flex-start"}}>
+                        <TouchableOpacity activeOpacity={0.8}
+                        style={{}}
+                        onPress={()=>navigation.goBack()}>
+                            <BackArrowIcon
+                            height={'30'}
+                            />
+                        </TouchableOpacity>
+                        <View style={{marginLeft:20}}>
+                            <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Your Session Summary</Text>
+                        </View>
+                    </View>
+                    <Text style={{fontSize:15, color:"#F99026"}}>#RIDSR58223</Text>
+                </View>
+                <View style={{marginTop:30}}>
+                    <View style={{alignItems:"center", marginTop:10, paddingBottom:10, borderBottomColor:"#5E5E60", borderBottomWidth:1}}>
+                        <Text style={{fontSize:13, color:"#000000", marginBottom:10}}>Your bill is</Text>
+                        <Text style={{fontSize:45, color:"#F99026", marginBottom:10}}>$ 22.30</Text>
+                        <Text style={{fontSize:15, color:"#000000"}}>28 MAY 2021, 2:00 PM</Text>
+                    </View>
+                    <View
+                    style={{marginTop:20,padding:20, backgroundColor:"#FFFFFF", borderRadius:10}}>
+                        <View style={{flexDirection:"row", alignItems:"center", marginBottom:10}}>
+                            <View style={{backgroundColor:"#F99026", padding:10, borderRadius:50}}>
+                                <Image
+                                source={require("../../../assets/User.png")}
+                                style={{height:20, width:20, resizeMode:"contain"}}
+                                />
+                            </View>
+                            <Text style={{fontSize:15, color:"#000000", marginLeft:10, fontWeight:"700"}}>{route.params.name}</Text>
+                        </View>
+                        <View style={{padding:10}}>
+                            <View style={{flexDirection:"row", alignItems:"flex-start", justifyContent:"space-between",}}>
+                                <View style={{flexDirection:"row", alignItems:"flex-start"}}>
+                                    <View style={{backgroundColor:"whitesmoke", borderRadius:50, borderWidth:1, borderColor:"green", padding:5}}>
+                                        <View style={{backgroundColor:"green", padding:5, borderRadius:50}}></View>
+                                    </View>
+                                    <View style={{marginLeft:10}}>
+                                        <Text style={{fontSize:13, color:"#000000", marginBottom:5}}>Pickup</Text>
+                                        <Text style={{fontSize:12, color:"#808080"}}>{route.params.pickupLocation}</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={{marginTop:20,flexDirection:"row", alignItems:"flex-start", justifyContent:"space-between",}}>
+                                <View style={{flexDirection:"row", alignItems:"flex-start"}}>
+                                    <View style={{backgroundColor:"whitesmoke", borderRadius:50, borderWidth:1, borderColor:"red", padding:5}}>
+                                        <View style={{backgroundColor:"red", padding:5, borderRadius:50}}></View>
+                                    </View>
+                                    <View style={{marginLeft:10}}>
+                                        <Text style={{fontSize:13, color:"#000000", marginBottom:5}}>Drop Off</Text>
+                                        <Text style={{fontSize:12, color:"#808080"}}>{route.params.dropLocation}</Text>
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                            <View style={{flexDirection:"row", alignItems:"center"}}>
+                                <Image
+                                source={require("../../../assets/droplocation.png")}
+                                style={{height:15, width:15, resizeMode:"contain"}}
+                                />
+                                <Text style={{marginLeft:8, fontSize:12, color:"#808080"}}>{route.params.miles} miles</Text>
+                            </View>
+                            <View style={{flexDirection:"row", alignItems:"center"}}>
+                                <Image
+                                source={require("../../../assets/timer.png")}
+                                style={{height:15, width:15, resizeMode:"contain"}}
+                                />
+                                <Text style={{marginLeft:8, fontSize:12, color:"#808080"}}>{route.params.duration}</Text>
+                            </View>
+                            <Text style={{fontSize:14, color:"#F99026"}}>${route.params.price}</Text>
+                        </View>
+                    </View>
+                    <View>
+                        <View style={{}}>
+                            <Text style={{fontSize:15, color:"#000000", marginBottom:10, marginTop:20}}>Payment Summary</Text>
+                            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                                <Text style={{fontSize:14, color:"#5E5E60"}}>Started At</Text>
+                                <Text style={{fontSize:14, color:"#5E5E60"}}>26 MAY 2021, 10:00 AM</Text>
+                            </View>
+                            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                                <Text style={{fontSize:14, color:"#5E5E60"}}>End At</Text>
+                                <Text style={{fontSize:14, color:"#5E5E60"}}>26 MAY 2021, 12:00 AM</Text>
+                            </View>
+                            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                                <Text style={{fontSize:14, color:"#5E5E60"}}>Time Used</Text>
+                                <Text style={{fontSize:14, color:"#5E5E60"}}>{route.params.duration}</Text>
+                            </View>
+                            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                                <Text style={{fontSize:14, color:"#5E5E60"}}>Driver Tip</Text>
+                                <Text style={{fontSize:14, color:"#5E5E60"}}>${route.params.tip}</Text>
+                            </View>
+                            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                                <Text style={{fontSize:16, color:"#F99026"}}>Total Payment (*Approx)</Text>
+                                <Text style={{fontSize:16, color:"#F99026"}}>$10.00</Text>
+                            </View>
+                        </View>
                     </View>
                 </View>
             </View>
-        </View>
-        <View style={{alignSelf:"center", marginTop:20, width:width, position:"absolute", bottom:0}}>
-            <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026",padding:10,borderRadius:30, alignSelf:"flex-end", marginHorizontal:30}}>
-                <Image
-                source={require("../../../assets/currentlocation.png")}
-                style={{height:20, width:20, resizeMode:"contain"}}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#FFFFFF",padding:10,borderRadius:30, alignSelf:"flex-end", marginHorizontal:30, marginVertical:20}}>
-                <Image
-                source={require("../../../assets/Code.png")}
-                style={{height:20, width:20, resizeMode:"contain"}}
-                />
-            </TouchableOpacity>
-            <View style={{backgroundColor:"#FFFFFF", padding:10, borderRadius:20, height:400}}>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <RiderContainer
-                    name="Jason Anderson"
-                    price="22.30"
-                    duration="50 min"
-                    pickupLocation="123, Lincon Street, New York"
-                    dropLocation="30 Lincon St, New Rochelle, New York"
-                    tip="18.00"
-                    miles="50"
-                    rideAccepted={false}
-                    />
-                    <RiderContainer
-                    name="James Milner"
-                    price="50.00"
-                    duration="50 min"
-                    pickupLocation="123, Lincon Street, New York"
-                    dropLocation="30 Lincon St, New Rochelle, New York"
-                    tip="18.00"
-                    miles="50"
-                    rideAccepted={false}
-                    />
-                    <RiderContainer
-                    name="Emma Bunton"
-                    price="30.00"
-                    duration="50 min"
-                    pickupLocation="123, Lincon Street, New York"
-                    dropLocation="30 Lincon St, New Rochelle, New York"
-                    tip="18.00"
-                    miles="50"
-                    rideAccepted={false}
-                    />
-                </ScrollView>
-            </View>
-        </View>
-        <Animated.View style={{backgroundColor:"#FFFFFF",position:"absolute",top:0,left:value, height:height, width: width-80, zIndex:1000, padding:20, paddingHorizontal:0}}>
+        </ScrollView>
+        <Animated.View style={{backgroundColor:"#FFFFFF",position:"absolute",top:0,left:value, height:height, width: width-80, zIndex:100, padding:20, paddingHorizontal:0}}>
             <View style={{paddingHorizontal:20, display: menu ? "flex" : "none"}}>
                 <TouchableOpacity 
                 activeOpacity={0.8} onPress={closeHandler}>
@@ -236,7 +270,7 @@ const LocateRiderScreen = () => {
   )
 }
 
-export default LocateRiderScreen
+export default RideSummaryScreen
 
 const styles = StyleSheet.create({
     screen:{
@@ -251,9 +285,6 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"space-between",
-        elevation:5,
-        position:"absolute",
-        top:0,
-        width:width
+        elevation:5
     }
 })

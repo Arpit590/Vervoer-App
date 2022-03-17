@@ -1,20 +1,24 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions, ImageBackground, TextInput } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, Animated, Dimensions, ImageBackground, Modal } from 'react-native'
 import React, { useState } from 'react'
 import BackArrowIcon from "../../../assets/back.svg";
 import { useNavigation, useRoute } from '@react-navigation/native'
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MenuIcon from "../../../assets/Icon metro-menu.svg";
-import RiderContainer from './RiderContainer';
+import DryCleanerContainer from './DryCleanerContainer';
 
 const {height, width} = Dimensions.get("window");
 
-const LocateRiderScreen = () => {
+const OrderDropScreen = () => {
  
     const route = useRoute();
     const navigation = useNavigation();
+    const [isOpen, setIsOpen] = useState(false);
     const value = useState(new Animated.Value(-500))[0];
-    const value1 = useState(new Animated.Value(0))[0];
     const [menu, setMenu] = useState(false);
+
+    const closeHandle=()=>{
+        setIsOpen(false);
+    }
 
     const openHandler=()=>{
         setMenu(true);
@@ -93,7 +97,7 @@ const LocateRiderScreen = () => {
                         />
                     </TouchableOpacity>
                     <View style={{marginLeft:20}}>
-                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Locate Rider</Text>
+                        <Text style={{fontSize:16, color:"#000000", marginBottom:5}}>Order Drop Off</Text>
                     </View>
                 </View>
             </View>
@@ -113,36 +117,83 @@ const LocateRiderScreen = () => {
             </TouchableOpacity>
             <View style={{backgroundColor:"#FFFFFF", padding:10, borderRadius:20, height:400}}>
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <RiderContainer
-                    name="Jason Anderson"
-                    price="22.30"
-                    duration="50 min"
-                    pickupLocation="123, Lincon Street, New York"
-                    dropLocation="30 Lincon St, New Rochelle, New York"
-                    tip="18.00"
-                    miles="50"
-                    rideAccepted={false}
-                    />
-                    <RiderContainer
-                    name="James Milner"
-                    price="50.00"
-                    duration="50 min"
-                    pickupLocation="123, Lincon Street, New York"
-                    dropLocation="30 Lincon St, New Rochelle, New York"
-                    tip="18.00"
-                    miles="50"
-                    rideAccepted={false}
-                    />
-                    <RiderContainer
-                    name="Emma Bunton"
-                    price="30.00"
-                    duration="50 min"
-                    pickupLocation="123, Lincon Street, New York"
-                    dropLocation="30 Lincon St, New Rochelle, New York"
-                    tip="18.00"
-                    miles="50"
-                    rideAccepted={false}
-                    />
+                    <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={()=>setIsOpen(true)}
+                    style={{marginTop:20,padding:20, backgroundColor:"#FDF1E5", borderRadius:10}}>
+                        <View style={{flexDirection:"row", alignItems:"center", marginBottom:10}}>
+                            <View style={{backgroundColor:"#F99026", padding:10, borderRadius:50}}>
+                                <Image
+                                source={require("../../../assets/User.png")}
+                                style={{height:20, width:20, resizeMode:"contain"}}
+                                />
+                            </View>
+                            <Text style={{fontSize:15, color:"#000000", marginLeft:10, fontWeight:"700"}}>{route.params.name}</Text>
+                        </View>
+                        <View style={{padding:10}}>
+                            <View style={{flexDirection:"row", alignItems:"flex-start", justifyContent:"space-between",}}>
+                                <View style={{flexDirection:"row", alignItems:"flex-start"}}>
+                                    <View style={{backgroundColor:"whitesmoke", borderRadius:50, borderWidth:1, borderColor:"green", padding:5}}>
+                                        <View style={{backgroundColor:"green", padding:5, borderRadius:50}}></View>
+                                    </View>
+                                    <View style={{marginLeft:10}}>
+                                        <Text style={{fontSize:13, color:"#000000", marginBottom:5}}>Pickup</Text>
+                                        <Text style={{fontSize:12, color:"#808080"}}>{route.params.pickupLocation}</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={{marginTop:20,flexDirection:"row", alignItems:"flex-start", justifyContent:"space-between",}}>
+                                <View style={{flexDirection:"row", alignItems:"flex-start"}}>
+                                    <View style={{backgroundColor:"whitesmoke", borderRadius:50, borderWidth:1, borderColor:"red", padding:5}}>
+                                        <View style={{backgroundColor:"red", padding:5, borderRadius:50}}></View>
+                                    </View>
+                                    <View style={{marginLeft:10}}>
+                                        <Text style={{fontSize:13, color:"#000000", marginBottom:5}}>Drop Off</Text>
+                                        <Text style={{fontSize:12, color:"#808080"}}>{route.params.dropLocation}</Text>
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+                            <View style={{flexDirection:"row", alignItems:"center"}}>
+                                <Image
+                                source={require("../../../assets/droplocation.png")}
+                                style={{height:15, width:15, resizeMode:"contain"}}
+                                />
+                                <Text style={{marginLeft:8, fontSize:12, color:"#808080"}}>{route.params.miles} miles</Text>
+                            </View>
+                            <View style={{flexDirection:"row", alignItems:"center"}}>
+                                <Image
+                                source={require("../../../assets/timer.png")}
+                                style={{height:15, width:15, resizeMode:"contain"}}
+                                />
+                                <Text style={{marginLeft:8, fontSize:12, color:"#808080"}}>{route.params.duration}</Text>
+                            </View>
+                            <Text style={{fontSize:14, color:"#F99026"}}>${route.params.price}</Text>
+                        </View>
+                        <View style={{marginVertical:20}}>
+                            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                                <Text style={{fontSize:12, color:"#000000"}}>Rider Payment</Text>
+                                <Text style={{fontSize:12, color:"#000000"}}>${route.params.price}</Text>
+                            </View>
+                            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", marginBottom:10}}>
+                                <Text style={{fontSize:12, color:"#000000"}}>Tip</Text>
+                                <Text style={{fontSize:12, color:"#000000"}}>${route.params.tip}</Text>
+                            </View>
+                            <View style={{flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+                                <TouchableOpacity 
+                                onPress={()=>navigation.navigate("Drop Off",{"name": route.params.name, "price": route.params.price, "pickupLocation": route.params.pickupLocation, "dropLocation": route.params.dropLocation, "miles": route.params.miles, "tip": route.params.tip, "duration": route.params.duration} )}
+                                activeOpacity={0.8} style={{width:"90%",alignSelf:"center",marginTop:10,backgroundColor:"#F99026", padding:15, borderRadius:30, paddingHorizontal:30}}>
+                                    <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold", textAlign:"center"}}>Complete Drop Off</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity 
+                                onPress={()=>navigation.navigate("Cancel Trip", {"cancelledTrip": true, "purpose": "DryCleaning"})}
+                                activeOpacity={0.8} style={{width:"90%",alignSelf:"center",marginTop:10,backgroundColor:"#5E5E60", padding:15, borderRadius:30, paddingHorizontal:30}}>
+                                    <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold", textAlign:"center"}}>Cancel Drop Off</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
                 </ScrollView>
             </View>
         </View>
@@ -232,11 +283,38 @@ const LocateRiderScreen = () => {
                 </ScrollView>
             </View>
         </Animated.View>
+        <Modal
+        animationType={"slide"}
+        onRequestClose={closeHandle}
+        transparent={true}
+        visible={isOpen}>
+            <View style={{alignItems:"center", width:"90%", flex:1, justifyContent:"center", alignSelf:"center"}}>
+                <View style={styles.modal}>
+                    <Text style={{fontSize:20, color:"#F99026", textAlign:"center", marginBottom:15, fontWeight:"500"}}>Waiting to Drop Off Order</Text>
+                    <Text style={{fontSize:14, color:"#808080", marginBottom:15, textAlign:"center", maxWidth:300, alignSelf:"center"}}>
+                        If the dry cleaning order is not ready for drop off in 5 minutes, the order will be cancelled.
+                    </Text>
+                    <View style={{alignSelf:"center", borderWidth:5, borderColor:"#F99026", padding:30, borderRadius:200, height:180, width:180, alignItems:"center", justifyContent:"center"}}>
+                        <View style={{marginBottom:5}}>
+                            <Text style={{fontSize:25, color:"#F99026"}}>03:45</Text>
+                        </View>
+                    </View>
+                    <TouchableOpacity 
+                    onPress={()=>{
+                        navigation.navigate("Cancel Trip", {"cancelledTrip": true, "purpose": "DryCleaning"});
+                        setIsOpen(false)
+                        }}
+                    activeOpacity={0.8} style={{width:"85%",alignSelf:"center",marginTop:20,backgroundColor:"#5E5E60", padding:15, borderRadius:30, paddingHorizontal:30}}>
+                        <Text style={{fontSize:15, color:"#FFFFFF", fontWeight:"bold", textAlign:"center"}}>Cancel Drop Off</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </Modal>
     </View>
   )
 }
 
-export default LocateRiderScreen
+export default OrderDropScreen
 
 const styles = StyleSheet.create({
     screen:{
@@ -255,5 +333,19 @@ const styles = StyleSheet.create({
         position:"absolute",
         top:0,
         width:width
-    }
+    },
+    modal:{
+        flex:1,
+        width:"100%",
+        backgroundColor:"white",
+        borderRadius:10,
+        marginHorizontal:20,
+        maxHeight:400,
+        elevation:5,
+        padding:20
+    },
+    content:{
+        width:"100%",
+        marginVertical:20
+    },
 })
