@@ -82,6 +82,26 @@ import DropOffConfirmedScreen from './screens/DriverScreens/DryCleaningScreens/D
 import DryCleaningReceiptScreen from './screens/DriverScreens/DryCleaningScreens/DryCleaningReceiptScreen';
 import DryCleaningServiceScreen from './screens/MerchantScreens/DryCleanerScreens/DryCleaningServiceScreen';
 import MyOrderHistoryScreen from './screens/MerchantScreens/MyOrderHistoryScreen';
+//micro mobility
+import MicroMobilityScreen from './screens/DriverScreens/MicroMobilityScreen/Index';
+import MicroMobilityHistory from './screens/DriverScreens/MicroMobilityScreen/History/Index';
+import BookMobilityScreen from './screens/DriverScreens/MicroMobilityScreen/BookMobility/Index';
+import MobilityScreen from './screens/DriverScreens/MicroMobilityScreen/BookMobility/BookScreen';
+import BookMobilityConfirm from './screens/DriverScreens/MicroMobilityScreen/BookMobility/BookConfirm';
+import ParkingLot from './screens/MerchantScreens/ParkingLot/Index';
+import ParkingGarage from './screens/MerchantScreens/ParkingGarage/Index';
+import ParkingResidence from './screens/MerchantScreens/ParkingResidence/Index';
+import ParkingAboutDetails from './components/ParkingAboutDetails';
+import SearchScreen from './screens/HeaderComponents/SearchScreens/SearchScreen';
+import NotificationScreen from './screens/HeaderComponents/NotificationsScreen/NotificationScreen';
+import WalletScreen from './screens/HeaderComponents/WalletScreens/WalletScreen';
+import WalletDetailsScreen from './screens/HeaderComponents/WalletScreens/WalletDetailsScreen';
+import AddMoneyScreen from './screens/HeaderComponents/WalletScreens/AddMoneyScreen';
+import WithdrawScreen from './screens/HeaderComponents/WalletScreens/WithdrawScreen';
+import MoneySummaryScreen from './screens/HeaderComponents/WalletScreens/MoneySummaryScreen';
+import MoneySuccessScreen from './screens/HeaderComponents/WalletScreens/MoneySuccessScreen';
+import AddDetailsScreen from './screens/HeaderComponents/WalletScreens/AddDetailsScreen';
+import SettingsScreen from "./screens/SideBarScreens/SettingsScreens/SettingsScreen";
 
 const Stack = createStackNavigator();
 
@@ -103,6 +123,23 @@ function App(){
         <Stack.Screen name="Registration" component={RegistrationScreen}/>
         <Stack.Screen name="Email Verification" component={VerifyWithEmailScreen}/>
         <Stack.Screen name="Verified With Email" component={VerifiedWithEmailScreen}/>
+        {/* SideBar */}
+        {/* 1. Settings Screens */}
+        <Stack.Screen name="Settings" component={SettingsScreen}/>
+        {/* Header Components */}
+        {/* Search */}
+        <Stack.Screen name='Search' component={SearchScreen}/>
+        {/* NotificationScreen */}
+        <Stack.Screen name="Notifications" component={NotificationScreen}/>
+        {/* Wallet Screens */}
+        <Stack.Screen name="Wallet" component={WalletScreen}/>
+        <Stack.Screen name="Wallet Details" component={WalletDetailsScreen}/>
+        <Stack.Screen name="Add Money" component={AddMoneyScreen}/>
+        <Stack.Screen name="Withdraw" component={WithdrawScreen}/>
+        <Stack.Screen name="Money Summary" component={MoneySummaryScreen}/>
+        <Stack.Screen name="Money Success" component={MoneySuccessScreen}/>
+        <Stack.Screen name="Add Details" component={AddDetailsScreen}/>
+
         <Stack.Screen name="Home" component={HomeScreen}/>
         <Stack.Screen name="Role Home" component={RoleHomeScreen}/>
         <Stack.Screen name="Ride Share" component={RideShareScreen}/>
@@ -177,6 +214,19 @@ function App(){
         {/* Dry Cleaning Service */}
         <Stack.Screen name="Dry Cleaning Service" component={DryCleaningServiceScreen}/>
         <Stack.Screen name='MyOrderHistory' component={MyOrderHistoryScreen}/>
+        {/* Micro Mobility */}
+        <Stack.Screen name='Micro Mobility' component={MicroMobilityScreen}/>
+        <Stack.Screen name='Micro Mobility History' component={MicroMobilityHistory}/>
+        <Stack.Screen name='BookMobility' component={BookMobilityScreen}/>
+        <Stack.Screen name='MobilityScreen' component={MobilityScreen}/>
+        <Stack.Screen name='BookMobilityConfirm' component={BookMobilityConfirm}/>
+        {/* Parking Lot */}
+        <Stack.Screen name='Parking Lot' component={ParkingLot}/>
+        {/* Parking Garage */}
+        <Stack.Screen name='Parking Garage' component={ParkingGarage}/>
+        {/* Resisdence Parking */}
+        <Stack.Screen name='Residence Parking' component={ParkingResidence}/>
+        <Stack.Screen name='ParkingAboutDetails' component={ParkingAboutDetails}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
