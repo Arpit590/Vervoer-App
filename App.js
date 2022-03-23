@@ -102,6 +102,12 @@ import MoneySummaryScreen from './screens/HeaderComponents/WalletScreens/MoneySu
 import MoneySuccessScreen from './screens/HeaderComponents/WalletScreens/MoneySuccessScreen';
 import AddDetailsScreen from './screens/HeaderComponents/WalletScreens/AddDetailsScreen';
 import SettingsScreen from "./screens/SideBarScreens/SettingsScreens/SettingsScreen";
+import ProfileScreen from './screens/SideBarScreens/ProfileScreens/Index';
+import ContactUs from './screens/SideBarScreens/ContactUs/Index';
+import ResetPassword from './screens/SideBarScreens/ResetPassword/Index';
+import TipsAndInfoScreen from './screens/SideBarScreens/Tips&InfoScreens/TipsAndInfoScreen';
+import FareCardScreen from './screens/SideBarScreens/FareCardScreens/FareCardScreen';
+import PaymentMethodScreen from './screens/SideBarScreens/PaymentMethodsScreens/PaymentMethodScreen';
 
 const Stack = createStackNavigator();
 
@@ -126,9 +132,22 @@ function App(){
         {/* SideBar */}
         {/* 1. Settings Screens */}
         <Stack.Screen name="Settings" component={SettingsScreen}/>
+        {/* Tips&Info Screen */}
+        <Stack.Screen name="Tips&Info" component={TipsAndInfoScreen}/>
+        {/*Profile Screens */}
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen}/>
+        {/*Contact Screens */}
+        <Stack.Screen name="ContactScreen" component={ContactUs}/>
+        {/* Face Card Screens */}
+        <Stack.Screen name="Fare Card" component={FareCardScreen}/>
+        {/* Payment Method Screens */}
         {/* Header Components */}
+        <Stack.Screen name="Payment Method" component={PaymentMethodScreen}/>
         {/* Search */}
         <Stack.Screen name='Search' component={SearchScreen}/>
+        {/* Reset Password */}
+        <Stack.Screen name='ResetPassword' component={ResetPassword}/>
+
         {/* NotificationScreen */}
         <Stack.Screen name="Notifications" component={NotificationScreen}/>
         {/* Wallet Screens */}

@@ -37,9 +37,10 @@ const BookNewRideScreen = () => {
         <ImageBackground
         source={require("../../../../assets/Map.png")}
         style={{width:width, height:height, zIndex:-1}}
-        />
+        >
         <Header map={true}/>
-        <View style={{position:"absolute", top:"12%", alignSelf:"center"}}>
+        <ScrollView>
+        <View style={{top:"12%", alignSelf:"center", marginBottom: 50}}>
             <View style={{zIndex:10,flexDirection:"column",marginTop:20}}>
                 <View style={{flexDirection:"row", alignItems:"flex-start"}}>
                     <TouchableOpacity activeOpacity={0.8}
@@ -141,6 +142,8 @@ const BookNewRideScreen = () => {
                 </ScrollView>
             </View>
         </View>
+        </ScrollView>
+        </ImageBackground>
     </View>
   )
 }
