@@ -180,7 +180,9 @@ const DryCleaningDetailPage = () => {
             </View>
         </View>
         <View style={{padding:10,position:"absolute", bottom:0, backgroundColor:"#FFFFFF", width:width, padding:20, zIndex:80, alignItems:"center"}}>
-            <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:10, borderRadius:20, width:"80%", alignItems:"center"}}>
+            <TouchableOpacity 
+            onPress={()=>navigation.navigate("Select Items")}
+            activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:10, borderRadius:20, width:"80%", alignItems:"center"}}>
                 <Text style={{fontSize:15, color:"#FFFFFF"}}>Continue</Text>
             </TouchableOpacity>
         </View>

@@ -128,7 +128,8 @@ const RoleHomeScreen = () => {
                     <RoleContainer
                     text="Scan QBR"
                     imageUrl={require("../assets/scan.png")}
-                    tabHandler=""
+                    tabHandler="Scanner"
+                    tab="Scanner"
                     />
                     <RoleContainer
                     text="Micro Mobility"

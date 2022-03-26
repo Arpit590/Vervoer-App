@@ -37,13 +37,13 @@ const ActiveOrderScreen = () => {
                     <View style={{marginTop:10, paddingBottom:10, borderBottomColor:"#5E5E60", borderBottomWidth:1}}>
                         <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
                             <Text style={{fontSize:20, color:"#808080"}}>Order Details</Text>
-                            <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:10 , borderRadius:10, flexDirection:"row", alignItems:"center"}}>
+                            {/* <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:10 , borderRadius:10, flexDirection:"row", alignItems:"center"}}>
                                 <Image
                                 source={require("../../../assets/currentlocation.png")}
                                 style={{height:20, width:20, resizeMode:"contain"}}
                                 />
                                 <Text style={{fontSize:13, color:"#FFFFFF", marginLeft:10}}>TRACK ACTIVE ORDER</Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
                         <Text style={{fontSize:20, color:"#000000", fontWeight:"bold", marginVertical:10, marginBottom:20}}>Order Number  #DC58223</Text>
                         <Text style={{fontSize:16, color:"#F99026", fontWeight:"bold", marginBottom:20}}>Order Confirmed</Text>

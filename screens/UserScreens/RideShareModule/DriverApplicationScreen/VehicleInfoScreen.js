@@ -284,7 +284,7 @@ const VehicleInfoScreen = () => {
                     </View>
                 </View>
                 <View style={{marginBottom:20}}>
-                    <Text style={{fontSize:15, color:"#000000", marginBottom:5}}>Local Certification</Text>
+                    <Text style={{fontSize:15, color:"#000000", marginBottom:5}}>Local Ride Share Certification</Text>
                     <View style={{width:width-40}}>
                     <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
                             <TouchableOpacity activeOpacity={0.8} style={{alignItems:"center",justifyContent:"center",backgroundColor:"whitesmoke", borderRadius:20, height:130, width:80}}>

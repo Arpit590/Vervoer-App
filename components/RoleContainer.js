@@ -9,7 +9,7 @@ const RoleContainer = ({imageUrl, text, tabHandler, tab, role}) => {
 
   return (
     <TouchableOpacity
-    onPress={text ==="Ride Share" || text ==="Book New Ride" || text ==="Live Session" || text ==="History" || text ==="Driver Application" || text ==="Find Parking" || text ==="My QBR code" || text ==="Live Session" || text ==="Parking" || text ==="Food Delivery" || text ==="NewOrder" || text ==="Place New Order" || text ==="My Cart" || text ==="Track Order" || text==="Dry Cleaners" || text==="Locate Rider" || text==="Dry Cleaning" || text==="Driver Registration" || text==="Dry Cleaner Merchant" || text==="Micro Mobility" || text==="Book Now" || text==="Parking Lot" || text==="Parking Garage" || text ==="Residence Parking" ? ()=>navigation.navigate(tabHandler, {"heading": tab, "role": role}) : ()=>navigation.goBack()}
+    onPress={text ==="Ride Share" || text ==="Book New Ride" || text ==="Live Session" || text ==="History" || text ==="Driver Application" || text ==="Find Parking" || text ==="My QBR code" || text ==="Live Session" || text ==="Parking" || text ==="Food Delivery" || text ==="NewOrder" || text ==="Place New Order" || text ==="My Cart" || text ==="Track Order" || text==="Dry Cleaners" || text==="Locate Rider" || text==="Dry Cleaning" || text==="Driver Registration" || text==="Dry Cleaner Merchant" || text==="Micro Mobility" || text==="Book Now" || text==="Parking Lot" || text==="Parking Garage" || text ==="Residence Parking" || text==="Scan QBR" ? ()=>navigation.navigate(tabHandler, {"heading": tab, "role": role}) : ()=>navigation.goBack()}
     // onPress={()=>navigation.navigate(tabHandler, {"heading": tab})}
     activeOpacity={0.8} style={styles.container}>
       <Image

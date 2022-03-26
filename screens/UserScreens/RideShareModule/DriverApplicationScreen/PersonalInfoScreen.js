@@ -258,7 +258,7 @@ const PersonalInfoScreen = () => {
                         isChecked={check}
                         onClick={()=>setCheck(prevCheck => !prevCheck)}
                         />
-                        <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Driver's willing to drive kids 7 or over</Text>
+                        <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Willing to drive kids 7 or over</Text>
                     </View>
                     <View style={{flexDirection:"row", alignItems:"center", borderBottomColor:"lightgray", borderBottomWidth:1, paddingVertical:20}}>
                         <CheckBox
@@ -268,7 +268,7 @@ const PersonalInfoScreen = () => {
                         isChecked={check1}
                         onClick={()=>setCheck1(prevCheck => !prevCheck)}
                         />
-                        <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Having a car seat</Text>
+                        <Text style={{fontSize:14, color:"#000000", marginLeft:10}}>Has car seat</Text>
                     </View>
                 </View>
                 <View style={{marginBottom:20}}>

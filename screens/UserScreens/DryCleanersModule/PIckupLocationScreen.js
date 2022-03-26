@@ -111,7 +111,7 @@ const PickupLocationScreen = () => {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={{marginBottom:20}}>
+                    <View style={{marginBottom:100}}>
                         <Text style={{fontSize:12, color:"#808080", marginLeft:5}}>ZIP Code</Text>
                         <View style={{borderBottomColor:"#808080", borderBottomWidth:1, width:width-60}}>
                             <TextInput

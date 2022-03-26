@@ -12,7 +12,7 @@ const images = [
     },
     {
     id: "m2",
-    imageUrl: require("../assets/Image1.png")
+    imageUrl: require("../assets/Image2.png")
     },
     {
     id: "m3",
@@ -20,7 +20,7 @@ const images = [
     },
     {
     id: "m4",
-    imageUrl: require("../assets/Image1.png")
+    imageUrl: require("../assets/Image2.png")
     },
     {
     id: "m5",
@@ -39,14 +39,14 @@ const ImageSlider = () => {
         <View style={styles.slider}>
             <FlatList
             data={images}
-            scrollEnabled
-            horizontal
+            scrollEnabled={true}
+            horizontal={true}
             showsHorizontalScrollIndicator={false}
             decelerationRate="fast"
-            pagingEnabled
+            pagingEnabled={true}
             snapToAlignment="center"
-            scrollEventThrottle={16}
-            keyExtractor={(item,index)=>"key"+ index}
+            scrollEventThrottle={32}
+            keyExtractor={item=>item.id}
             renderItem={({item})=>(
                 <ImageItem
                 imageUrl={item.imageUrl}

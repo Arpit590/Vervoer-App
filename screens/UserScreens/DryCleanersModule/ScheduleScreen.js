@@ -278,7 +278,7 @@ const ScheduleScreen = () => {
                         </TouchableOpacity>
                     </ScrollView>
                 </View>
-                <View style={{}}>
+                <View style={{marginBottom:100}}>
                     <Text style={{color:"#808080", fontSize:20}}>Select Delivery Date & Time</Text>
                     <View style={{flexDirection:"row", alignItems:"flex-start", justifyContent:"space-between", marginTop:20, marginBottom:10}}>
                         <Text style={{fontSize:15, color:"#000000"}}>Delivery Date</Text>

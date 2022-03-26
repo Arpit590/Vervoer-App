@@ -25,6 +25,7 @@ const Header = ({ map }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [menu, setMenu] = useState(false);
     const navigation = useNavigation();
+    const [click, setClick] = useState("");
 
     const openHandler = () => {
         setMenu(true);
@@ -115,11 +116,23 @@ const Header = ({ map }) => {
                             </TouchableOpacity>
                         </View>
                         <ScrollView showsVerticalScrollIndicator={false} style={{ marginHorizontal: 20, marginVertical: 30 }}>
-                            <TouchableOpacity activeOpacity={0.8} style={{ flexDirection: "row", alignItems: "center", marginBottom: 30 }}>
+                            <TouchableOpacity 
+                            onPress={() => {
+                                setClick("Home")
+                                navigation.navigate("Home");
+                                setMenu(false);
+                                Animated.timing(value, {
+                                    toValue: -500,
+                                    duration: 1000,
+                                    useNativeDriver: false
+                                }).start()
+                            }} 
+                            activeOpacity={0.8} style={{ flexDirection: "row", alignItems: "center", marginBottom: 30 }}>
                                 <Home />
-                                <Text style={{ color: "#F99026", fontSize: 15, marginLeft: 30 }}>Home</Text>
+                                <Text style={{ color: (click==="Home") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>Home</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {
+                                setClick("ProfileScreen")
                                 navigation.navigate("ProfileScreen");
                                 setMenu(false);
                                 Animated.timing(value, {
@@ -132,10 +145,11 @@ const Header = ({ map }) => {
                                     source={require("../assets/Profile.png")}
                                     style={{ height: 25, width: 25, resizeMode: "contain" }}
                                 />
-                                <Text style={{ color: "#000000", fontSize: 15, marginLeft: 30 }}>My Profile</Text>
+                                <Text style={{ color: (click==="ProfileScreen") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>My Profile</Text>
                             </TouchableOpacity>
                             <TouchableOpacity 
                             onPress={() => {
+                                setClick("FareCard")
                                 navigation.navigate("Fare Card");
                                 setMenu(false);
                                 Animated.timing(value, {
@@ -149,10 +163,11 @@ const Header = ({ map }) => {
                                     source={require("../assets/FaceCard.png")}
                                     style={{ height: 25, width: 25, resizeMode: "contain" }}
                                 />
-                                <Text style={{ color: "#000000", fontSize: 15, marginLeft: 30 }}>Fare Card</Text>
+                                <Text style={{ color: (click==="FareCard") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>Fare Card</Text>
                             </TouchableOpacity>
                             <TouchableOpacity 
                             onPress={() => {
+                                setClick("PaymentMethod")
                                 navigation.navigate("Payment Method");
                                 setMenu(false);
                                 Animated.timing(value, {
@@ -166,10 +181,11 @@ const Header = ({ map }) => {
                                     source={require("../assets/Payment.png")}
                                     style={{ height: 25, width: 25, resizeMode: "contain" }}
                                 />
-                                <Text style={{ color: "#000000", fontSize: 15, marginLeft: 30 }}>Payment Methods</Text>
+                                <Text style={{ color: (click==="PaymentMethod") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>Payment Methods</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                             onPress={()=>{
+                                setClick("Tips&Info")
                                 navigation.navigate("Tips&Info");
                                 setMenu(false);
                                 Animated.timing(value, {
@@ -184,10 +200,11 @@ const Header = ({ map }) => {
                                     source={require("../assets/Tips.png")}
                                     style={{ height: 25, width: 25, resizeMode: "contain" }}
                                 />
-                                <Text style={{ color: "#000000", fontSize: 15, marginLeft: 30 }}>Tips and Info</Text>
+                                <Text style={{ color: (click==="Tips&Info") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>Tips and Info</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => {
+                                    setClick("Settings")
                                     navigation.navigate("Settings");
                                     setMenu(false);
                                     Animated.timing(value, {
@@ -201,9 +218,10 @@ const Header = ({ map }) => {
                                     source={require("../assets/Setting.png")}
                                     style={{ height: 25, width: 25, resizeMode: "contain" }}
                                 />
-                                <Text style={{ color: "#000000", fontSize: 15, marginLeft: 30 }}>Settings</Text>
+                                <Text style={{ color: (click==="Settings") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>Settings</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {
+                                setClick("Contact")
                                 navigation.navigate("ContactScreen");
                                 setMenu(false);
                                 Animated.timing(value, {
@@ -216,9 +234,10 @@ const Header = ({ map }) => {
                                     source={require("../assets/Contact.png")}
                                     style={{ height: 25, width: 25, resizeMode: "contain" }}
                                 />
-                                <Text style={{ color: "#000000", fontSize: 15, marginLeft: 30 }}>Contact Us</Text>
+                                <Text style={{ color: (click==="Contact") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>Contact Us</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {
+                                setClick("ResetPassword")
                                 navigation.navigate("ResetPassword");
                                 setMenu(false);
                                 Animated.timing(value, {
@@ -231,10 +250,11 @@ const Header = ({ map }) => {
                                     source={require("../assets/Password.png")}
                                     style={{ height: 25, width: 25, resizeMode: "contain" }}
                                 />
-                                <Text style={{ color: "#000000", fontSize: 15, marginLeft: 30 }}>Reset Password</Text>
+                                <Text style={{ color: (click==="ResetPassword") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>Reset Password</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {
                                 setModalVisible(true)
+                                setClick("Logout")
                                 // setMenu(false);
                                 // Animated.timing(value, {
                                 //     toValue: -500,
@@ -246,7 +266,7 @@ const Header = ({ map }) => {
                                     source={require("../assets/Logout.png")}
                                     style={{ height: 25, width: 25, resizeMode: "contain" }}
                                 />
-                                <Text style={{ color: "#000000", fontSize: 15, marginLeft: 30 }}>Logout</Text>
+                                <Text style={{ color: (click==="Logout") ? "#F99026" : "#000000", fontSize: 15, marginLeft: 30 }}>Logout</Text>
                             </TouchableOpacity>
                         </ScrollView>
 
