@@ -26,7 +26,7 @@ const ScannerScreen = () => {
                         height={'30'}
                         />
                     </TouchableOpacity>
-                    <Text style={{fontSize:18, color:"#000000", textAlign:"center", marginLeft:20}}>Parking QR</Text>
+                    <Text style={{fontSize:18, color:"#000000", textAlign:"center", marginLeft:20}}>{route.params.heading}</Text>
                 </View>
                 <Text style={{fontSize:20, color:"#F99026", textAlign:"center", marginLeft:20}}>#DC58223</Text>
             </View>

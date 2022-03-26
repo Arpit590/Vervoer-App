@@ -130,7 +130,7 @@ const ParkingDetailsScreen = () => {
                 <Text style={{fontSize:15, color:"#F99026", marginTop:5}}>${route.params.price}</Text>
             </View>
             <TouchableOpacity activeOpacity={0.8} 
-            onPress={()=>navigation.navigate("Payment")}
+            onPress={()=>navigation.navigate("Available Parking")}
             style={{backgroundColor:"#F99026", padding:10, borderRadius:20, width:"40%", alignItems:"center"}}>
                 <Text style={{fontSize:15, color:"#FFFFFF"}}>Book Now</Text>
             </TouchableOpacity>

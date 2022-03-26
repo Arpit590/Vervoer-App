@@ -108,6 +108,7 @@ import ResetPassword from './screens/SideBarScreens/ResetPassword/Index';
 import TipsAndInfoScreen from './screens/SideBarScreens/Tips&InfoScreens/TipsAndInfoScreen';
 import FareCardScreen from './screens/SideBarScreens/FareCardScreens/FareCardScreen';
 import PaymentMethodScreen from './screens/SideBarScreens/PaymentMethodsScreens/PaymentMethodScreen';
+import BookDryCleanersScreen from './screens/UserScreens/DryCleanersModule/BookDryCleanersScreen';
 
 const Stack = createStackNavigator();
 
@@ -204,6 +205,7 @@ function App(){
         <Stack.Screen name="Order Confirmed" component={OrderConfirmedScreen}/>
         <Stack.Screen name="Receipt" component={ReceiptScreen}/>
         <Stack.Screen name="Active Order" component={ActiveOrderScreen}/>
+        <Stack.Screen name="BookDryCleanersScreen" component={BookDryCleanersScreen}/>
         {/* Food Delivery */}
         <Stack.Screen name='Food Delivery' component={FoodDeliveryScreen}/>
         <Stack.Screen name='NewOrder' component={NewOrder}/>
