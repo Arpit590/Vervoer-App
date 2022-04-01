@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ImageBackground, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, Alert, ActivityIndicator, ScrollView } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -6,6 +6,8 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import BackArrowIcon from "../../assets/back.svg";
 import Feather from "react-native-vector-icons/Feather";
 import { useNavigation, useRoute } from '@react-navigation/native';
+import axios from 'axios';
+import { BASE_URL } from '../../components/url';
 
 const {height, width} = Dimensions.get("window");
 
@@ -22,6 +24,45 @@ const VerificationScreen = () => {
     const value2 = useRef(null);
     const value3 = useRef(null);
     const value4 = useRef(null);
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const verificationHandler=async()=>{
+        setOtp(otp1+otp2+otp3+otp4);
+        if(otp1!=="" & otp2!=="" && otp3!=="" && otp4!==""){
+        setLoading(true);
+        const headers = {
+            headers: {
+              'content-type': 'application/json',
+              Accept: 'application/json',
+            },
+          };
+    
+          const params = {
+            "userId": "",
+            "otp": otp
+            }
+    
+          await axios
+            .post(BASE_URL + 'auth/phone/otp/verification', params, headers)
+            .then(async response => {
+                setError(false);
+                setLoading(false);
+                console.log(response);
+                navigation.navigate("Verified OTP");
+            })
+            .catch(err => {
+                console.log(err);
+                setError(true);
+                setLoading(false);
+                setTimeout(()=>{
+                    setError(false)
+                },2000)
+            });
+        }else{
+            Alert.alert("Please Fill A Valid OTP!");
+        }
+    }
 
   return (
     <View style={styles.screen}>
@@ -114,10 +155,24 @@ const VerificationScreen = () => {
           </View>
       </View>
       <TouchableOpacity activeOpacity={0.8} 
-      onPress={()=>navigation.navigate("Verified OTP")}
+      onPress={verificationHandler}
       style={{marginVertical:30,width:"80%",alignSelf:"center", backgroundColor:"#F99026", paddingHorizontal:20, paddingVertical:10, borderRadius:100}}>
             <Text style={{color:"#FFFFFF", fontSize:15, fontWeight:"500", textAlign:"center"}}>Verify OTP</Text>
         </TouchableOpacity>
+        {loading && 
+      <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+          <ActivityIndicator
+          size="small"
+          color="#000000"
+          />
+          <Text style={{fontSize:15, color:"#000000", marginLeft:10}}>Please Wait!</Text>
+      </View>
+      }
+      {error && 
+      <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+          <Text style={{fontSize:15, color:"red", marginLeft:10}}>Invalid OTP!</Text>
+      </View>
+      }
     </View>
   )
 }

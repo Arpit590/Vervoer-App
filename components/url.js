@@ -1,0 +1,1 @@
+export const BASE_URL="http://18.212.85.170:3000/";
