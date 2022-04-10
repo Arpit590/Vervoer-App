@@ -39,7 +39,7 @@ const VerificationScreen = () => {
           };
     
           const params = {
-            "userId": "",
+            "userId": route.params._id,
             "otp": otp
             }
     
@@ -48,7 +48,7 @@ const VerificationScreen = () => {
             .then(async response => {
                 setError(false);
                 setLoading(false);
-                console.log(response);
+                console.log(response.data);
                 navigation.navigate("Verified OTP");
             })
             .catch(err => {

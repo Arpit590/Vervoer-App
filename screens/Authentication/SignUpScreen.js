@@ -23,6 +23,7 @@ const SignUpScreen = () => {
 
     const signupHandler=async()=>{
         if(number!=="" && password!=="" && repassword!==""){
+        setError(false);
         setLoading(true);
         const headers = {
             headers: {
@@ -43,10 +44,11 @@ const SignUpScreen = () => {
                 setError(false);
                 setLoading(false);
                 console.log(response.data);
-                navigation.navigate("Verify");
+                navigation.navigate("Verify", {"_id": response.data.data.user._id});
+                console.log(response.data.data.user._id);
             })
             .catch(err => {
-                console.log(err);
+                console.log(`Error: ${err}`);
                 setError(true);
                 setLoading(false);
                 setTimeout(()=>{
