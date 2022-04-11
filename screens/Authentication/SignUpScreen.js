@@ -8,6 +8,7 @@ import Feather from "react-native-vector-icons/Feather";
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
 import { BASE_URL } from '../../components/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {height, width} = Dimensions.get("window");
 
@@ -44,10 +45,9 @@ const SignUpScreen = () => {
                 setError(false);
                 setLoading(false);
                 console.log(response.data);
-                navigation.navigate("Verify", {"_id": response.data.data.user._id});
-                console.log(response.data.data.user._id);
+                navigation.navigate("Verify", {"_id": response.data.data.user._id, "token": response.data.data.token});
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(`Error: ${err}`);
                 setError(true);
                 setLoading(false);

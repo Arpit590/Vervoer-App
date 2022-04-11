@@ -104,7 +104,7 @@ const LoginScreen = () => {
                         <TouchableOpacity 
                         onPress={()=>setShowPassword(!showPassword)}
                         activeOpacity={0.8} style={{marginLeft:-50}}>
-                            {(showPassword) 
+                            {(!showPassword) 
                             ?
                             <Feather
                             name="eye"

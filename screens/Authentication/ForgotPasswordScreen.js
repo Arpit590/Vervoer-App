@@ -39,8 +39,7 @@ const ForgotPasswordScreen = () => {
                     setError(false);
                     setLoading(false);
                     console.log(response.data);
-                    navigation.navigate("Reset Password", {"_id": response.data.data.user._id})
-                    console.log(response.data.data.user._id);
+                    navigation.navigate("New Password");
                 })
                 .catch(err => {
                     console.log(`Error: ${err}`);
@@ -105,7 +104,7 @@ const ForgotPasswordScreen = () => {
       }
       {error && 
       <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
-          <Text style={{fontSize:15, color:"red", marginLeft:10}}>Error!</Text>
+          <Text style={{fontSize:15, color:"red", marginLeft:10}}>Please Enter Registered Number!</Text>
       </View>
       }
     </View>

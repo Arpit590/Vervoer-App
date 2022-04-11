@@ -8,6 +8,7 @@ import Feather from "react-native-vector-icons/Feather";
 import { useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
 import { BASE_URL } from '../../components/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {height, width} = Dimensions.get("window");
 
@@ -27,9 +28,24 @@ const VerificationScreen = () => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    const storeData = async () => {
+        try {
+          await AsyncStorage.setItem('token', route.params.token);
+        } catch (e) {
+          // saving error
+          console.log(e)
+        }
+      }
+
+    useEffect(()=>{
+        storeData()
+    }, [])
+
     const verificationHandler=async()=>{
         setOtp(otp1+otp2+otp3+otp4);
+        setOtp(otp1+otp2+otp3+otp4);
         if(otp1!=="" & otp2!=="" && otp3!=="" && otp4!==""){
+            console.log(otp);
         setLoading(true);
         const headers = {
             headers: {
@@ -39,9 +55,11 @@ const VerificationScreen = () => {
           };
     
           const params = {
-            "userId": route.params._id,
+            "userId": route.params._id.toString(),
             "otp": otp
             }
+
+            console.log(otp);
     
           await axios
             .post(BASE_URL + 'auth/phone/otp/verification', params, headers)

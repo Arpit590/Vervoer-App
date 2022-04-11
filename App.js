@@ -109,6 +109,7 @@ import TipsAndInfoScreen from './screens/SideBarScreens/Tips&InfoScreens/TipsAnd
 import FareCardScreen from './screens/SideBarScreens/FareCardScreens/FareCardScreen';
 import PaymentMethodScreen from './screens/SideBarScreens/PaymentMethodsScreens/PaymentMethodScreen';
 import BookDryCleanersScreen from './screens/UserScreens/DryCleanersModule/BookDryCleanersScreen';
+import NewPasswordScreen from './screens/Authentication/NewPasswordScreen';
 
 const Stack = createStackNavigator();
 
@@ -124,6 +125,7 @@ function App(){
         <Stack.Screen name="Login" component={LoginScreen}/>
         <Stack.Screen name="SignUp" component={SignUpScreen}/>
         <Stack.Screen name="Forgot Password" component={ForgotPasswordScreen}/>
+        <Stack.Screen name="New Password" component={NewPasswordScreen}/>
         <Stack.Screen name="Reset Password" component={ResetPasswordScreen}/>
         <Stack.Screen name="Verify" component={VerificationScreen}/>
         <Stack.Screen name="Verified OTP" component={OTPVerifiedScreen}/>

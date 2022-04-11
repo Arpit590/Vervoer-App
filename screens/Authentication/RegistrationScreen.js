@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ImageBackground, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, Alert, ActivityIndicator, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -6,6 +6,9 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import BackArrowIcon from "../../assets/back.svg";
 import Feather from "react-native-vector-icons/Feather";
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
+import { BASE_URL } from '../../components/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {height, width} = Dimensions.get("window");
 
@@ -18,6 +21,52 @@ const RegistrationScreen = () => {
     const [country, setCountry] = useState("");
     const [state, setState] = useState("");
     const [zipCode, setZipCode] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState("");
+
+
+    const registrationHandler=async()=>{
+        const token = await AsyncStorage.getItem('token');
+        console.log(token.toString());
+        if(email!==""){
+            setError(false);
+            setLoading(true);
+            const headers = {
+                headers: {
+                  'content-type': 'application/json',
+                  'x-access-token': token,
+                },
+              };
+        
+              const params = {
+                    "firstName": fName,
+                    "lastName": lName,
+                    "email": email,
+                    "country": "new York",
+                    "zipcode": zipCode,
+                    "state": "new york"
+                }
+        
+              await axios
+                .put(BASE_URL + 'auth/profile/update', params, headers)
+                .then(async response => {
+                    setError(false);
+                    setLoading(false);
+                    console.log(response.data);
+                    navigation.navigate("Email Verification", {"email": email, "_id": response.data.data.User._id});
+                })
+                .catch(err => {
+                    console.log(`Error: ${err}`);
+                    setError(true);
+                    setLoading(false);
+                    setTimeout(()=>{
+                        setError(false)
+                    },2000)
+                });
+            }else{
+                Alert.alert("Please Fill All the Details");
+            }
+    }
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.screen}>
@@ -113,7 +162,7 @@ const RegistrationScreen = () => {
                             placeholder='Enter ZipCode'
                             placeholderTextColor="#000000"
                             value={zipCode}
-                            onChangeText={()=>setZipCode(text)}
+                            onChangeText={(text)=>setZipCode(text)}
                             style={{borderBottomColor:"#808080", borderBottomWidth:1, width:"100%", color:"#000000", fontSize:15}}
                             />
                         </View>
@@ -121,8 +170,24 @@ const RegistrationScreen = () => {
                 </View>
             </View>
         </View>
+        {/* <>
+        {loading && 
+        <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+            <ActivityIndicator
+            size="small"
+            color="#000000"
+            />
+            <Text style={{fontSize:15, color:"#000000", marginLeft:10}}>Please Wait!</Text>
+        </View>
+        }
+        {error && 
+        <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+            <Text style={{fontSize:15, color:"red", marginLeft:10}}>User Not Registered!</Text>
+        </View>
+        }
+        </> */}
         <TouchableOpacity activeOpacity={0.8}
-        onPress={()=>navigation.navigate("Email Verification")}
+        onPress={registrationHandler}
         style={{marginVertical:30,width:"80%",alignSelf:"center", backgroundColor:"#F99026", paddingHorizontal:20, paddingVertical:10, borderRadius:100}}>
             <Text style={{color:"#FFFFFF", fontSize:15, fontWeight:"500", textAlign:"center"}}>Continue</Text>
         </TouchableOpacity>

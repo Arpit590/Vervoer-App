@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ImageBackground, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, ActivityIndicator, Alert, ScrollView } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -6,6 +6,8 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import BackArrowIcon from "../../assets/back.svg";
 import Feather from "react-native-vector-icons/Feather";
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { BASE_URL } from '../../components/url';
+import axios from 'axios';
 
 const { height, width } = Dimensions.get("window");
 
@@ -17,11 +19,52 @@ const VerifyWithEmailScreen = () => {
     const [otp3, setOtp3] = useState("");
     const [otp4, setOtp4] = useState("");
     const [otp, setOtp] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState("");
     const route = useRoute();
     const value1 = useRef(null);
     const value2 = useRef(null);
     const value3 = useRef(null);
     const value4 = useRef(null);
+
+    const emailVerificationHandler=async()=>{
+        console.log(route.params._id)
+        setOtp(otp1+otp2+otp3+otp4);
+        setOtp(otp1+otp2+otp3+otp4);
+        if(otp1!=="" & otp2!=="" && otp3!=="" && otp4!==""){
+            setError(false);
+            setLoading(true);
+            const headers = {
+                headers: {
+                  'content-type': 'application/json',
+                },
+              };
+        
+              const params = {
+                    "userId": route.params._id.toString(),
+                    "otp": otp
+                }
+        
+              await axios
+                .post(BASE_URL + 'auth/email/otp/verification', params, headers)
+                .then(async response => {
+                    setError(false);
+                    setLoading(false);
+                    console.log(response.data);
+                    navigation.navigate("Verified With Email");
+                })
+                .catch(err => {
+                    console.log(`Error: ${err}`);
+                    setError(true);
+                    setLoading(false);
+                    setTimeout(()=>{
+                        setError(false)
+                    },2000)
+                });
+            }else{
+                Alert.alert("Please Fill All the Details");
+            }
+    }
 
     return (
         <View style={styles.screen}>
@@ -113,8 +156,22 @@ const VerifyWithEmailScreen = () => {
                     </ScrollView>
                 </View>
             </View>
+            {loading && 
+            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+                <ActivityIndicator
+                size="small"
+                color="#000000"
+                />
+                <Text style={{fontSize:15, color:"#000000", marginLeft:10}}>Please Wait!</Text>
+            </View>
+            }
+            {error && 
+            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+                <Text style={{fontSize:15, color:"red", marginLeft:10}}>Invalid OTP!</Text>
+            </View>
+            }
             <TouchableOpacity activeOpacity={0.8}
-                onPress={() => navigation.navigate("Verified With Email")}
+                onPress={emailVerificationHandler}
                 style={{ marginVertical: 30, width: "80%", alignSelf: "center", backgroundColor: "#F99026", paddingHorizontal: 20, paddingVertical: 10, borderRadius: 100 }}>
                 <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "500", textAlign: "center" }}>Verify Email</Text>
             </TouchableOpacity>
