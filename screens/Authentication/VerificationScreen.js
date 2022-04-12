@@ -39,10 +39,9 @@ const VerificationScreen = () => {
 
     useEffect(()=>{
         storeData()
-    }, [])
-
+    })
+    
     const verificationHandler=async()=>{
-        setOtp(otp1+otp2+otp3+otp4);
         setOtp(otp1+otp2+otp3+otp4);
         if(otp1!=="" & otp2!=="" && otp3!=="" && otp4!==""){
             console.log(otp);
@@ -75,7 +74,7 @@ const VerificationScreen = () => {
                 setLoading(false);
                 setTimeout(()=>{
                     setError(false)
-                },2000)
+                },1000)
             });
         }else{
             Alert.alert("Please Fill A Valid OTP!");

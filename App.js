@@ -118,7 +118,7 @@ function App(){
     <NavigationContainer>
       <Stack.Navigator
       screenOptions={{headerShown:false}}
-      initialRouteName="Onboarding"
+      initialRouteName="Onbaording"
       >
         {/* <Stack.Screen name="Splash" component={SplashScreen}/> */}
         <Stack.Screen name="Onbaording" component={OnboardingScreen}/>

@@ -30,13 +30,14 @@ const VerifyWithEmailScreen = () => {
     const emailVerificationHandler=async()=>{
         console.log(route.params._id)
         setOtp(otp1+otp2+otp3+otp4);
-        setOtp(otp1+otp2+otp3+otp4);
         if(otp1!=="" & otp2!=="" && otp3!=="" && otp4!==""){
+            console.log(otp)
             setError(false);
             setLoading(true);
             const headers = {
                 headers: {
                   'content-type': 'application/json',
+                   Accept: 'application/json',
                 },
               };
         
@@ -62,7 +63,7 @@ const VerifyWithEmailScreen = () => {
                     },2000)
                 });
             }else{
-                Alert.alert("Please Fill All the Details");
+                Alert.alert("Please Fill the Valid OTP");
             }
     }
 
@@ -79,7 +80,7 @@ const VerifyWithEmailScreen = () => {
                             />
                         </TouchableOpacity>
                         <Text style={{ fontSize: 20, color: "#F99026", textAlign: "center" }}>Registration</Text>
-                        <Text></Text>
+                        <Text/>
                     </View>
                     <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 50 }}>
                         <Image
@@ -156,20 +157,6 @@ const VerifyWithEmailScreen = () => {
                     </ScrollView>
                 </View>
             </View>
-            {loading && 
-            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
-                <ActivityIndicator
-                size="small"
-                color="#000000"
-                />
-                <Text style={{fontSize:15, color:"#000000", marginLeft:10}}>Please Wait!</Text>
-            </View>
-            }
-            {error && 
-            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
-                <Text style={{fontSize:15, color:"red", marginLeft:10}}>Invalid OTP!</Text>
-            </View>
-            }
             <TouchableOpacity activeOpacity={0.8}
                 onPress={emailVerificationHandler}
                 style={{ marginVertical: 30, width: "80%", alignSelf: "center", backgroundColor: "#F99026", paddingHorizontal: 20, paddingVertical: 10, borderRadius: 100 }}>

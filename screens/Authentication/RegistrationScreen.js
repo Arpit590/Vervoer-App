@@ -28,7 +28,7 @@ const RegistrationScreen = () => {
     const registrationHandler=async()=>{
         const token = await AsyncStorage.getItem('token');
         console.log(token.toString());
-        if(email!==""){
+        if(email!=="" && fName!=="" && lName!=="" & zipCode!==""){
             setError(false);
             setLoading(true);
             const headers = {

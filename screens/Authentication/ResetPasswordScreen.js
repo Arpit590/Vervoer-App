@@ -25,7 +25,7 @@ const ResetPasswordScreen = () => {
                 height={'30'}
                 />
             </TouchableOpacity>
-            <Text style={{fontSize:20, color:"#F99026", textAlign:"center"}}>Registration</Text>
+            <Text style={{fontSize:20, color:"#F99026", textAlign:"center"}}>Password Reset Successfully</Text>
             <Text></Text>
             </View>
             <ScrollView showsVerticalScrollIndicator={false} style={{marginTop:50}}>
@@ -33,8 +33,8 @@ const ResetPasswordScreen = () => {
                 source={require("../../assets/OTP.png")}
                 style={{height:160, width:160, resizeMode:"contain", alignSelf:"center"}}
                 />
-                <Text style={{fontSize:20, color:"#000000", textAlign:"center", marginVertical:20}}>Sent</Text>
-                <Text style={{fontSize:15, color:"#808080", textAlign:"center", marginBottom:20, maxWidth:300, alignSelf:"center"}}>Reset Password Link is sent to your Email ID.</Text>
+                <Text style={{fontSize:20, color:"#000000", textAlign:"center", marginVertical:20}}>Successful</Text>
+                <Text style={{fontSize:15, color:"#808080", textAlign:"center", marginBottom:20, maxWidth:300, alignSelf:"center"}}>Your Password Has Been Changed Successfully.</Text>
             </ScrollView>
           </View>
       </View>

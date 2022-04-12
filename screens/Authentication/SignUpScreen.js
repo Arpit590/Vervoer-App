@@ -24,37 +24,46 @@ const SignUpScreen = () => {
 
     const signupHandler=async()=>{
         if(number!=="" && password!=="" && repassword!==""){
-        setError(false);
-        setLoading(true);
-        const headers = {
-            headers: {
-              'content-type': 'application/json',
-              Accept: 'application/json',
-            },
-          };
-    
-          const params = {
-            "phoneNumber": number,
-            "accountType": "merchant",
-            "password": password
-            }
-    
-          await axios
-            .post(BASE_URL + 'auth/signup', params, headers)
-            .then(async response => {
+            if(password.length===8){
+                if(password===repassword){
                 setError(false);
-                setLoading(false);
-                console.log(response.data);
-                navigation.navigate("Verify", {"_id": response.data.data.user._id, "token": response.data.data.token});
-            })
-            .catch((err) => {
-                console.log(`Error: ${err}`);
-                setError(true);
-                setLoading(false);
-                setTimeout(()=>{
-                    setError(false)
-                },2000)
-            });
+                setLoading(true);
+                const headers = {
+                    headers: {
+                    'content-type': 'application/json',
+                    Accept: 'application/json',
+                    },
+                };
+            
+                const params = {
+                    "phoneNumber": number,
+                    "accountType": "merchant",
+                    "password": password
+                    }
+            
+                await axios
+                    .post(BASE_URL + 'auth/signup', params, headers)
+                    .then(async response => {
+                        setError(false);
+                        setLoading(false);
+                        console.log(response.data);
+                        navigation.navigate("Verify", {"_id": response.data.data.user._id, "token": response.data.data.token});
+                    })
+                    .catch((err) => {
+                        console.log(`Error: ${err}`);
+                        setError(true);
+                        setLoading(false);
+                        setTimeout(()=>{
+                            setError(false)
+                        },2000)
+                    });
+            }
+            else{
+                Alert.alert("Password is not Matching");
+            }}
+            else{
+                Alert.alert("Enter 8 Character Password");
+            }
         }else{
             Alert.alert("Please Fill All the Details");
         }
