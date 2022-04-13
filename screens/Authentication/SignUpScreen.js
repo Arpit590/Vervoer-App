@@ -24,7 +24,7 @@ const SignUpScreen = () => {
 
     const signupHandler=async()=>{
         if(number!=="" && password!=="" && repassword!==""){
-            if(password.length===8){
+            if(password.length>=8){
                 if(password===repassword){
                 setError(false);
                 setLoading(true);
@@ -62,7 +62,7 @@ const SignUpScreen = () => {
                 Alert.alert("Password is not Matching");
             }}
             else{
-                Alert.alert("Enter 8 Character Password");
+                Alert.alert("Enter 8 Password of Minimum Characters!");
             }
         }else{
             Alert.alert("Please Fill All the Details");

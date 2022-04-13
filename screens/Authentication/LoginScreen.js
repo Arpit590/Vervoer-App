@@ -22,7 +22,7 @@ const LoginScreen = () => {
 
     const loginHandler=async()=>{
         if(number!=="" && password!==""){
-            if(password.length===8){
+            if(password.length>=8){
             setError(false);
             setLoading(true);
             const headers = {
@@ -55,7 +55,7 @@ const LoginScreen = () => {
                     },2000)
                 });
             }else{
-                Alert.alert("Enter 8 Character Password");
+                Alert.alert("Enter 8 Password of Minimum Characters!");
             }
             }else{
                 Alert.alert("Please Fill All the Details");
