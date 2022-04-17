@@ -110,6 +110,8 @@ import FareCardScreen from './screens/SideBarScreens/FareCardScreens/FareCardScr
 import PaymentMethodScreen from './screens/SideBarScreens/PaymentMethodsScreens/PaymentMethodScreen';
 import BookDryCleanersScreen from './screens/UserScreens/DryCleanersModule/BookDryCleanersScreen';
 import NewPasswordScreen from './screens/Authentication/NewPasswordScreen';
+import RideShareSummaryScreen from './screens/UserScreens/RideShareModule/RideShareScreens/RideShareSummayScreen';
+import SessionFinishedScreen from './screens/UserScreens/RideShareModule/RideShareScreens/SessionFinishedScreen';
 
 const Stack = createStackNavigator();
 
@@ -170,6 +172,8 @@ function App(){
         <Stack.Screen name="Ride Details" component={RideDetails}/>
         <Stack.Screen name="Cancel Booking" component={CancelBookingScreen}/>
         <Stack.Screen name="Cancelled Booking" component={CancelledBookingScreen}/>
+        <Stack.Screen name="Ride Share Summary" component={RideShareSummaryScreen}/>
+        <Stack.Screen name="Session Finished" component={SessionFinishedScreen}/>
         <Stack.Screen name="Ride History" component={RideHistoryScreen}/>
         <Stack.Screen name="Live" component={LiveSessionScreen}/>
         <Stack.Screen name="Driver Register" component={DriverRegisterScreen}/>
