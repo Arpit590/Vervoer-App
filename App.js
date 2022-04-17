@@ -112,6 +112,7 @@ import BookDryCleanersScreen from './screens/UserScreens/DryCleanersModule/BookD
 import NewPasswordScreen from './screens/Authentication/NewPasswordScreen';
 import RideShareSummaryScreen from './screens/UserScreens/RideShareModule/RideShareScreens/RideShareSummayScreen';
 import SessionFinishedScreen from './screens/UserScreens/RideShareModule/RideShareScreens/SessionFinishedScreen';
+import VideoCallScreen from './screens/UserScreens/RideShareModule/RideShareScreens/VideoCallScreen';
 
 const Stack = createStackNavigator();
 
@@ -168,6 +169,7 @@ function App(){
         <Stack.Screen name="Role Home" component={RoleHomeScreen}/>
         <Stack.Screen name="Ride Share" component={RideShareScreen}/>
         <Stack.Screen name="Book New Ride" component={BookNewRideScreen}/>
+        <Stack.Screen name="Video Call" component={VideoCallScreen}/>
         <Stack.Screen name="Available Rides" component={AvailableRidesScreen}/>
         <Stack.Screen name="Ride Details" component={RideDetails}/>
         <Stack.Screen name="Cancel Booking" component={CancelBookingScreen}/>

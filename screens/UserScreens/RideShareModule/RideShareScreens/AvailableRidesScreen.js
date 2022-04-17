@@ -71,7 +71,9 @@ const AvailableRidesScreen = () => {
                         </View>
                     </View>
                     <View style={{flexDirection:"row", alignItems:"center"}}>
-                        <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:10, borderRadius:80, height:30, width:30, alignItems:"center", justifyContent:"center", marginRight:20}}>
+                        <TouchableOpacity 
+                        onPress={()=>navigation.navigate("Video Call")}
+                        activeOpacity={0.8} style={{backgroundColor:"#F99026", padding:10, borderRadius:80, height:30, width:30, alignItems:"center", justifyContent:"center", marginRight:20}}>
                             <VideoIcon
                             height={'40'}
                             />
